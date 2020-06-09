@@ -1,12 +1,11 @@
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 import { apiMiddleware } from 'redux-api-middleware';
 import { applyMiddleware, createStore, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import rootReducers from './reducers'
-import { create } from 'istanbul-reports';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const createStoreWithMiddleware = applyMiddleware(apiMiddleware)(createStore);
 

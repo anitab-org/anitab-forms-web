@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.2em;
+    width: 100vw;
+    height: 4em;
+    box-shadow: 0px 0.05em 0.8em rgba(0,0,0,0.5);
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    color: #2185D0;
+    font-size: 1.5em;
+    font-weight: 800;
+    padding-bottom: 1.5em;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    font-family: Lato;
+    font-size: 1.2em;
+    color: grey;
+    padding-right: 1em;
+}
+
+.dropdown {
+    position: absolute;
+    width: 14vw;
+    margin-left: 82vw;
+    margin-top: 3em;
+    background: white;
+    z-index: 100;
+    box-shadow: 0px 0.01em 0.5em rgba(0,0,0,0.3);
+}

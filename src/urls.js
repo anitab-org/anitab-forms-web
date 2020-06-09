@@ -1,4 +1,4 @@
-// frontend
+// frontend URLs
 export function urlBaseFrontend() {
     return `/`
 }
@@ -11,15 +11,18 @@ export function register() {
     return `${urlBaseFrontend()}register`
 }
 
-export function info() {
-    return `${urlBaseFrontend()}info`
+export function dashboard() {
+    return `${urlBaseFrontend()}`
 }
 
-// backend
+// backend URLs
 export function urlBaseBackend() {
     return `http://localhost:8000/api`
 }
 
+export function urlUser() {
+    return `${urlBaseBackend()}/user/`
+}
 export function urlLogin() {
     return `${urlBaseBackend()}/token_auth/token/`
 }
