@@ -19,10 +19,10 @@ class Navbar extends Component {
         this.change = this.change.bind(this)
     }
     componentDidMount() {
-        if(localStorage.getItem('token') !== null){
+        // if(localStorage.getItem('token') !== null){
             this.props.getInfo()
             this.props.getUser()
-        }
+        // }
         
     }
     change = (e) => {

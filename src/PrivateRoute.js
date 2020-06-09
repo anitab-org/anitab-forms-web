@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import { register } from './urls'
+import { login } from './urls'
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
     <>
-    <Navbar login={true}/>
+    <Navbar/>
     <Route {...rest} render={props => (
         localStorage.getItem('token')
         ? <Component {...props} />
-        : <Redirect to={register()}/>
+        : <Redirect to={login()} />
     )} />
     </>
 )
