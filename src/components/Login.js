@@ -28,7 +28,7 @@ class Login extends Component {
     })
 
     submitLogin = () => {
-
+        console.log("hello")
         let err = false
         if(this.state.username===''){
             this.setState({
@@ -54,12 +54,7 @@ class Login extends Component {
                 password:'',
                 usernameerror: null,
                 passworderror: null
-            })
-        }
-        
-        
-        if(this.state.error === null){
-            this.props.history.push('/')
+            })            
         }
     }
 
@@ -67,6 +62,10 @@ class Login extends Component {
         this.setState({
             error: this.props.loginerror?true:false,
         })
+        if(!this.state.error){
+            this.props.history.push('/')
+        }
+        console.log(this.state.error)
         setTimeout(() => {
             this.setState({
                 error: null
