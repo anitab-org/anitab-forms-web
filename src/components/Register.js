@@ -115,7 +115,7 @@ class Register extends Component {
             error: this.props.registererror?true:false,
             submitted: true
         })
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
                 error: null,
                 submitted: false

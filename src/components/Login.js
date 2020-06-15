@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { postLogin } from '../actions/login'
-import { Form, Grid, Image, Divider, Icon } from 'semantic-ui-react'
+import { Form, Grid, Image, Divider, Icon, Message, Button } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import login from './../styles/Login.css'
 import orgLogo from '../assets/org-logo.jpg'
@@ -14,6 +14,8 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
+            usernameerror: null,
+            passworderror: null,
             showPassword: false,
             error: null
         }
@@ -26,11 +28,36 @@ class Login extends Component {
     })
 
     submitLogin = () => {
-        const data = {
-            username: this.state.username,
-            password: this.state.password
+
+        let err = false
+        if(this.state.username===''){
+            this.setState({
+                usernameerror: true,
+            })
+            err = true
         }
-        this.props.postLogin(data, this.callback)
+        if(this.state.password===''){
+            this.setState({
+                passworderror: true,
+            })
+            err = true
+        }
+
+        if(err === false){
+            const data = {
+                username: this.state.username,
+                password: this.state.password
+            }
+            this.props.postLogin(data, this.callback)
+            this.setState({
+                username: '',
+                password:'',
+                usernameerror: null,
+                passworderror: null
+            })
+        }
+        
+        
         if(this.state.error === null){
             this.props.history.push('/')
         }
@@ -40,23 +67,20 @@ class Login extends Component {
         this.setState({
             error: this.props.loginerror?true:false,
         })
+        setTimeout(() => {
+            this.setState({
+                error: null
+            })
+        }, 5000)
     }
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value});
     }
 
-    componentWillUnmount() {
-        this.setState({
-            error: null,
-            username: '',
-            password:''
-        })
-    }
 
     render() {
         const { showPassword } = this.state
-        console.log(this.state)
         return (
             <>
             <Grid>
@@ -72,28 +96,34 @@ class Login extends Component {
                                 onChange={this.onChange}
                                 label='Username'
                                 placeholder='Enter your username...' />
-                            {
-                                showPassword ?
-                                <Form.Input
-                                    type='text'
-                                    icon={<Icon name='eye slash outline'
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                    onClick={this.handleShow} link />}
-                                    label='Password'
-                                    placeholder='Enter your password...' />
-                                : <Form.Input
-                                    type='password'
-                                    icon={<Icon name='eye' onClick={this.handleShow} link />}
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                    label='Password'
-                                    placeholder='Enter your password...' />
-                            }
-                            <Form.Button fluid primary onClick={this.submitLogin}>LOG IN</Form.Button>
+                            <Form.Input
+                                type={showPassword ? 'text': 'password'}
+                                icon={<Icon name={showPassword ? 'eye slash outline': 'eye'} onClick={this.handleShow} link />}
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.onChange}
+                                label='Password'
+                                placeholder='Enter your password...' />
+                            <Button fluid primary type='button' onClick={this.submitLogin}>LOG IN</Button>
                         </Form>
+
+                        {/* form validation */}
+                        {
+                            this.state.usernameerror ?
+                            <Message
+                            error
+                            content="Username cannot be empty!"
+                            />
+                            : null
+                        }
+                        {
+                            this.state.passworderror ?
+                            <Message
+                            error
+                            content="Password cannot be empty!"
+                            />
+                            : null
+                        }
                     <Divider />
                     <span>Don't have an account? <Link to={register()}>Register here.</Link></span>
                     </div>
