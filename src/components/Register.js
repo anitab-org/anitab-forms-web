@@ -23,7 +23,9 @@ class Register extends Component {
             showPassword: false,
             showConfirmPassword: false,
             error: null,
-            submitted: false
+            submitted: false,
+            emailregexp: /\S+@\S+\.\S+/,
+            passwordregexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/
         };
         this.submitRegister = this.submitRegister.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -45,24 +47,44 @@ class Register extends Component {
             this.setState({
                 usernameerror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    usernameerror: false,
+                })
+            }, 10000)
             err = true
         }
-        if(this.state.email===''){
+        if(this.state.email==='' || !this.state.emailregexp.test(this.state.email)){
             this.setState({
                 emailerror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    emailerror: false,
+                })
+            }, 10000)
             err = true
         }
-        if(this.state.password==='' || this.state.confirm_password===''){
+        if(this.state.password==='' || this.state.confirm_password==='' || !this.state.passwordregexp.test(this.state.password) || !this.state.passwordregexp.test(this.state.confirm_password)){
             this.setState({
                 passworderror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    passworderror: false,
+                })
+            }, 10000)
             err = true
         }
         if(this.state.password !== this.state.confirm_password){
             this.setState({
                 matcherror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    matcherror: false,
+                })
+            }, 10000)
             err = true
         }
         
@@ -141,12 +163,14 @@ class Register extends Component {
                                 value={this.state.username}
                                 onChange={this.onChange}
                                 label='Username'
+                                required
                                 placeholder='Enter your username...' />
                             <Form.Input
                                 name="email"
                                 value={this.state.email}
                                 onChange={this.onChange}
                                 label='Email'
+                                required
                                 placeholder='Enter your email...' />
                             <Form.Input
                                 type={showPassword ? 'text': 'password'}
@@ -155,6 +179,7 @@ class Register extends Component {
                                 value={this.state.password}
                                 onChange={this.onChange}
                                 label='Password'
+                                required
                                 placeholder='Enter your password...' />
                             <Form.Input
                                 type={showConfirmPassword ? 'text' : 'password'}
@@ -163,8 +188,14 @@ class Register extends Component {
                                 value={this.state.confirm_password}
                                 onChange={this.onChange}
                                 label='Confirm Password'
+                                required
                                 placeholder='Confirm your password...' />
-                            <Form.Button fluid primary onClick={this.submitRegister}>REGISTER</Form.Button>
+                            <Form.Button
+                                fluid
+                                primary
+                                onClick={this.submitRegister}
+                                disabled={!this.state.username || !this.state.email || !this.state.password || !this.state.confirm_password}
+                                >REGISTER</Form.Button>
                         </Form>
 
                         {/* form validation */}
@@ -180,7 +211,7 @@ class Register extends Component {
                             this.state.emailerror ?
                             <Message
                             error
-                            content="Email cannot be empty!"
+                            content="Email format is not valid!"
                             />
                             : null
                         }
@@ -188,7 +219,7 @@ class Register extends Component {
                             this.state.passworderror ?
                             <Message
                             error
-                            content="Password cannot be empty!"
+                            content="Password is too short and not valid! It should contain minimum 12 characters, at least one uppercase letter, one lowercase letter, one number and one special character."
                             />
                             : null
                         }
