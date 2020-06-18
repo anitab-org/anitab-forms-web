@@ -28,18 +28,27 @@ class Login extends Component {
     })
 
     submitLogin = () => {
-        console.log("hello")
         let err = false
         if(this.state.username===''){
             this.setState({
                 usernameerror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    usernameerror: false,
+                })
+            }, 10000)
             err = true
         }
         if(this.state.password===''){
             this.setState({
                 passworderror: true,
             })
+            setTimeout(() => {
+                this.setState({
+                    passworderror: false,
+                })
+            }, 10000)
             err = true
         }
 
@@ -65,7 +74,6 @@ class Login extends Component {
         if(!this.state.error){
             this.props.history.push('/')
         }
-        console.log(this.state.error)
         setTimeout(() => {
             this.setState({
                 error: null
@@ -94,6 +102,7 @@ class Login extends Component {
                                 value={this.state.username}
                                 onChange={this.onChange}
                                 label='Username'
+                                required
                                 placeholder='Enter your username...' />
                             <Form.Input
                                 type={showPassword ? 'text': 'password'}
@@ -102,8 +111,15 @@ class Login extends Component {
                                 value={this.state.password}
                                 onChange={this.onChange}
                                 label='Password'
+                                required
                                 placeholder='Enter your password...' />
-                            <Button fluid primary type='button' onClick={this.submitLogin}>LOG IN</Button>
+                            <Button
+                                fluid
+                                primary
+                                type='button'
+                                onClick={this.submitLogin}
+                                disabled={!this.state.username || !this.state.password}
+                                >LOG IN</Button>
                         </Form>
 
                         {/* form validation */}
