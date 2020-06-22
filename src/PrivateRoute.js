@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import { register } from './urls'
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
     <>
@@ -8,7 +9,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         localStorage.getItem('token')
         ? <Component {...props} />
-        : <Redirect to='/register'/>
+        : <Redirect to={register()}/>
     )} />
     </>
 )
