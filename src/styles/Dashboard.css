@@ -5,6 +5,17 @@
     flex-direction: row;
 }
 
+.dashboard:hover {
+    color: black;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70vw;
+}
+
 .left {
     display: flex;
     flex-direction: column;
