@@ -15,7 +15,7 @@ class Register extends Component {
             username: '',
             email: '',
             password: '',
-            password2: '',
+            confirm_password: '',
             usernameerror: null,
             emailerror: null,
             passworderror: null,
