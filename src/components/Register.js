@@ -35,7 +35,7 @@ class Register extends Component {
         showPassword: !this.state.showPassword
     })
 
-    handleShow2 = (e) => this.setState({
+    handleShowConfirm = (e) => this.setState({
         showConfirmPassword: !this.state.showConfirmPassword
     })
 
@@ -183,7 +183,7 @@ class Register extends Component {
                                 placeholder='Enter your password...' />
                             <Form.Input
                                 type={showConfirmPassword ? 'text' : 'password'}
-                                icon={<Icon name={showConfirmPassword ? 'eye slash outline': 'eye'} onClick={this.handleShow2} link />}
+                                icon={<Icon name={showConfirmPassword ? 'eye slash outline': 'eye'} onClick={this.handleShowConfirm} link />}
                                 name="confirm_password"
                                 value={this.state.confirm_password}
                                 onChange={this.onChange}
