@@ -1,19 +1,23 @@
-import React, { Component } from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-// import Routes from '../Routes'
-import app from '../styles/App.css'
+import React, { Component } from 'react'
+import { Route, Switch, Router } from 'react-router-dom'
+import Routes from '../Routes'
+import { history } from '../store'
+import '../styles/App.css'
+
 
 export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        {/* <Router>
+        <Router history={history}>
           <Switch>
             <Route component={Routes} />
           </Switch>
-        </Router> */}
-        it works
+        </Router>
+        
       </div>
     )
   }
 }
+
+

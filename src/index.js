@@ -1,12 +1,10 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import React from 'react';
-import createHistory from 'history/createBrowserHistory'
+import React from 'react'
 import configureStore from './store'
 import 'semantic-ui-css/semantic.min.css'
 import App from './components/App';
 
-const history = createHistory()
 const store = configureStore()
 window.store = store
 
