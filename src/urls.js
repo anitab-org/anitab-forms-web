@@ -15,6 +15,14 @@ export function dashboard() {
     return `${urlBaseFrontend()}`
 }
 
+export function form() {
+    return `${urlBaseFrontend()}form`
+}
+
+export function submission() {
+    return `${urlBaseFrontend()}submission`
+}
+
 // backend URLs
 export function urlBaseBackend() {
     return `http://localhost:8000/api`

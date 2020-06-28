@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getInfo } from '../actions/info'
 import { getUser } from '../actions/user'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Popup, Item } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
-import navbar from '../styles/Navbar.css'
+import '../styles/Navbar.css'
 import { login } from '../urls'
 
 
@@ -19,8 +19,10 @@ class Navbar extends Component {
         this.change = this.change.bind(this)
     }
     componentDidMount() {
-        this.props.getInfo()
-        this.props.getUser()
+        if(localStorage.getItem('token') !== null){
+            this.props.getInfo()
+            this.props.getUser()
+        }
         
     }
     change = (e) => {
@@ -42,7 +44,6 @@ class Navbar extends Component {
         const { isLoggedIn, showDropdown } = this.state
         localStorage.getItem('token') !== null ? this.state.isLoggedIn = true : this.state.isLoggedIn = false
         return (
-            <div className='head'>
             <div className='navbar'>
                 <span className='main'>Open Source Programs</span>
                 {
@@ -60,20 +61,14 @@ class Navbar extends Component {
                                 <span>{user.username}</span>
                                 )
                     }
-                    <Icon name='caret down' onClick={this.openDropdown}/>
+                    <Popup on='click' trigger={<Icon name='caret down'/>} position='bottom right' >
+                        <div className='item'><Item><Icon name='setting'/><span className='space'></span>Settings</Item></div>
+                        <div className='item'><Item onClick={this.change} as={Link} to={login()}><Icon name='power off'/><span className='space'></span>Logout</Item></div>
+                    </Popup>
+                    
                     </div>
                     : null
                 }                
-            </div>
-            {
-                showDropdown ?
-                <div className='dropdown'>
-                    <ul>
-                        <li onClick={this.change}><Link to={login()}>Logout</Link></li>
-                    </ul>
-                </div>
-                : null
-            }
             </div>
         )
     }

@@ -1,0 +1,17 @@
+.dashboard {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+}
+
+.right {
+    display: flex;
+    flex-direction: column-reverse;
+}
