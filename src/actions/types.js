@@ -7,4 +7,5 @@ export const REGISTER = 'REGISTER';
 export const REGISTER_ERRORS = 'REGISTER_ERRORS';
 export const GET_USER_INFO = 'GET_USER_INFO';
 export const POST_USER_INFO = 'POST_USER_INFO';
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const USER_INFO_ERRORS = 'USER_INFO_ERRORS';

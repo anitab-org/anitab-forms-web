@@ -41,7 +41,7 @@ class Navbar extends Component {
     render() {
         const result = this.props.userinfo
         const { user } = this.props
-        const { isLoggedIn, showDropdown } = this.state
+        const { isLoggedIn } = this.state
         localStorage.getItem('token') !== null ? this.state.isLoggedIn = true : this.state.isLoggedIn = false
         return (
             <div className='navbar'>

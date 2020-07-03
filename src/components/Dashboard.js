@@ -1,23 +1,47 @@
 import React, { Component } from 'react'
-import dashboard from '../styles/Dashboard.css'
-import { Item, Card, Header, Divider } from 'semantic-ui-react'
+import '../styles/Dashboard.css'
+import { Item, Card, Header, Divider, Icon } from 'semantic-ui-react'
+import Profile from './Profile'
 
 export default class Form extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            edit: false
+        }
+    }
+
+    handleEdit = () => {
+        this.setState({
+            edit: !this.state.edit
+        })
+    }
+
     render() {
         return (
             <div className='dashboard'>
                 <div className='left'>
-                <Item>
-                    <Item.Content>
-                        <Header>Profile</Header>
-                    </Item.Content>
-                </Item>
-                <Divider/>
-                <Item>
-                    <Item.Content>
-                        <Header>Forms Filled</Header>
-                    </Item.Content>
-                </Item>
+                    <Item.Group>
+                        <Item>
+                            <Item.Content>
+                                <Item.Header>
+                                    <div className='head'> 
+                                        <span>Profile</span>
+                                        <Icon name={this.state.edit ? 'x' : 'pencil'} color='grey' onClick={this.handleEdit} />
+                                    </div>
+                                </Item.Header>
+                                <Item.Description>
+                                    <Profile edit={this.state.edit}/>
+                                </Item.Description>
+                            </Item.Content>
+                        </Item>
+                        <Divider/>
+                        <Item>
+                            <Item.Content>
+                                <Header>Forms Filled</Header>
+                            </Item.Content>
+                        </Item>
+                    </Item.Group>
                 </div>
                 <div className='right'>
                     <Card.Group centered itemsPerRow={1}>

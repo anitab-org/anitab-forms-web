@@ -42,3 +42,7 @@ export function urlRegister() {
 export function urlInfo() {
     return `${urlBaseBackend()}/info/`
 }
+
+export function urlPatchInfo(id) {
+    return `${urlBaseBackend()}/info/${id}/`
+}
