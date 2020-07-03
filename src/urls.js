@@ -46,3 +46,15 @@ export function urlInfo() {
 export function urlPatchInfo(id) {
     return `${urlBaseBackend()}/info/${id}/`
 }
+
+export function urlGetForm(status) {
+    return `${urlBaseBackend()}/form/?status=${status}`
+}
+
+export function urlUpdateForm(id, status) {
+    return `${urlBaseBackend()}/form/${id}/?status=${status}`
+}
+
+export function urlPostForm() {
+    return `${urlBaseBackend()}/form/`
+}
