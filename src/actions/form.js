@@ -74,7 +74,7 @@ export const postForm = (data, callback) => async dispatch => {
     catch (err) {
         dispatch({
             type: FORM_ERRORS,
-            payload: err.response.data
+            payload: err.response
         });
         callback()
     }

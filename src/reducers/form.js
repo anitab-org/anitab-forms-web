@@ -29,9 +29,12 @@ const formReducer = (state = initialState, action) => {
                 unpublishedform: action.payload,
             };
         case POST_FORM:
+            console.log(action.payload)
             return {
                 ...state,
                 postform: action.payload,
+                publishedform: action.payload.published_status ? [...state, action.payload] : [...state],
+                unpublishedform: action.payload.published_status ? [...state] : [...state, action.payload]
             }
         case DELETE_PUBLISHED_FORM:
             return {
