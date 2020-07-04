@@ -45,8 +45,9 @@ class PublishedForm extends Component {
     }
 
     render() {
-        const { publishedform } = this.props
+        const { publishedform, type } = this.props
         const { formserror, deleted } = this.state
+        console.log(this.props)
         return (
             <>
             {
@@ -79,31 +80,42 @@ class PublishedForm extends Component {
                                     </div>
                                 </div>
                             </Card.Content>
-                            <Card.Content extra>
-                                <Button basic color='red'>UNPUBLISH</Button>
-                                <Button color='blue'>EDIT</Button>
-                                <Modal
-                                    basic
-                                    trigger={<Button negative onClick={this.close}>DELETE</Button>}
-                                    open={this.state.open}
-                                    size='large'
-                                    closeOnDimmerClick={false}
-                                    closeOnEscape={false}
-                                    onClose={this.close}>
-                                        <Header icon='archive' content='Delete Confirmation' />
-                                        <Modal.Content>
-                                            Deleting this form will delete all the fields and responses related to this form.
-                                        </Modal.Content>
-                                        <Modal.Actions>
-                                            <Button basic color='red' onClick={this.close}>
-                                                <Icon name='remove' /> NO
-                                            </Button>
-                                            <Button color='green' onClick={(event) => this.deleteForm(event, publishedform.id)}>
-                                                <Icon name='checkmark' /> YES
-                                            </Button>
-                                        </Modal.Actions>
-                                    </Modal>
-                            </Card.Content>
+                            {
+                                type === 'admin' ?
+                                <Card.Content extra>
+                                    <Button basic color='red'>UNPUBLISH</Button>
+                                    <Button color='blue'>EDIT</Button>
+                                    <Modal
+                                        basic
+                                        trigger={<Button negative onClick={this.close}>DELETE</Button>}
+                                        open={this.state.open}
+                                        size='large'
+                                        closeOnDimmerClick={false}
+                                        closeOnEscape={false}
+                                        onClose={this.close}>
+                                            <Header icon='archive' content='Delete Confirmation' />
+                                            <Modal.Content>
+                                                Deleting this form will delete all the fields and responses related to this form.
+                                            </Modal.Content>
+                                            <Modal.Actions>
+                                                <Button basic color='red' onClick={this.close}>
+                                                    <Icon name='remove' /> NO
+                                                </Button>
+                                                <Button color='green' onClick={(event) => this.deleteForm(event, publishedform.id)}>
+                                                    <Icon name='checkmark' /> YES
+                                                </Button>
+                                            </Modal.Actions>
+                                        </Modal>
+                                </Card.Content>
+                                :
+                                <Card.Content extra>
+                                    <Button icon basic color='grey' labelPosition='right'>
+                                        <Icon name='arrow right' />
+                                        Fill Form
+                                    </Button>
+                                </Card.Content>
+                            }
+                            
                         </Card>
                         )
                         : 

@@ -186,12 +186,12 @@ class Forms extends Component {
                         <Divider />
                     </div>
                     <Header>Published Forms</Header>
-                    <PublishedForm />
+                    <PublishedForm type={type} />
                     <Divider />
                     <Header>Unpublished Forms</Header>
                     <UnpublishedForm />
                     </>
-                    : <PublishedForm />
+                    : <PublishedForm type={type} />
                 }
                 </div>
             </div>
