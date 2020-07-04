@@ -1,23 +1,62 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPublishedForm } from '../actions/form'
+import { getPublishedForm, deletePublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
-import { Card, Icon, Button, Divider } from 'semantic-ui-react'
+import { Card, Button, Message, Modal, Icon, Header } from 'semantic-ui-react'
 import moment from 'moment'
 import '../styles/Form.css'
 
 class PublishedForm extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            formserror: null,
+            deleted: false,
+            open: false
+        }
     }
 
     componentDidMount() {
         this.props.getPublishedForm('True')
     }
 
+    deleteForm = (e, id) => {
+        this.props.deletePublishedForm(id, 'True', this.deleteCallback)
+        this.setState({
+            open: !this.state.open,
+        })
+    }
+
+    deleteCallback = () => {
+        this.setState({
+            formserror: this.props.formerror ? true : false,
+            deleted: true,
+        })
+        setTimeout(() => {
+            this.setState({
+                formserror: null,
+                deleted: false,
+            })
+        }, 5000)
+    }
+
+    close = () => {
+        this.setState({ open: !this.state.open })
+    }
+
     render() {
         const { publishedform } = this.props
+        const { formserror, deleted } = this.state
         return (
+            <>
+            {
+                deleted ?
+                <Message
+                    success
+                    content="The form was succesfully deleted."
+                />
+                : null
+            }
             <Card.Group>
                 {
                     publishedform && publishedform.length !== 0 ?
@@ -43,20 +82,42 @@ class PublishedForm extends Component {
                             <Card.Content extra>
                                 <Button basic color='red'>UNPUBLISH</Button>
                                 <Button color='blue'>EDIT</Button>
-                                <Button negative>DELETE</Button>
+                                <Modal
+                                    basic
+                                    trigger={<Button negative onClick={this.close}>DELETE</Button>}
+                                    open={this.state.open}
+                                    size='large'
+                                    closeOnDimmerClick={false}
+                                    closeOnEscape={false}
+                                    onClose={this.close}>
+                                        <Header icon='archive' content='Delete Confirmation' />
+                                        <Modal.Content>
+                                            Deleting this form will delete all the fields and responses related to this form.
+                                        </Modal.Content>
+                                        <Modal.Actions>
+                                            <Button basic color='red' onClick={this.close}>
+                                                <Icon name='remove' /> NO
+                                            </Button>
+                                            <Button color='green' onClick={(event) => this.deleteForm(event, publishedform.id)}>
+                                                <Icon name='checkmark' /> YES
+                                            </Button>
+                                        </Modal.Actions>
+                                    </Modal>
                             </Card.Content>
                         </Card>
                         )
                         : 
-                        <div>There are no Published Forms.</div>
+                        <div className='zero'>There are no Published Forms.</div>
                 }
             </Card.Group>
+            </>
         )
     }
 }
 
 PublishedForm.propTypes = {
-    publishedform: PropTypes.array.isRequired
+    publishedform: PropTypes.array.isRequired,
+    deletePublishedForm: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -66,5 +127,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getPublishedForm }
+    { getPublishedForm, deletePublishedForm }
 )(PublishedForm)

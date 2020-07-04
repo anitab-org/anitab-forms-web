@@ -51,7 +51,7 @@ export function urlGetForm(status) {
     return `${urlBaseBackend()}/form/?status=${status}`
 }
 
-export function urlUpdateForm(id, status) {
+export function urlFormId(id, status) {
     return `${urlBaseBackend()}/form/${id}/?status=${status}`
 }
 

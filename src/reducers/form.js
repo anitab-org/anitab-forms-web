@@ -3,6 +3,8 @@ import {
     GET_UNPUBLISHED_FORMS,
     POST_FORM,
     UPDATE_FORM,
+    DELETE_PUBLISHED_FORM,
+    DELETE_UNPUBLISHED_FORM,
     FORM_ERRORS
 } from '../actions/types';
 
@@ -30,6 +32,20 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 postform: action.payload,
+            }
+        case DELETE_PUBLISHED_FORM:
+            return {
+                ...state,
+                publishedform: state.publishedform.filter(
+                    publishedform => publishedform.id !== action.payload
+                )
+            }
+        case DELETE_UNPUBLISHED_FORM:
+            return {
+                ...state,
+                unpublishedform: state.unpublishedform.filter(
+                    unpublishedform => unpublishedform.id !== action.payload
+                )
             }
         case FORM_ERRORS:
             return {

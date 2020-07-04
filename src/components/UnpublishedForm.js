@@ -1,24 +1,62 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import { getUnpublishedForm } from '../actions/form'
+import { getUnpublishedForm, deleteUnpublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
-import { Card, Icon, Item, Button } from 'semantic-ui-react'
+import { Card, Icon, Message, Button, Modal, Header } from 'semantic-ui-react'
 import '../styles/Form.css'
 
 class UnpublishedForm extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            formserror: null,
+            deleted: false,
+            open: false
+        }
     }
 
     componentDidMount() {
         this.props.getUnpublishedForm('False')
     }
 
+    deleteForm = (e, id) => {
+        this.props.deleteUnpublishedForm(id, 'False', this.deleteCallback)
+        this.setState({
+            open: !this.state.open,
+        })
+    }
+
+    deleteCallback = () => {
+        this.setState({
+            formserror: this.props.formerror ? true : false,
+            deleted: true,
+        })
+        setTimeout(() => {
+            this.setState({
+                formserror: null,
+                deleted: false,
+            })
+        }, 5000)
+    }
+
+    close = () => {
+        this.setState({ open: !this.state.open })
+    }
+
     render() {
         const { unpublishedform } = this.props
-        console.log(unpublishedform)
+        const { formserror, deleted } = this.state
         return (
+            <>
+            {
+                deleted ?
+                <Message
+                    success
+                    content="The form was succesfully deleted."
+                />
+                : null
+            }
             <Card.Group>
                 {
                     unpublishedform && unpublishedform.length !== 0 ?
@@ -46,7 +84,27 @@ class UnpublishedForm extends Component {
                             <Card.Content extra>
                                 <Button color='green'>PUBLISH</Button>
                                 <Button color='blue'>EDIT</Button>
-                                <Button negative>DELETE</Button>
+                                <Modal
+                                    basic
+                                    trigger={<Button negative onClick={this.close}>DELETE</Button>}
+                                    open={this.state.open}
+                                    size='large'
+                                    closeOnDimmerClick={false}
+                                    closeOnEscape={false}
+                                    onClose={this.close}>
+                                        <Header icon='archive' content='Delete Confirmation' />
+                                        <Modal.Content>
+                                            Deleting this form will delete all the fields and responses related to this form.
+                                        </Modal.Content>
+                                        <Modal.Actions>
+                                            <Button basic color='red' onClick={this.close}>
+                                                <Icon name='remove' /> NO
+                                            </Button>
+                                            <Button color='green' onClick={(event) => this.deleteForm(event, unpublishedform.id)}>
+                                                <Icon name='checkmark' /> YES
+                                            </Button>
+                                        </Modal.Actions>
+                                    </Modal>
                             </Card.Content>
                         </Card>
                         )
@@ -54,12 +112,14 @@ class UnpublishedForm extends Component {
                         <div>There are no Unpublished Forms.</div>
                 }
             </Card.Group>
+            </>
         )
     }
 }
 
 UnpublishedForm.propTypes = {
-    unpublishedform: PropTypes.array.isRequired
+    unpublishedform: PropTypes.array.isRequired,
+    deleteUnpublishedForm: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -69,5 +129,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUnpublishedForm }
+    { getUnpublishedForm, deleteUnpublishedForm }
 )(UnpublishedForm)

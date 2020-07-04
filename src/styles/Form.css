@@ -1,7 +1,7 @@
 .form {
     margin-left: 5vw;
     margin-right: 5vw;
-    max-height: 70vh;
+    height: 80vh;
     overflow-y: auto;
 }
 
@@ -66,4 +66,8 @@
 .blue {
     color: #2185D0;
     font-weight: 600;
+}
+
+.zero {
+    margin-left: 1vw;
 }
