@@ -5,13 +5,7 @@
     overflow-y: auto;
 }
 
-.create {
-    margin-left: -5vw;
-    /* margin-right: -5vw; */
-}
-
 .message {
-    margin-left: 5vw;
     margin-bottom: 1em;
 }
 

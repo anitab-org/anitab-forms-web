@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-import { getUnpublishedForm, deleteUnpublishedForm, publishForm } from '../actions/form'
+import { getUnpublishedForm, deleteUnpublishedForm, publishForm, patchUnpublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
 import { form } from '../urls'
-import { Card, Icon, Message, Button, Modal, Header } from 'semantic-ui-react'
+import { Card, Icon, Message, Button, Modal, Header, Form, TextArea, Select } from 'semantic-ui-react'
 import '../styles/Form.css'
 
 class UnpublishedForm extends Component {
@@ -14,7 +14,10 @@ class UnpublishedForm extends Component {
         this.state = {
             formserror: null,
             deleted: false,
-            open: false
+            open: false,
+            name: '',
+            description: '',
+            target_user: 'all'
         }
     }
 
@@ -46,11 +49,48 @@ class UnpublishedForm extends Component {
         this.setState({ open: !this.state.open })
     }
 
+    editClose = () => {
+        this.setState({ editOpen: !this.state.editOpen })
+    }
+
+    onCheck = (e) => {
+        this.setState({ published_status: !this.state.published_status })
+    }
+
+    onSelect = (e, { value }) => {
+        this.setState({
+            target_user: value
+        })
+    }
+
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value});
+    }
+
     publish = (e, id) => {
         const data = {
             published_status: 'True'
         }
         this.props.publishForm(id, data, this.callback)
+    }
+
+    updateForm = (e, id) => {
+        const data = {}
+        if (this.state.name) {
+            data.name = this.state.name
+        }
+        if (this.state.description) {
+            data.description = this.state.description
+        }
+        if (this.state.target_user) {
+            data.target_user = this.state.target_user
+        }
+        this.props.patchUnpublishedForm(id, data, this.callback)
+        this.setState({
+            name: '',
+            description: '',
+            target_user: 'all'
+        })
     }
 
     callback = () => {
@@ -63,6 +103,8 @@ class UnpublishedForm extends Component {
             })
         }, 5000)
     }
+
+    
 
     render() {
         const { unpublishedform } = this.props
@@ -103,15 +145,75 @@ class UnpublishedForm extends Component {
                             </Card.Content>
                             <Card.Content extra>
                                 <Button color='green' onClick={(event) => this.publish(event, unpublishedform.id)}>PUBLISH</Button>
-                                <Button color='blue'>EDIT</Button>
+                                <Modal
+                                    trigger={<Button color='blue' onClick={this.editClose}>EDIT</Button>}
+                                    closeOnDimmerClick={false}
+                                    closeIcon
+                                    key={unpublishedform.id}
+                                >
+                                    <Modal.Header>Edit Form</Modal.Header>
+                                    <Modal.Content>
+                                    <Form>
+                                        <Form.Input
+                                            label='Form Name'
+                                            type='text'
+                                            name='name'
+                                            value={this.state.name ? this.state.name : unpublishedform.name}
+                                            placeholder='Enter a name for your form...'
+                                            onChange={this.onChange}
+                                            required
+                                        />
+                                        <Form.Input
+                                            control={TextArea}
+                                            name='description'
+                                            value={this.state.description ? this.state.description : unpublishedform.description}
+                                            label='Description'
+                                            placeholder='Add any extra information related to your form...'
+                                            onChange={this.onChange}
+                                        />
+                                        <Form.Group inline>
+                                            <label>Target User</label>
+                                            <Form.Radio
+                                                label='All'
+                                                value='all'
+                                                checked={this.state.target_user === 'all'}
+                                                onChange={this.onSelect}
+                                            />
+                                            <Form.Radio
+                                                label='Admin'
+                                                value='admin'
+                                                checked={this.state.target_user === 'admin'}
+                                                onChange={this.onSelect}
+                                            />
+                                            <Form.Radio
+                                                label='Student'
+                                                value='student'
+                                                checked={this.state.target_user === 'student'}
+                                                onChange={this.onSelect}
+                                            />
+                                        </Form.Group>
+                                        <div className='button'>
+                                        <Form.Button
+                                            onClick={this.editClose}
+                                            color='grey'
+                                            basic
+                                        >CANCEL</Form.Button>
+                                        <Form.Button
+                                            onClick={(event) => this.updateForm(event, unpublishedform.id)}
+                                            color='green'
+                                        >
+                                            SUBMIT
+                                        </Form.Button>
+                                        </div>
+                                    </Form>
+                                    </Modal.Content>
+                                </Modal>
                                 <Modal
                                     basic
                                     trigger={<Button negative onClick={this.close}>DELETE</Button>}
-                                    open={this.state.open}
                                     size='large'
                                     closeOnDimmerClick={false}
-                                    closeOnEscape={false}
-                                    onClose={this.close}>
+                                >
                                     <Header icon='archive' content='Delete Confirmation' />
                                     <Modal.Content>
                                         Deleting this form will delete all the fields and responses related to this form.
@@ -144,7 +246,8 @@ class UnpublishedForm extends Component {
 UnpublishedForm.propTypes = {
     unpublishedform: PropTypes.array.isRequired,
     deleteUnpublishedForm: PropTypes.func.isRequired,
-    publishForm: PropTypes.func.isRequired
+    publishForm: PropTypes.func.isRequired,
+    patchUnpublishedForm: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -154,5 +257,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUnpublishedForm, deleteUnpublishedForm, publishForm }
+    { getUnpublishedForm, deleteUnpublishedForm, publishForm, patchUnpublishedForm }
 )(UnpublishedForm)

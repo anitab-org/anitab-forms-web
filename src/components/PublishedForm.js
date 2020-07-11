@@ -77,12 +77,22 @@ class PublishedForm extends Component {
     }
 
     updateForm = (e, id) => {
-        const data = {
-            name: this.state.name,
-            description: this.state.description ? this.state.description : (this.props.publishedform ? this.props.publishedform[id].description : null),
-            target_user: this.state.target_user
+        const data = {}
+        if (this.state.name) {
+            data.name = this.state.name
+        }
+        if (this.state.description) {
+            data.description = this.state.description
+        }
+        if (this.state.target_user) {
+            data.target_user = this.state.target_user
         }
         this.props.patchPublishedForm(id, data, this.callback)
+        this.setState({
+            name: '',
+            description: '',
+            target_user: 'all'
+        })
     }
 
     callback = () => {
@@ -98,8 +108,7 @@ class PublishedForm extends Component {
 
     render() {
         const { publishedform, type } = this.props
-        const { formserror, deleted } = this.state
-        console.log(this.props)
+        const { deleted } = this.state
         return (
             <>
             {
@@ -138,81 +147,73 @@ class PublishedForm extends Component {
                                     <Button basic color='red' onClick={(event) => this.unpublish(event, publishedform.id)}>UNPUBLISH</Button>
                                     <Modal
                                         trigger={<Button color='blue' onClick={this.editClose}>EDIT</Button>}
-                                        open={this.state.editOpen}
                                         closeOnDimmerClick={false}
-                                        onClose={this.editClose}
                                         closeIcon
                                         key={publishedform.id}
-                                        >
-                                            <Modal.Header>Edit Form</Modal.Header>
-                                            <Modal.Content>
-                                            <Form>
-                                                <Form.Input
-                                                    label='Form Name'
-                                                    type='text'
-                                                    name='name'
-                                                    value={this.state.name}
-                                                    // fluid
-                                                    placeholder='Enter a name for your form...'
-                                                    onChange={this.onChange}
-                                                    required
+                                    >
+                                        <Modal.Header>Edit Form</Modal.Header>
+                                        <Modal.Content>
+                                        <Form>
+                                            <Form.Input
+                                                label='Form Name'
+                                                type='text'
+                                                name='name'
+                                                value={this.state.name ? this.state.name : publishedform.name}
+                                                placeholder='Enter a name for your form...'
+                                                onChange={this.onChange}
+                                                required
+                                            />
+                                            <Form.Input
+                                                control={TextArea}
+                                                name='description'
+                                                value={this.state.description ? this.state.description : publishedform.description}
+                                                label='Description'
+                                                placeholder='Add any extra information related to your form...'
+                                                onChange={this.onChange}
+                                            />
+                                            <Form.Group inline>
+                                                <label>Target User</label>
+                                                <Form.Radio
+                                                    label='All'
+                                                    value='all'
+                                                    checked={this.state.target_user === 'all'}
+                                                    onChange={this.onSelect}
                                                 />
-                                                <Form.Input
-                                                    // fluid
-                                                    control={TextArea}
-                                                    name='description'
-                                                    value={this.state.description}
-                                                    label='Description'
-                                                    placeholder='Add any extra information related to your form...'
-                                                    onChange={this.onChange}
+                                                <Form.Radio
+                                                    label='Admin'
+                                                    value='admin'
+                                                    checked={this.state.target_user === 'admin'}
+                                                    onChange={this.onSelect}
                                                 />
-                                                <Form.Group inline>
-                                                    <label>Target User</label>
-                                                    <Form.Radio
-                                                        label='All'
-                                                        value='all'
-                                                        checked={this.state.target_user === 'all'}
-                                                        onChange={this.onSelect}
-                                                    />
-                                                    <Form.Radio
-                                                        label='Admin'
-                                                        value='admin'
-                                                        checked={this.state.target_user === 'admin'}
-                                                        onChange={this.onSelect}
-                                                    />
-                                                    <Form.Radio
-                                                        label='Student'
-                                                        value='student'
-                                                        checked={this.state.target_user === 'student'}
-                                                        onChange={this.onSelect}
-                                                    />
-                                                </Form.Group>
-                                                <div className='button'>
-                                                <Form.Button
-                                                    onClick={this.editClose}
-                                                    color='grey'
-                                                    basic
-                                                >CANCEL</Form.Button>
-                                                <Form.Button
-                                                    disabled={!this.state.name}
-                                                    onClick={(event) => this.updateForm(event, publishedform.id)}
-                                                    color='green'
-                                                >
-                                                    SUBMIT
-                                                </Form.Button>
-                                                </div>
-                                            </Form>
-                                            </Modal.Content>
-                                        </Modal>
-                                    
+                                                <Form.Radio
+                                                    label='Student'
+                                                    value='student'
+                                                    checked={this.state.target_user === 'student'}
+                                                    onChange={this.onSelect}
+                                                />
+                                            </Form.Group>
+                                            <div className='button'>
+                                            <Form.Button
+                                                onClick={this.editClose}
+                                                color='grey'
+                                                basic
+                                            >CANCEL</Form.Button>
+                                            <Form.Button
+                                                onClick={(event) => this.updateForm(event, publishedform.id)}
+                                                color='green'
+                                            >
+                                                SUBMIT
+                                            </Form.Button>
+                                            </div>
+                                        </Form>
+                                        </Modal.Content>
+                                    </Modal>
                                     <Modal
                                         basic
                                         trigger={<Button negative onClick={this.close}>DELETE</Button>}
-                                        open={this.state.open}
                                         size='large'
                                         closeOnDimmerClick={false}
-                                        closeOnEscape={false}
-                                        onClose={this.close}>
+                                    >
                                         <Header icon='archive' content='Delete Confirmation' />
                                         <Modal.Content>
                                             Deleting this form will delete all the fields and responses related to this form.

@@ -83,14 +83,14 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 publishedform: [...state.publishedform.filter(
-                    publishedform => publishedform.id !== action.payload.id
+                    publishedform => publishedform.id !== action.payload
                 )]
             };
         case DELETE_UNPUBLISHED_FORM:
             return {
                 ...state,
                 unpublishedform: [...state.unpublishedform.filter(
-                    unpublishedform => unpublishedform.id !== action.payload.id
+                    unpublishedform => unpublishedform.id !== action.payload
                 )]
             };
         case FORM_ERRORS:
