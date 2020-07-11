@@ -37,13 +37,3 @@
     color: grey;
     padding-right: 1em;
 }
-
-.dropdown {
-    position: absolute;
-    width: 15em;
-    margin-left: 85vw;
-    margin-top: 3em;
-    background: white;
-    z-index: 100;
-    box-shadow: 0px 0.01em 0.5em rgba(0,0,0,0.3);
-}

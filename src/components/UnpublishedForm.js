@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
-import { getUnpublishedForm, deleteUnpublishedForm } from '../actions/form'
+import { getUnpublishedForm, deleteUnpublishedForm, publishForm } from '../actions/form'
 import PropTypes from 'prop-types'
+import { form } from '../urls'
 import { Card, Icon, Message, Button, Modal, Header } from 'semantic-ui-react'
 import '../styles/Form.css'
 
@@ -44,9 +46,27 @@ class UnpublishedForm extends Component {
         this.setState({ open: !this.state.open })
     }
 
+    publish = (e, id) => {
+        const data = {
+            published_status: 'True'
+        }
+        this.props.publishForm(id, data, this.callback)
+    }
+
+    callback = () => {
+        this.setState({
+            error: this.props.formerror?true:false
+        })
+        setTimeout(() => {
+            this.setState({
+                error: null
+            })
+        }, 5000)
+    }
+
     render() {
         const { unpublishedform } = this.props
-        const { formserror, deleted } = this.state
+        const { deleted } = this.state
         return (
             <>
             {
@@ -69,7 +89,7 @@ class UnpublishedForm extends Component {
                                     <div className='details'>
                                         <div className='first'>
                                             <span>Published Status: <span className='red'>NO</span></span>
-                                            <span>Fields: <span className='blue'>{unpublishedform.form_fields.length}</span></span>
+                                            <span>Fields: <span className='blue'>{unpublishedform.questions.length}</span></span>
                                         </div>
                                         <div className='center'>
                                             <span>Target User: <span className='blue'>{unpublishedform.target_user.toUpperCase()}</span></span>
@@ -82,7 +102,7 @@ class UnpublishedForm extends Component {
                                 </div>
                             </Card.Content>
                             <Card.Content extra>
-                                <Button color='green'>PUBLISH</Button>
+                                <Button color='green' onClick={(event) => this.publish(event, unpublishedform.id)}>PUBLISH</Button>
                                 <Button color='blue'>EDIT</Button>
                                 <Modal
                                     basic
@@ -92,19 +112,23 @@ class UnpublishedForm extends Component {
                                     closeOnDimmerClick={false}
                                     closeOnEscape={false}
                                     onClose={this.close}>
-                                        <Header icon='archive' content='Delete Confirmation' />
-                                        <Modal.Content>
-                                            Deleting this form will delete all the fields and responses related to this form.
-                                        </Modal.Content>
-                                        <Modal.Actions>
-                                            <Button basic color='red' onClick={this.close}>
-                                                <Icon name='remove' /> NO
-                                            </Button>
-                                            <Button color='green' onClick={(event) => this.deleteForm(event, unpublishedform.id)}>
-                                                <Icon name='checkmark' /> YES
-                                            </Button>
-                                        </Modal.Actions>
-                                    </Modal>
+                                    <Header icon='archive' content='Delete Confirmation' />
+                                    <Modal.Content>
+                                        Deleting this form will delete all the fields and responses related to this form.
+                                    </Modal.Content>
+                                    <Modal.Actions>
+                                        <Button basic color='red' onClick={this.close}>
+                                            <Icon name='remove' /> NO
+                                        </Button>
+                                        <Button color='green' onClick={(event) => this.deleteForm(event, unpublishedform.id)}>
+                                            <Icon name='checkmark' /> YES
+                                        </Button>
+                                    </Modal.Actions>
+                                </Modal>
+                                <Button icon basic color='grey' labelPosition='right' as={Link} to={form(unpublishedform.id, 'False')}>
+                                    <Icon name='arrow right' />
+                                    EDIT FIELDS
+                                </Button>
                             </Card.Content>
                         </Card>
                         )
@@ -119,7 +143,8 @@ class UnpublishedForm extends Component {
 
 UnpublishedForm.propTypes = {
     unpublishedform: PropTypes.array.isRequired,
-    deleteUnpublishedForm: PropTypes.func.isRequired
+    deleteUnpublishedForm: PropTypes.func.isRequired,
+    publishForm: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -129,5 +154,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getUnpublishedForm, deleteUnpublishedForm }
+    { getUnpublishedForm, deleteUnpublishedForm, publishForm }
 )(UnpublishedForm)

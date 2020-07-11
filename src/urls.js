@@ -15,8 +15,12 @@ export function dashboard() {
     return `${urlBaseFrontend()}`
 }
 
-export function form() {
-    return `${urlBaseFrontend()}form`
+export function forms() {
+    return `${urlBaseFrontend()}forms`
+}
+
+export function form(id) {
+    return `${urlBaseFrontend()}form/${id}`
 }
 
 export function submission() {
@@ -51,10 +55,20 @@ export function urlGetForm(status) {
     return `${urlBaseBackend()}/form/?status=${status}`
 }
 
-export function urlFormId(id, status) {
-    return `${urlBaseBackend()}/form/${id}/?status=${status}`
+export function urlFormId(id) {
+    return `${urlBaseBackend()}/form/${id}/` 
 }
 
 export function urlPostForm() {
     return `${urlBaseBackend()}/form/`
 }
+
+export function urlQuestions(form_id) {
+    return `${urlBaseBackend()}/questions/?form_id=${form_id}`
+}
+
+export function urlPatchQuestions() {
+    return `${urlBaseBackend()}/questions/`
+}
+
+

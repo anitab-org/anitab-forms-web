@@ -6,13 +6,8 @@ import PropTypes from 'prop-types'
 import '../styles/Form.css'
 import PublishedForm from './PublishedForm'
 import UnpublishedForm from './UnpublishedForm'
-import { Header, Divider, Form, TextArea, Checkbox, Select, Dropdown, Button, Message, Icon } from 'semantic-ui-react'
+import { Header, Divider, Form, TextArea, Checkbox, Button, Message, Icon } from 'semantic-ui-react'
 
-const options = [
-    { key: 'all', text: 'All', value: 'all' },
-    { key: 'adm', text: 'Admin', value: 'admin' },
-    { key: 'stu', text: 'Student', value: 'student' },
-  ]
 
 class Forms extends Component {
     constructor(props) {
@@ -87,7 +82,7 @@ class Forms extends Component {
         const type = userinfo ? ( userinfo[0] ? userinfo[0].user_type : null ) : 'student'
 
         return (
-            <div className='form'>
+            <div className='forms'>
                 <div className='inside'>
                 {
                     type === 'admin'?
@@ -153,7 +148,7 @@ class Forms extends Component {
                                         checked={this.state.target_user === 'student'}
                                         onChange={this.onSelect}
                                     />
-                                </Form.Group>                            
+                                </Form.Group>                           
                                 <Form.Input
                                     control={Checkbox}
                                     label='Published'
@@ -191,7 +186,11 @@ class Forms extends Component {
                     <Header>Unpublished Forms</Header>
                     <UnpublishedForm />
                     </>
-                    : <PublishedForm type={type} />
+                    : 
+                    <>
+                    <Header>Published Forms</Header>
+                    <PublishedForm type={type} />
+                    </>
                 }
                 </div>
             </div>

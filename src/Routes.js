@@ -3,9 +3,10 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
-import Forms from './components/Form'
+import Forms from './components/Forms'
 import Submission from './components/Submission'
-import { login, register, dashboard, form, submission } from './urls'
+import Questions from './components/Questions'
+import { login, register, dashboard, forms, submission, urlBaseFrontend } from './urls'
 import {PrivateRoute} from './PrivateRoute'
 import { AuthRoute } from './AuthRoute'
 
@@ -15,8 +16,9 @@ export default class Routes extends Component {
             <>
             <Switch>
                 <PrivateRoute exact path={dashboard()} component={Dashboard} />
-                <PrivateRoute exact path={form()} component={Forms} />
+                <PrivateRoute exact path={forms()} component={Forms} />
                 <PrivateRoute exact path={submission()} component={Submission} />
+                <PrivateRoute exact path={`${urlBaseFrontend()}form/:id`} component={Questions} />
                 <AuthRoute path={login()} component={Login} />
                 <AuthRoute path={register()} component={Register} />
                 <Route render={() => <Redirect to='/' />} />    
