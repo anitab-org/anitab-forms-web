@@ -29,18 +29,19 @@ export const getQuestions = (form_id) => async dispatch => {
     }
 }
 
-export const postQuestions = (form_id) => async dispatch => {
+export const postQuestions = (form_id, data, callback) => async dispatch => {
     try {
         const config = {
             headers: {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.post(urlQuestions(form_id), config);
+        const res = await axios.post(urlQuestions(form_id),data, config);
         dispatch({
             type: POST_QUESTIONS,
             payload: res.data
         });
+        callback()
     }
     catch (err) {
         dispatch({

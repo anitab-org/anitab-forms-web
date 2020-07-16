@@ -37,7 +37,7 @@ class Forms extends Component {
         const data = {
             name: this.state.name,
             description: this.state.description,
-            published_status: this.state.published_status,
+            published_status: this.state.published_status ? 'published' : 'unpublished',
             target_user: this.state.target_user
         }
         this.props.postForm(data, this.callback)

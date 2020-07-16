@@ -51,8 +51,8 @@ export function urlPatchInfo(id) {
     return `${urlBaseBackend()}/info/${id}/`
 }
 
-export function urlGetForm(status) {
-    return `${urlBaseBackend()}/form/?status=${status}`
+export function urlGetForm(status, status2) {
+    return `${urlBaseBackend()}/form/?status=${status}&status=${status2}`
 }
 
 export function urlFormId(id) {

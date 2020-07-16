@@ -22,11 +22,11 @@ class UnpublishedForm extends Component {
     }
 
     componentDidMount() {
-        this.props.getUnpublishedForm('False')
+        this.props.getUnpublishedForm('unpublished')
     }
 
     deleteForm = (e, id) => {
-        this.props.deleteUnpublishedForm(id, 'False', this.deleteCallback)
+        this.props.deleteUnpublishedForm(id, this.deleteCallback)
         this.setState({
             open: !this.state.open,
         })
@@ -69,7 +69,7 @@ class UnpublishedForm extends Component {
 
     publish = (e, id) => {
         const data = {
-            published_status: 'True'
+            published_status: 'published'
         }
         this.props.publishForm(id, data, this.callback)
     }

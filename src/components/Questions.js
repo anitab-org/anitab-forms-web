@@ -7,7 +7,7 @@ import { getQuestions, postQuestions } from '../actions/question'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import '../styles/Questions.css'
-import { Header, Card, Form, TextArea, Checkbox, Button, Modal, Icon, Select, Divider, Item } from 'semantic-ui-react'
+import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Input } from 'semantic-ui-react'
 import { forms } from '../urls'
 
 const options = [
@@ -24,6 +24,20 @@ const options = [
 class Questions extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            fields: [],
+            newfields: [
+                {
+                    label: '',
+                    description: '',
+                    order: null,
+                    required: false,
+                    data_type: 'char'
+                }
+            ]
+        }
+        this.onChange = this.onChange.bind(this)
+        this.onNewChange = this.onNewChange.bind(this)
     }
 
     async componentDidMount() {
@@ -33,10 +47,113 @@ class Questions extends Component {
         await this.props.getForm(id)
     }
 
+    onChange = (e, id, str) => {
+        this.setState({
+            fields: this.state.fields.map((field, index) => {
+                return index === id ? {
+                    ...field.label = str === 'label' ? e.target.value : field.label,
+                    ...field.description = str === 'description' ? e.target.value : field.description,
+                    ...field.order = str === 'order' ? e.target.value : field.order,
+                    ...field.required = str === 'required' ? !field.required : field.required,
+                } : field
+            })
+        })
+    }
+
+    onNewChange = (e, id, str) => {
+        this.setState({
+            newfields: this.state.newfields.map((newfield, index) => {
+                return id === index ? {
+                    ...newfield.label = str === 'label' ? e.target.value : newfield.label,
+                    ...newfield.description = str === 'description' ? e.target.value : newfield.description,
+                    ...newfield.order = str === 'order' ? e.target.value : newfield.order,
+                    ...newfield.required = str === 'required' ? !newfield.required : newfield.required,
+                    ...newfield.data_type = str === 'data_type' ? e.target.value : newfield.data_type
+                } : newfield
+            })
+        })
+    }
+
+    createForm = () => {
+        return this.state.newfields.map((object, index) => (
+            <>
+            <Form key={index}>
+                <Form.Group widths='equal'>
+                    <Form.Input
+                        type='text'
+                        placeholder='Enter your question field label...'
+                        value={this.state.newfields[index].label}
+                        required
+                        onChange={(event) => this.onNewChange(event, index, 'label')}
+                    />
+                    <Form.Input
+                        control={Select}
+                        options={options}
+                        placeholder="Choose data type"
+                        required
+                        value={this.state.newfields[index].data_type}
+                        onChange={(event) => this.onNewChange(event, index, 'data_type')}
+                    />
+                    <Form.Input
+                        checked={this.state.newfields[index].required || false}
+                        control={Checkbox}
+                        label="Required"
+                        onChange={(event) => this.onNewChange(event, index, 'required')}
+                    />
+                </Form.Group>
+                <Form.Group widths={6}>
+                    <Form.Input
+                        value={this.state.newfields[index].description || ''}
+                        control={TextArea}
+                        placeholder="Enter description (optional)"
+                        onChange={(event) => this.onNewChange(event, index, 'description')}
+                    />
+                    <Form.Input
+                        type='text'
+                        placeholder="Enter options"
+                    />
+                </Form.Group>
+            </Form>
+            <Divider />
+            </>
+        ))
+    }
+
+    increaseField = (e) => {
+        this.setState({
+            newfields: [...this.state.newfields, {
+                label: '',
+                description: '',
+                order: null,
+                required: false,
+                data_type: 'char'
+            }]
+        })
+    }
+
+    save = () => {
+        const data = [...this.state.fields, ...this.state.newfields]
+        console.log(data)
+        const { id } = this.props.match.params
+        this.props.postQuestions(id, data, this.callback)
+    }
+
+    callback = () => {
+        this.setState({
+            error: this.props.formerror?true:false
+        })
+        setTimeout(() => {
+            this.setState({
+                error: null
+            })
+        }, 5000)
+    }
+
     render() {
-        console.log(this.props)
         const { questions, form, userinfo } = this.props
         const type = userinfo ? ( userinfo[0] ? userinfo[0].user_type : null ) : 'student'
+        this.state.fields = questions
+        console.log(this.state.newfields)
         return(
             <div className='questions'>
                 <Item as={Link} to={forms()} className='back'>
@@ -66,7 +183,7 @@ class Questions extends Component {
                             </Card.Content>                            
                         </Card>
                         : 
-                        <div className='zero'>No such form exists.</div>
+                        <div className='zero'>This form is currently not accepting any responses.</div>
                 }
                 </div>
                 <Divider />
@@ -76,33 +193,37 @@ class Questions extends Component {
                     form && form.length !== 0 ?
                     (
                         questions && questions.length !== 0 ?
-                        questions.map(question =>
-                            <Form key={question.id}>
+                        this.state.fields.map((object, index) =>
+                            <>
+                            <Form key={object.id}>
                                 <Form.Group widths='equal'>
                                     <Form.Input
                                         type='text'
                                         placeholder='Enter your question field label...'
-                                        value={question.label}
+                                        value={this.state.fields[index].label}
                                         required
+                                        onChange={(event) => this.onChange(event, index, 'label')}
                                     />
                                     <Form.Input
                                         control={Select}
                                         options={options}
                                         placeholder="Choose data type"
                                         required
-                                        value={question.data_type}
+                                        value={this.state.fields[index].data_type}
                                     />
                                     <Form.Input
-                                        checked={question.required}
+                                        checked={this.state.fields[index].required}
                                         control={Checkbox}
                                         label="Required"
+                                        onChange={(event) => this.onChange(event, index, 'required')}
                                     />
                                 </Form.Group>
                                 <Form.Group widths={6}>
                                     <Form.Input
-                                        value={question.description}
+                                        value={this.state.fields[index].description}
                                         control={TextArea}
                                         placeholder="Enter description (optional)"
+                                        onChange={(event) => this.onChange(event, index, 'description')}
                                     />
                                     <Form.Input
                                         type='text'
@@ -110,18 +231,38 @@ class Questions extends Component {
                                     />
                                 </Form.Group>
                             </Form>
+                            <div className='dates'>
+                                <span><i>Created {moment(new Date(this.state.fields[index].created_on), "YYYYMMDD").fromNow()}</i></span>
+                                <span><i>Updated {moment(new Date(this.state.fields[index].updated_on), "YYYYMMDD").fromNow()}</i></span>
+                            </div>
+                            <Divider />
+                            </>
                             )
                         : null
                     )
                     : null
                 }
+                {
+                    type === 'admin' ?
+                    <>
+                    {this.createForm()}
+                    <Icon
+                        onClick={this.increaseField}
+                        name="plus"
+                        size="large"
+                        styleName="plus-icon"
+                    />
+                    </>
+                    : null
+                }
                 </div>
+                
                 {
                     type === 'admin' ?
                     (
                         form && form.length !== 0 ?
                         <div className='save'>
-                            <Button color='green' fluid>
+                            <Button color='green' fluid onClick={this.save} >
                                 SAVE
                             </Button>
                             <Button primary fluid>
@@ -142,7 +283,7 @@ class Questions extends Component {
 
 Questions.propTypes = {
     questions: PropTypes.array.isRequired,
-    form: PropTypes.array.isRequired,
+    form: PropTypes.object.isRequired,
     userinfo: PropTypes.array.isRequired
 };
 
@@ -157,3 +298,9 @@ export default connect(
     mapStateToProps,
     { getQuestions, postQuestions, getForm, getInfo }
 )(Questions)
+
+
+// Access Key ID:
+// AKIAI4722Q6MVBY56V3Q
+// Secret Access Key:
+// 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

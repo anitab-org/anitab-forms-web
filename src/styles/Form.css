@@ -1,7 +1,7 @@
 .forms {
     margin-left: 5vw;
     margin-right: 5vw;
-    max-height: 70vh;
+    height: 70vh;
     overflow-y: auto;
 }
 

@@ -18,14 +18,15 @@ import {
     FORM_ERRORS
 } from './types'
 
-export const getPublishedForm = (status) => async dispatch => {
+export const getPublishedForm = (status, status2) => async dispatch => {
     try {
         const config = {
             headers: {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.get(urlGetForm(status), config);
+        // url: form/?status=published&status=closed
+        const res = await axios.get(urlGetForm(status, status2), config);
         dispatch({
             type: GET_PUBLISHED_FORMS,
             payload: res.data
@@ -46,6 +47,7 @@ export const getUnpublishedForm = (status) => async dispatch => {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
+        // url: form/?status=unpublished
         const res = await axios.get(urlGetForm(status), config);
         dispatch({
             type: GET_UNPUBLISHED_FORMS,

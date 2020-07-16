@@ -24,11 +24,11 @@ class PublishedForm extends Component {
     }
 
     componentDidMount() {
-        this.props.getPublishedForm('True')
+        this.props.getPublishedForm('published' , 'closed')
     }
 
     deleteForm = (e, id) => {
-        this.props.deletePublishedForm(id, 'True', this.deleteCallback)
+        this.props.deletePublishedForm(id, this.deleteCallback)
         this.setState({
             open: !this.state.open,
         })
@@ -71,9 +71,16 @@ class PublishedForm extends Component {
 
     unpublish = (e, id) => {
         const data = {
-            published_status: 'False'
+            published_status: 'unpublished'
         }
         this.props.unpublishForm(id, data, this.callback)
+    }
+
+    closeForm = (e, id) => {
+        const data = {
+            published_status: 'closed'
+        }
+        this.props.patchPublishedForm(id, data, this.callback)
     }
 
     updateForm = (e, id) => {
@@ -141,10 +148,23 @@ class PublishedForm extends Component {
                                     </div>
                                 </div>
                             </Card.Content>
+
+                            {/* check for user type  */}
                             {
                                 type === 'admin' ?
                                 <Card.Content extra>
-                                    <Button basic color='red' onClick={(event) => this.unpublish(event, publishedform.id)}>UNPUBLISH</Button>
+                                    
+                                    {/* check for published status of form  */}
+                                    {
+                                        publishedform.published_status === 'published' ?
+                                        <>
+                                        <Button onClick={(event) => this.closeForm(event, publishedform.id)}>CLOSE</Button>
+                                        <Button basic color='red' onClick={(event) => this.unpublish(event, publishedform.id)}>UNPUBLISH</Button>
+                                        </>
+                                        : null                                        
+                                    }  
+
+                                    {/* Modal for editing the form */}
                                     <Modal
                                         trigger={<Button color='blue' onClick={this.editClose}>EDIT</Button>}
                                         closeOnDimmerClick={false}
@@ -208,6 +228,8 @@ class PublishedForm extends Component {
                                         </Form>
                                         </Modal.Content>
                                     </Modal>
+
+                                    {/* alerting modal before delete */}
                                     <Modal
                                         basic
                                         trigger={<Button negative onClick={this.close}>DELETE</Button>}
