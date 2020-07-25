@@ -52,6 +52,7 @@ class Questions extends Component {
         await this.props.getForm(id)
     }
 
+    // on change of previously available fields
     onChange = (e, id, str) => {
         this.setState({
             fields: this.state.fields.map((field, index) => {
@@ -66,6 +67,7 @@ class Questions extends Component {
         })
     }
 
+    // on change of new fields
     onNewChange = (e, id, str, data) => {
         this.setState({
             newfields: this.state.newfields.map((newfield, index) => {
