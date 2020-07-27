@@ -77,6 +77,7 @@ class Forms extends Component {
         })
     }
 
+    // component for displaying, creating, deleting or editing published, unpublished and closed forms
     render() {
         const { userinfo } = this.props
         const type = userinfo ? ( userinfo[0] ? userinfo[0].user_type : null ) : 'student'

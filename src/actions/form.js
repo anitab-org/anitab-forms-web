@@ -18,15 +18,14 @@ import {
     FORM_ERRORS
 } from './types'
 
-export const getPublishedForm = (status, status2) => async dispatch => {
+export const getPublishedForm = (status) => async dispatch => {
     try {
         const config = {
             headers: {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        // url: form/?status=published&status=closed
-        const res = await axios.get(urlGetForm(status, status2), config);
+        const res = await axios.get(urlGetForm(status), config);
         dispatch({
             type: GET_PUBLISHED_FORMS,
             payload: res.data
@@ -47,7 +46,6 @@ export const getUnpublishedForm = (status) => async dispatch => {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        // url: form/?status=unpublished
         const res = await axios.get(urlGetForm(status), config);
         dispatch({
             type: GET_UNPUBLISHED_FORMS,
@@ -204,7 +202,7 @@ export const patchUnpublishedForm = (id, data, callback) => async dispatch => {
     }
 };
 
-export const deletePublishedForm = (id, status, callback) => async dispatch => {
+export const deletePublishedForm = (id, callback) => async dispatch => {
     try {
         const config = {
             headers: {
@@ -212,7 +210,7 @@ export const deletePublishedForm = (id, status, callback) => async dispatch => {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.delete(urlFormId(id, status), config);
+        const res = await axios.delete(urlFormId(id), config);
         dispatch({
             type: DELETE_PUBLISHED_FORM,
             payload: id
@@ -228,7 +226,7 @@ export const deletePublishedForm = (id, status, callback) => async dispatch => {
     }
 };
 
-export const deleteUnpublishedForm = (id, status, callback) => async dispatch => {
+export const deleteUnpublishedForm = (id, callback) => async dispatch => {
     try {
         const config = {
             headers: {
@@ -236,7 +234,7 @@ export const deleteUnpublishedForm = (id, status, callback) => async dispatch =>
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.delete(urlFormId(id, status), config);
+        const res = await axios.delete(urlFormId(id), config);
         dispatch({
             type: DELETE_UNPUBLISHED_FORM,
             payload: id

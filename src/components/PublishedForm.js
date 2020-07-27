@@ -24,7 +24,7 @@ class PublishedForm extends Component {
     }
 
     componentDidMount() {
-        this.props.getPublishedForm('published' , 'closed')
+        this.props.getPublishedForm('published,closed')
     }
 
     deleteForm = (e, id) => {
