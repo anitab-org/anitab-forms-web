@@ -231,6 +231,20 @@ class Questions extends Component {
             const data = [...this.state.fields, ...this.state.newfields]
             const { id } = this.props.match.params
             this.props.postQuestions(id, data, this.callback)
+            this.setState({
+                newfields: [
+                    {
+                        label: '',
+                        description: '',
+                        order: null,
+                        required: false,
+                        data_type: '',
+                        options: [],
+                        value: '',
+                        forms: [this.props.match.params.id]
+                    }
+                ]
+            })
         }
         
     }

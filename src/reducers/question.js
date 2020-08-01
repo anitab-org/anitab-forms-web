@@ -21,6 +21,7 @@ const questionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 postquestions: action.payload,
+                questions: action.payload
             };
         case QUESTION_ERROR:
             return {
