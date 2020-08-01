@@ -173,7 +173,7 @@ class PublishedForm extends Component {
                                         >
                                             <Header icon='remove' content='Closing Form Confirmation' />
                                             <Modal.Content>
-                                                Closing this form will stop all responses and you cannot revert your action to publish it again.
+                                                Closing this form will stop all responses and you cannot revert your action.
                                             </Modal.Content>
                                             <Modal.Actions>
                                                 <Button basic color='red' onClick={this.closeModal}>
