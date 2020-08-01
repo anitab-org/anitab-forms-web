@@ -7,7 +7,7 @@ import { getQuestions, postQuestions } from '../actions/question'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import '../styles/Questions.css'
-import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Input, Dropdown, Label } from 'semantic-ui-react'
+import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Modal, Dropdown, Label } from 'semantic-ui-react'
 import { forms } from '../urls'
 
 
@@ -262,6 +262,8 @@ class Questions extends Component {
 
     render() {
         const { questions, form, userinfo } = this.props
+
+        // user type condition 
         const type = userinfo ? ( userinfo[0] ? userinfo[0].user_type : null ) : 'student'
         this.state.fields = questions
         return(
@@ -290,7 +292,32 @@ class Questions extends Component {
                                         <span>Updated: <span className='grey'>{moment(new Date(form.updated_on), "YYYYMMDD").fromNow()}</span></span>
                                     </div>
                                 </div>
-                            </Card.Content>                            
+                            </Card.Content>
+
+                            {/* sharing of form link */}
+                            {
+                                type === 'admin' ?
+                                <Card.Content extra>
+                                    <Modal
+                                        trigger={<Button icon basic color='grey' labelPosition='right' onClick={this.close}>
+                                                    <Icon name='share' />
+                                                    SHARE
+                                                </Button>}
+                                        open={this.state.open}
+                                        closeOnDimmerClick={false}
+                                        closeOnEscape={false}
+                                        onClose={this.close}
+                                        closeIcon
+                                    >
+                                        <Modal.Header>Copy Link</Modal.Header>
+                                        <Modal.Content>
+                                            {/* domain name of the site + pathname */}
+                                            <Form.Input  value={'localhost:3000' + this.props.location.pathname} />
+                                        </Modal.Content>
+                                    </Modal>
+                                </Card.Content>
+                                : null
+                            }                         
                         </Card>
                         : 
                         <div className='zero'>No such form exists.</div>
