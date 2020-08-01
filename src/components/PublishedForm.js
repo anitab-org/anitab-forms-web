@@ -15,6 +15,7 @@ class PublishedForm extends Component {
             formserror: null,
             deleted: false,
             open: false,
+            openModal: false,
             editOpen: false,
             error: null,
             name: '',
@@ -51,6 +52,10 @@ class PublishedForm extends Component {
         this.setState({ open: !this.state.open })
     }
 
+    closeModal = () => {
+        this.setState({ openModal: !this.state.openModal })
+    }
+
     editClose = () => {
         this.setState({ editOpen: !this.state.editOpen })
     }
@@ -81,6 +86,7 @@ class PublishedForm extends Component {
             published_status: 'closed'
         }
         this.props.patchPublishedForm(id, data, this.callback)
+        this.setState({ openModal: !this.state.openModal })
     }
 
     updateForm = (e, id) => {
@@ -136,7 +142,7 @@ class PublishedForm extends Component {
                                 <Card.Meta>{publishedform.description}</Card.Meta>
                                 <div className='details'>
                                     <div className='first'>
-                                        <span>Published Status: <span className='green'>YES</span></span>
+                                        <span>Published Status: <span className='green'>{publishedform.published_status === 'closed' ? publishedform.published_status.toUpperCase() : 'YES'}</span></span>
                                         <span>Fields: <span className='blue'>{publishedform.questions.length}</span></span>
                                     </div>
                                     <div className='center'>
@@ -158,7 +164,26 @@ class PublishedForm extends Component {
                                     {
                                         publishedform.published_status === 'published' ?
                                         <>
-                                        <Button onClick={(event) => this.closeForm(event, publishedform.id)}>CLOSE</Button>
+                                        <Modal
+                                            basic
+                                            trigger={<Button onClick={this.closeModal}>CLOSE</Button>}
+                                            open={this.state.openModal}
+                                            size='large'
+                                            closeOnDimmerClick={false}
+                                        >
+                                            <Header icon='remove' content='Closing Form Confirmation' />
+                                            <Modal.Content>
+                                                Closing this form will stop all responses and you cannot revert your action to publish it again.
+                                            </Modal.Content>
+                                            <Modal.Actions>
+                                                <Button basic color='red' onClick={this.closeModal}>
+                                                    <Icon name='remove' /> NO
+                                                </Button>
+                                                <Button color='green' onClick={(event) => this.closeForm(event, publishedform.id)}>
+                                                    <Icon name='checkmark' /> YES
+                                                </Button>
+                                            </Modal.Actions>
+                                        </Modal>
                                         <Button basic color='red' onClick={(event) => this.unpublish(event, publishedform.id)}>UNPUBLISH</Button>
                                         </>
                                         : null                                        
