@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import '../styles/Questions.css'
 import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Modal, Dropdown, Label } from 'semantic-ui-react'
+import Preview from './Preview'
 import { forms } from '../urls'
 
 
@@ -39,7 +40,8 @@ class Questions extends Component {
                     value: '',
                     forms: [this.props.match.params.id]
                 }
-            ]
+            ],
+            preview: false
         }
         this.onChange = this.onChange.bind(this)
         this.onNewChange = this.onNewChange.bind(this)
@@ -50,6 +52,12 @@ class Questions extends Component {
         const { id } = this.props.match.params
         await this.props.getQuestions(id)
         await this.props.getForm(id)
+    }
+
+    changePreview = () => {
+        this.setState({
+            preview: !this.state.preview,
+        })
     }
 
     // on change of previously available fields
@@ -327,9 +335,14 @@ class Questions extends Component {
                 <div className='lower'>
                 <div className='fields'>
 
-                {/* editable format of fields */}
+                {/* to enable preview feature */}
                 {
-                    form && form.length !== 0 ?
+                    ((this.state.preview && type === 'admin') || type !== 'admin') && (form && form.length !== 0) ?
+                    <>
+                    <Preview id={this.props.match.params.id} />
+                    </>
+                    :
+                    {/* editable format of fields */} 
                     (
                         questions && questions.length !== 0 ?
                         this.state.fields.map((object, index) =>
@@ -396,11 +409,10 @@ class Questions extends Component {
                             )
                         : null
                     )
-                    : null
                 }
-                {/* check for user type */}
+                {/* for adding new fields  */}
                 {
-                    type === 'admin' ?
+                    !this.state.preview && type === 'admin' ?
                     <>
                     {this.createForm()}
                     <Icon
@@ -415,19 +427,34 @@ class Questions extends Component {
                 {/* check for user type for display of buttons */}
                 {
                     type === 'admin' ?
+                    // save and preview buttons for admin while creating the form
                     (
                         form && form.length !== 0 ?
                         <div className='save'>
                             <Button color='green' fluid onClick={this.save} >
                                 SAVE
                             </Button>
-                            <Button primary fluid>
-                                PREVIEW
+                            <Button primary fluid onClick={this.changePreview}>
+                                {
+                                    this.state.preview ?
+                                    <span>EDIT</span> 
+                                    : <span>PREVIEW</span>
+                                }
                             </Button>
                         </div>
                         : null
                     )
-                    : null
+                    :
+                    // dummy submit button for user 
+                    (
+                        form && form.length !== 0 ?
+                        <div className='save'>
+                            <Button color='green' fluid >
+                                SUBMIT
+                            </Button>
+                        </div>
+                        : null
+                    )
                 }
                 </div>
             </div>

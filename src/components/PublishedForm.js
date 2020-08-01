@@ -281,7 +281,7 @@ class PublishedForm extends Component {
                                 </Card.Content>
                                 :
                                 <Card.Content extra>
-                                    <Button icon basic color='grey' labelPosition='right'>
+                                    <Button icon basic color='grey' labelPosition='right' as={Link} to={form(publishedform.id, 'True')}>
                                         <Icon name='arrow right' />
                                         FILL FORM
                                     </Button>
