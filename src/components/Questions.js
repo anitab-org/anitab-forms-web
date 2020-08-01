@@ -7,7 +7,7 @@ import { getQuestions, postQuestions } from '../actions/question'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import '../styles/Questions.css'
-import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Input, Dropdown, Label } from 'semantic-ui-react'
+import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Modal, Dropdown, Label } from 'semantic-ui-react'
 import { forms } from '../urls'
 
 
