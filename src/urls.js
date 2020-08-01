@@ -75,4 +75,12 @@ export function urlPatchQuestions() {
     return `${urlBaseBackend()}/questions/`
 }
 
+export function urlAnswers() {
+    return `${urlBaseBackend()}/answers/`
+}
+
+export function urlFormFeedback() {
+    return `${urlBaseBackend()}/feedback/`
+}
+
 

@@ -33,7 +33,7 @@ class Questions extends Component {
                 {
                     label: '',
                     description: '',
-                    order: null,
+                    order: undefined,
                     required: false,
                     data_type: '',
                     options: [],
@@ -149,7 +149,7 @@ class Questions extends Component {
     // function to add a new field
     createForm = () => {
         return this.state.newfields.map((object, index) => (
-            <>
+            <div key={index}>
             <Form key={index}>
                 <Form.Group widths='equal'>
                     <Form.Input
@@ -206,7 +206,7 @@ class Questions extends Component {
                 }
             </Form>
             <Divider />
-            </>
+            </div>
         ))
     }
 
@@ -216,7 +216,7 @@ class Questions extends Component {
             newfields: [...this.state.newfields, {
                 label: '',
                 description: '',
-                order: null,
+                order: undefined,
                 required: false,
                 data_type: '',
                 options: [],
@@ -291,6 +291,7 @@ class Questions extends Component {
                                 <Card.Meta>{form.description}</Card.Meta>
                                 <div className='details'>
                                     <div className='first'>
+
                                         {/* check for the published status of the form */}
                                         {
                                             form.published_status === 'unpublished' ?
@@ -327,6 +328,7 @@ class Questions extends Component {
                                     >
                                         <Modal.Header>Copy Link</Modal.Header>
                                         <Modal.Content>
+
                                             {/* domain name of the site + pathname */}
                                             <Form.Input  value={'localhost:3000' + this.props.location.pathname} />
                                         </Modal.Content>
@@ -342,7 +344,6 @@ class Questions extends Component {
                 <Divider />
                 <div className='lower'>
                 <div className='fields'>
-
                 {/* to enable preview feature:
                 if the user is an admin and form is closed, the form is not editable anymore
                 if the user is a student the closed form just displays a message saying that 'the form is closed'.
@@ -358,8 +359,8 @@ class Questions extends Component {
                     (
                         questions && questions.length !== 0 ?
                         this.state.fields.map((object, index) =>
-                            <>
-                            <Form key={object.id}>
+                            <div key={object.id}>
+                            <Form>
                                 <Form.Group widths='equal'>
                                     <Form.Input
                                         type='text'
@@ -413,7 +414,7 @@ class Questions extends Component {
                                 {
                                     this.state.fields[index].options &&  this.state.fields[index].options.length !== 0 ?
                                     this.state.fields[index].options.map((option, index) =>
-                                    <Label>{option}</Label>
+                                    <Label key={index}>{option}</Label>
                                     )
                                     : null
                                 }
@@ -423,7 +424,7 @@ class Questions extends Component {
                                 <span><i>Updated {moment(new Date(this.state.fields[index].updated_on), "YYYYMMDD").fromNow()}</i></span>
                             </div>
                             <Divider />
-                            </>
+                            </div >
                             )
                         : null
                     )
@@ -480,7 +481,6 @@ class Questions extends Component {
 
 Questions.propTypes = {
     questions: PropTypes.array.isRequired,
-    form: PropTypes.object.isRequired,
     userinfo: PropTypes.array.isRequired
 };
 
