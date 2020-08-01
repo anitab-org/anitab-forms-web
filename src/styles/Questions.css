@@ -1,0 +1,42 @@
+.questions {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.fields {
+    max-height: 50vh;
+    width: 75vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.save {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    width: 18vw;
+}
+
+.back {
+    font-size: 1.2em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+.lower {
+    display: flex;
+    flex-direction: row;
+}
+
+.dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 0.5em;
+    font-size: 1.05em;
+    color: grey;
+}

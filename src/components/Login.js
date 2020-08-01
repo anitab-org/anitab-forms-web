@@ -17,7 +17,8 @@ class Login extends Component {
             usernameerror: null,
             passworderror: null,
             showPassword: false,
-            error: null
+            error: null,
+            submitted: false
         }
         this.submitLogin = this.submitLogin.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -70,13 +71,15 @@ class Login extends Component {
     callback = () => {
         this.setState({
             error: this.props.loginerror?true:false,
+            submitted: true
         })
         if(!this.state.error){
             this.props.history.push('/')
         }
         setTimeout(() => {
             this.setState({
-                error: null
+                error: null,
+                submitted: false
             })
         }, 5000)
     }
@@ -85,9 +88,20 @@ class Login extends Component {
         this.setState({ [e.target.name]: e.target.value});
     }
 
+    componentWillMount() {
+        this.setState({
+            username: '',
+            password: '',
+            usernameerror: null,
+            passworderror: null,
+            showPassword: false,
+            error: null,
+            submitted: false
+        })
+    }
 
     render() {
-        const { showPassword } = this.state
+        const { showPassword, error, submitted } = this.state
         return (
             <>
             <Grid>
@@ -136,6 +150,14 @@ class Login extends Component {
                             <Message
                             error
                             content="Password cannot be empty!"
+                            />
+                            : null
+                        }
+                        {
+                            error && submitted ?
+                            <Message
+                            error
+                            content={this.props.loginerror.detail}
                             />
                             : null
                         }

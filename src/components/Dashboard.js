@@ -3,7 +3,7 @@ import '../styles/Dashboard.css'
 import { Item, Card, Header, Divider, Icon } from 'semantic-ui-react'
 import Profile from './Profile'
 
-export default class Form extends Component {
+export default class Dashboard extends Component {
     constructor(props) {
         super(props)
         this.state = {
