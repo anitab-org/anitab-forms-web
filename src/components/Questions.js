@@ -346,7 +346,7 @@ class Questions extends Component {
                 {/* to enable preview feature */}
                 {
                     ((this.state.preview && type === 'admin') || type !== 'admin') && (form && form.length !== 0) ?
-                    form.published_status !== 'closed' ?
+                    form.published_status !== 'closed' || (form.published_status === 'closed' && type === 'admin') ?
                     <Preview id={this.props.match.params.id} />
                     : <span>Sorry! This form is no longer accepting any responses.</span>
                     :
