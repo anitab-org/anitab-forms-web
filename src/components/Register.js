@@ -25,7 +25,7 @@ class Register extends Component {
             error: null,
             submitted: false,
             emailregexp: /\S+@\S+\.\S+/,
-            passwordregexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;])[A-Za-z\d-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;]{12,}$/
+            passwordregexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;])[A-Za-z\d-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;]{8,}$/
         };
         this.submitRegister = this.submitRegister.bind(this);
         this.onChange = this.onChange.bind(this);
