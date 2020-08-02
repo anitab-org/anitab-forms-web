@@ -15,8 +15,6 @@ class Profile extends Component {
             submitted: false
         }
 
-         // this.onChange = this.onChange.bind(this);
-
     }
 
     componentDidMount() {
@@ -145,7 +143,7 @@ Profile.propTypes = {
     patchInfo: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     userinfo: state.info.userinfo,
     userinfoerror: state.info.userinfoerror,
     userinfoid: state.info.userinfoid,
