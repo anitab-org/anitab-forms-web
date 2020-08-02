@@ -14,6 +14,9 @@ class Profile extends Component {
             error: null,
             submitted: false
         }
+
+         // this.onChange = this.onChange.bind(this);
+
     }
 
     componentDidMount() {
@@ -71,7 +74,7 @@ class Profile extends Component {
                         <Form>
                             <Form.Input
                                 name="name"
-                                value={this.state.name ? this.state.name : userinfo.name}
+                                value={this.state.name}
                                 onChange={this.onChange}
                                 label='Name'
                                 placeholder='Enter your name...' 
@@ -107,7 +110,7 @@ class Profile extends Component {
                     <Form>
                         <Form.Input
                             name="name"
-                            value={this.state.name}
+                            value={this.state.name }
                             onChange={this.onChange}
                             label='Name'
                             placeholder='Enter your username...' 
@@ -142,10 +145,11 @@ Profile.propTypes = {
     patchInfo: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     userinfo: state.info.userinfo,
     userinfoerror: state.info.userinfoerror,
     userinfoid: state.info.userinfoid,
+
 })
 
 export default connect(
