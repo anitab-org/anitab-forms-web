@@ -71,7 +71,7 @@ class Profile extends Component {
                         <Form>
                             <Form.Input
                                 name="name"
-                                defaultValue={userinfo.name}
+                                defaultValue={this.state.name ? this.state.name : userinfo.name}
                                 onChange={this.onChange}
                                 label='Name'
                                 placeholder='Enter your name...' 
@@ -107,7 +107,7 @@ class Profile extends Component {
                     <Form>
                         <Form.Input
                             name="name"
-                            value={this.state.name }
+                            value={this.state.name}
                             onChange={this.onChange}
                             label='Name'
                             placeholder='Enter your username...' 
@@ -142,7 +142,7 @@ Profile.propTypes = {
     patchInfo: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
     userinfo: state.info.userinfo,
     userinfoerror: state.info.userinfoerror,
     userinfoid: state.info.userinfoid,
