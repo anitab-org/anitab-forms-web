@@ -14,7 +14,6 @@ class Profile extends Component {
             error: null,
             submitted: false
         }
-
     }
 
     componentDidMount() {
@@ -72,7 +71,7 @@ class Profile extends Component {
                         <Form>
                             <Form.Input
                                 name="name"
-                                value={this.state.name}
+                                defaultValue={userinfo.name}
                                 onChange={this.onChange}
                                 label='Name'
                                 placeholder='Enter your name...' 
@@ -147,7 +146,6 @@ const mapStateToProps = (state) => ({
     userinfo: state.info.userinfo,
     userinfoerror: state.info.userinfoerror,
     userinfoid: state.info.userinfoid,
-
 })
 
 export default connect(
