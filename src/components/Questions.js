@@ -69,10 +69,10 @@ class Questions extends Component {
             fields: this.state.fields.map((field, index) => {
                 return index === id ? {
                     ...field,
-                    ...field.label = str === 'label' ? e.target.value : field.label,
-                    ...field.description = str === 'description' ? e.target.value : field.description,
-                    ...field.order = str === 'order' ? e.target.value : field.order,
-                    ...field.required = str === 'required' ? !field.required : field.required,
+                    label: str === 'label' ? e.target.value : field.label,
+                    description: str === 'description' ? e.target.value : field.description,
+                    order: str === 'order' ? e.target.value : field.order,
+                    required: str === 'required' ? !field.required : field.required,
                 } : field
             })
         })
