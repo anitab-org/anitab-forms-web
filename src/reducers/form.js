@@ -51,17 +51,17 @@ const formReducer = (state = initialState, action) => {
             return {
                 ...state,
                 postform: action.payload,
-                publishedform: [...state.publishedform.filter(
+                publishedform: [ action.payload, ...state.publishedform.filter(
                     publishedform => publishedform.id !== action.payload.id
-                ), action.payload] 
+                )] 
             }
         case UPDATE_UNPUBLISHED_FORM:
             return {
                 ...state,
                 postform: action.payload,
-                unpublishedform: [...state.unpublishedform.filter(
+                unpublishedform: [action.payload, ...state.unpublishedform.filter(
                     unpublishedform => unpublishedform.id !== action.payload.id
-                ), action.payload] 
+                )] 
             }
         case UNPUBLISH_FORM:
             return {

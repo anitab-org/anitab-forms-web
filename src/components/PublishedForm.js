@@ -85,7 +85,7 @@ class PublishedForm extends Component {
         const data = {
             published_status: 'published'
         }
-        this.props.publishForm(id, data, this.callback)
+        this.props.patchPublishedForm(id, data, this.callback)
     }
 
     closeForm = (e, id) => {
@@ -174,18 +174,14 @@ class PublishedForm extends Component {
                                         <Modal
                                             basic
                                             trigger={<Button onClick={this.closeModal}>CLOSE</Button>}
-                                            open={this.state.openModal}
                                             size='large'
                                             closeOnDimmerClick={false}
                                         >
                                             <Header icon='remove' content='Closing Form Confirmation' />
                                             <Modal.Content>
-                                                Closing this form will stop all responses and you cannot revert your action.
+                                                Closing this form will stop all responses and you cannot revert your action. Click ESC to go back!
                                             </Modal.Content>
                                             <Modal.Actions>
-                                                <Button basic color='red' onClick={this.closeModal}>
-                                                    <Icon name='remove' /> NO
-                                                </Button>
                                                 <Button color='green' onClick={(event) => this.closeForm(event, publishedform.id)}>
                                                     <Icon name='checkmark' /> YES
                                                 </Button>
