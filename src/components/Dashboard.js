@@ -45,6 +45,7 @@ export default class Dashboard extends Component {
                     </Item.Group>
                 </div>
                 <div className='right'>
+                    {/* render components for Zulip and Github stats  */}
                     <Card.Group centered itemsPerRow={1}>
                         <Card>
                             <Zulip />

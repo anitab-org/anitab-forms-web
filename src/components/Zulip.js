@@ -24,6 +24,7 @@ class Zulip extends Component {
         console.log(zulipstat)
         return (
             <>
+            {/* zulip stats of a user  */}
             <Card.Content >
                 <Card.Header >
                     <span>Zulip Stats</span>
@@ -36,6 +37,7 @@ class Zulip extends Component {
                     <b>Last Activity: </b>{zulipstat[0] ? moment(new Date(zulipstat[0].last_activity), "YYYYMMDD").fromNow() : 'Never'}<br/>
                 </Card.Description>
             </Card.Content>
+            {/* show warning if messages are less than 10  */}
             {
                 zulipstat[0] ?
                 zulipstat[0].total_messages < 10 ?
