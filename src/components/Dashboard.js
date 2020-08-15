@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../styles/Dashboard.css'
 import { Item, Card, Header, Divider, Icon } from 'semantic-ui-react'
 import Profile from './Profile'
+import Zulip from './Zulip'
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ export default class Dashboard extends Component {
                 <div className='right'>
                     <Card.Group centered itemsPerRow={1}>
                         <Card>
-                            <Card.Content header='Zulip Stats' />
+                            <Zulip />
                         </Card>
                         <Card>
                             <Card.Content header='Github Stats' />
