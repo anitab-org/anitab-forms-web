@@ -343,7 +343,11 @@ class Questions extends Component {
                 <div className='lower'>
                 <div className='fields'>
 
-                {/* to enable preview feature */}
+                {/* to enable preview feature:
+                if the user is an admin and form is closed, the form is not editable anymore
+                if the user is a student the closed form just displays a message saying that 'the form is closed'.
+                In all other cases the form questions can be viewed and filled by all users and can be modified only by admins.
+                */}
                 {
                     ((this.state.preview && type === 'admin') || type !== 'admin') && (form && form.length !== 0) ?
                     form.published_status !== 'closed' || (form.published_status === 'closed' && type === 'admin') ?
