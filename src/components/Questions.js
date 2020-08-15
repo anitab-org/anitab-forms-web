@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 import '../styles/Questions.css'
 import { Card, Form, TextArea, Checkbox, Button, Icon, Select, Divider, Item, Modal, Dropdown, Label } from 'semantic-ui-react'
+import Preview from './Preview'
 import { forms } from '../urls'
 
 
@@ -39,7 +40,8 @@ class Questions extends Component {
                     value: '',
                     forms: [this.props.match.params.id]
                 }
-            ]
+            ],
+            preview: false
         }
         this.onChange = this.onChange.bind(this)
         this.onNewChange = this.onNewChange.bind(this)
@@ -50,6 +52,15 @@ class Questions extends Component {
         const { id } = this.props.match.params
         await this.props.getQuestions(id)
         await this.props.getForm(id)
+        this.setState({
+            fields: this.props.questions
+        })
+    }
+
+    changePreview = () => {
+        this.setState({
+            preview: !this.state.preview,
+        })
     }
 
     // on change of previously available fields
@@ -58,10 +69,10 @@ class Questions extends Component {
             fields: this.state.fields.map((field, index) => {
                 return index === id ? {
                     ...field,
-                    ...field.label = str === 'label' ? e.target.value : field.label,
-                    ...field.description = str === 'description' ? e.target.value : field.description,
-                    ...field.order = str === 'order' ? e.target.value : field.order,
-                    ...field.required = str === 'required' ? !field.required : field.required,
+                    label: str === 'label' ? e.target.value : field.label,
+                    description: str === 'description' ? e.target.value : field.description,
+                    order: str === 'order' ? e.target.value : field.order,
+                    required: str === 'required' ? !field.required : field.required,
                 } : field
             })
         })
@@ -265,7 +276,6 @@ class Questions extends Component {
 
         // user type condition 
         const type = userinfo ? ( userinfo[0] ? userinfo[0].user_type : null ) : 'student'
-        this.state.fields = questions
         return(
             <div className='questions'>
                 <Item as={Link} to={forms()} className='back'>
@@ -281,7 +291,13 @@ class Questions extends Component {
                                 <Card.Meta>{form.description}</Card.Meta>
                                 <div className='details'>
                                     <div className='first'>
-                                        <span>Published Status: <span className='green'>YES</span></span>
+                                        {/* check for the published status of the form */}
+                                        {
+                                            form.published_status === 'unpublished' ?
+                                            <span>Published Status: <span className='red'>NO</span></span>
+                                            :
+                                            <span>Published Status: <span className='green'>{form.published_status === 'closed' ? form.published_status.toUpperCase() : 'YES'}</span></span>
+                                        }
                                         <span>Fields: <span className='blue'>{form.questions ? form.questions.length : '0'}</span></span>
                                     </div>
                                     <div className='center'>
@@ -327,9 +343,18 @@ class Questions extends Component {
                 <div className='lower'>
                 <div className='fields'>
 
-                {/* editable format of fields */}
+                {/* to enable preview feature:
+                if the user is an admin and form is closed, the form is not editable anymore
+                if the user is a student the closed form just displays a message saying that 'the form is closed'.
+                In all other cases the form questions can be viewed and filled by all users and can be modified only by admins.
+                */}
                 {
-                    form && form.length !== 0 ?
+                    ((this.state.preview && type === 'admin') || type !== 'admin') && (form && form.length !== 0) ?
+                    form.published_status !== 'closed' || (form.published_status === 'closed' && type === 'admin') ?
+                    <Preview id={this.props.match.params.id} />
+                    : <span>Sorry! This form is no longer accepting any responses.</span>
+                    :
+                    // editable format of fields 
                     (
                         questions && questions.length !== 0 ?
                         this.state.fields.map((object, index) =>
@@ -342,6 +367,7 @@ class Questions extends Component {
                                         value={this.state.fields[index].label}
                                         required
                                         onChange={(event) => this.onChange(event, index, 'label')}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                     <Form.Input
                                         control={Select}
@@ -349,12 +375,14 @@ class Questions extends Component {
                                         placeholder="Choose data type"
                                         required
                                         value={this.state.fields[index].data_type}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                     <Form.Input
                                         checked={this.state.fields[index].required}
                                         control={Checkbox}
                                         label="Required"
                                         onChange={(event) => this.onChange(event, index, 'required')}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                 </Form.Group>
                                 <Form.Group widths={6}>
@@ -363,6 +391,7 @@ class Questions extends Component {
                                         control={TextArea}
                                         placeholder="Enter description (optional)"
                                         onChange={(event) => this.onChange(event, index, 'description')}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                     <Form.Input
                                         type='text'
@@ -370,12 +399,14 @@ class Questions extends Component {
                                         placeholder='Order'
                                         value={this.state.fields[index].order}
                                         onChange={(event) => this.onChange(event, index, 'order')}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                     <Form.Input
                                         type='text'
                                         placeholder="Enter options"
                                         value={this.state.fields[index].value}
                                         onChange={(event) => this.handleChange(event, index)}
+                                        readOnly={form.published_status === 'closed'}
                                     />
                                     <Icon name='check' color='green' onClick={(event) => this.addOption(event, index)} />
                                 </Form.Group>
@@ -396,33 +427,45 @@ class Questions extends Component {
                             )
                         : null
                     )
-                    : null
                 }
-                {/* check for user type */}
+                {/* for adding new fields  */}
                 {
-                    type === 'admin' ?
-                    <>
-                    {this.createForm()}
-                    <Icon
-                        onClick={this.increaseField}
-                        name="plus"
-                        size="large"
-                    />
-                    </>
+                    !this.state.preview && type === 'admin' ?
+                        form.published_status !== 'closed' ?
+                        <>
+                        {this.createForm()}
+                        <Icon
+                            onClick={this.increaseField}
+                            name="plus"
+                            size="large"
+                        />
+                        </>
+                        : null
                     : null
                 }
                 </div>
                 {/* check for user type for display of buttons */}
                 {
                     type === 'admin' ?
+                    // save and preview buttons for admin while creating the form
                     (
                         form && form.length !== 0 ?
                         <div className='save'>
-                            <Button color='green' fluid onClick={this.save} >
-                                SAVE
-                            </Button>
-                            <Button primary fluid>
-                                PREVIEW
+                            {/* check for published status of form to prevent unnecessary saving of the already existent fields */}
+                            {
+                                form.published_status === 'closed' ?
+                                null
+                                : 
+                                <Button color='green' fluid onClick={this.save} >
+                                    SAVE
+                                </Button>
+                            }
+                            <Button primary fluid onClick={this.changePreview}>
+                                {
+                                    this.state.preview ?
+                                    <span>EDIT</span> 
+                                    : <span>PREVIEW</span>
+                                }
                             </Button>
                         </div>
                         : null

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getPublishedForm, deletePublishedForm, unpublishForm, patchPublishedForm } from '../actions/form'
+import { getPublishedForm, deletePublishedForm, unpublishForm, publishForm, patchPublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
 import { form } from '../urls'
 import { Card, Button, Message, Modal, Icon, Header, Form, TextArea, Checkbox } from 'semantic-ui-react'
@@ -79,6 +79,13 @@ class PublishedForm extends Component {
             published_status: 'unpublished'
         }
         this.props.unpublishForm(id, data, this.callback)
+    }
+
+    republish = (e, id) => {
+        const data = {
+            published_status: 'published'
+        }
+        this.props.publishForm(id, data, this.callback)
     }
 
     closeForm = (e, id) => {
@@ -186,7 +193,8 @@ class PublishedForm extends Component {
                                         </Modal>
                                         <Button basic color='red' onClick={(event) => this.unpublish(event, publishedform.id)}>UNPUBLISH</Button>
                                         </>
-                                        : null                                        
+                                        : 
+                                        <Button basic color='green' onClick={(event) => this.republish(event, publishedform.id)}>REPUBLISH</Button>                                        
                                     }  
 
                                     {/* Modal for editing the form */}
@@ -281,7 +289,7 @@ class PublishedForm extends Component {
                                 </Card.Content>
                                 :
                                 <Card.Content extra>
-                                    <Button icon basic color='grey' labelPosition='right'>
+                                    <Button icon basic color='grey' labelPosition='right' as={Link} to={form(publishedform.id, 'True')}>
                                         <Icon name='arrow right' />
                                         FILL FORM
                                     </Button>
@@ -303,7 +311,8 @@ PublishedForm.propTypes = {
     publishedform: PropTypes.array.isRequired,
     deletePublishedForm: PropTypes.func.isRequired,
     unpublishForm: PropTypes.func.isRequired,
-    patchPublishedForm: PropTypes.func.isRequired
+    patchPublishedForm: PropTypes.func.isRequired,
+    publishForm: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -313,5 +322,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getPublishedForm, deletePublishedForm, unpublishForm, patchPublishedForm }
+    { getPublishedForm, deletePublishedForm, unpublishForm, publishForm, patchPublishedForm }
 )(PublishedForm)
