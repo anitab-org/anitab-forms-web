@@ -27,6 +27,10 @@ export function submission() {
     return `${urlBaseFrontend()}submission`
 }
 
+export function upload() {
+    return `${urlBaseFrontend()}upload`
+}
+
 // backend URLs
 export function urlBaseBackend() {
     return `http://localhost:8000/api`
