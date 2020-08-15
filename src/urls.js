@@ -27,7 +27,7 @@ export function submission() {
     return `${urlBaseFrontend()}submission`
 }
 
-export function file() {
+export function upload() {
     return `${urlBaseFrontend()}upload`
 }
 

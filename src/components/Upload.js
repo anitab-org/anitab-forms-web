@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-// import { postUpload } from '../actions/upload'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import AWS from 'aws-sdk'
 require('dotenv').config();
 
 export default class Upload extends Component {
+  // This component shows a demo of how the uploading feature will work with file uploads in form responses
     constructor(props) {
         super(props)
         this.state = {
@@ -23,6 +21,7 @@ export default class Upload extends Component {
         })
     }
 
+    // the function which handles the file upload to the AWS S3 bucket
     uploadFile = (file) => {
       AWS.config.update({
         region: 'ap-south-1',
