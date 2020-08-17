@@ -1,4 +1,5 @@
 import {
+    GET_ALL_FORMS,
     GET_PUBLISHED_FORMS,
     GET_UNPUBLISHED_FORMS,
     GET_FORM,
@@ -13,6 +14,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+    form: [],
     publishedform: [],
     unpublishedform: [],
     postform: [],
@@ -25,6 +27,11 @@ const initialState = {
 
 const formReducer = (state = initialState, action) => {
     switch(action.type) {
+        case GET_ALL_FORMS:
+            return {
+                ...state,
+                form: action.payload,
+            };
         case GET_PUBLISHED_FORMS:
             return {
                 ...state,

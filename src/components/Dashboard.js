@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../styles/Dashboard.css'
 import { Item, Card, Header, Divider, Icon } from 'semantic-ui-react'
 import Profile from './Profile'
+import FormsFilled from './FormsFilled'
 
 export default class Dashboard extends Component {
     constructor(props) {
@@ -39,6 +40,7 @@ export default class Dashboard extends Component {
                         <Item>
                             <Item.Content>
                                 <Header>Forms Filled</Header>
+                                <FormsFilled />
                             </Item.Content>
                         </Item>
                     </Item.Group>

@@ -23,3 +23,8 @@ export const FORM_ERRORS = 'FORM_ERRORS';
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const POST_QUESTIONS = 'POST_QUESTIONS';
 export const QUESTION_ERROR = 'QUESTION_ERROR';
+export const GET_FORMS = 'GET_FORMS';
+export const GET_ALL_FORMS = 'GET_ALL_FORMS';
+export const GET_SUBMISSIONS = 'GET_SUBMISSIONS';
+export const SUBMISSION_ERROR = 'SUBMISSION_ERROR';
+

@@ -5,6 +5,7 @@ import {
     urlFormId
 } from '../urls'
 import {
+    GET_ALL_FORMS,
     GET_PUBLISHED_FORMS,
     GET_UNPUBLISHED_FORMS,
     GET_FORM,
@@ -17,6 +18,27 @@ import {
     DELETE_PUBLISHED_FORM,
     FORM_ERRORS
 } from './types'
+
+export const getAllForms = () => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`,
+            }
+        }
+        const res = await axios.get(urlPostForm(), config);
+        dispatch({
+            type: GET_ALL_FORMS,
+            payload: res.data
+        });
+    }
+    catch (err) {
+        dispatch({
+            type: FORM_ERRORS,
+            payload: err.response.data
+        })
+    }
+}
 
 export const getPublishedForm = (status) => async dispatch => {
     try {
