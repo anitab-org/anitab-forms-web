@@ -1,8 +1,10 @@
 import {
     GET_FORMS,
     GET_SUBMISSIONS,
+    UPDATE_SUBMISSION,
     SUBMISSION_ERROR
 } from '../actions/types';
+import { submission } from '../urls';
 
 const initialState = {
     formsfilled: [],
@@ -21,6 +23,13 @@ const submissionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 submissions: action.payload,
+            };
+        case UPDATE_SUBMISSION:
+            return {
+                ...state,
+                submissions: [action.payload, ...state.submissions.filter(
+                    submission => submission.id !== action.payload.id
+                )],
             };
         case SUBMISSION_ERROR:
             return {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllSubmissions } from '../actions/submission'
+import { getAllSubmissions, updateSubmission } from '../actions/submission'
 import { getInfo } from '../actions/info'
 import { getAllForms } from '../actions/form'
 import PropTypes from 'prop-types'
@@ -16,13 +16,6 @@ const options = [
     { key: 'waitlisted', text: 'Waitlisted', value: 'waitlisted'},
     { key: 'pending', text: 'Pending', value: 'pending'},
 ]
-
-const colorStyles = {
-    option: (base, state) => ({
-        ...base,
-        color: 'red'
-    })
-}
 
 class Submission extends Component {
     constructor(props) {
@@ -40,27 +33,55 @@ class Submission extends Component {
     }
 
     onSearchChange = (e) => {
+        if(e.target.value === ''){
+            this.props.getAllSubmissions(undefined, this.state.form_id)
+        }
+        else {
+            this.props.getAllSubmissions(e.target.value, this.state.form_id)
+        }
         this.setState({
             user_name: e.target.value,
         })
-        this.props.getAllSubmissions(this.state.user_name, this.state.form_id)
     }
 
     formChange = (e, data) => {
+        if(data.value.length === 0){
+            this.props.getAllSubmissions(this.state.user_name, undefined)
+        }
+        else {
+            this.props.getAllSubmissions(this.state.user_name, data.value)
+        }
         this.setState({
             form_id: data.value.length !== 0 ? data.value : undefined
         })
-        this.props.getAllSubmissions(this.state.user_name, this.state.form_id)
+    }
+
+    statusChange = (e, dt, id) => {
+        const data = {
+            acceptance_status: dt.value
+        }
+        console.log(data)
+        this.props.updateSubmission(id, data, this.callback)
+    }
+
+    callback = () => {
+        this.setState({
+            error: this.props.submissionerror?true:false
+        })
+        setTimeout(() => {
+            this.setState({
+                error: null
+            })
+        }, 5000)
     }
     
     render() {
-        const { submissions, forms } = this.props
-        const formOptions = forms.map(form => ({
+        const { submissions } = this.props
+        const formOptions = this.props.forms.map(form => ({
             key: form.id,
             text: form.name,
             value: form.id
         }))
-        console.log(this.state)
         return(
             <div className='submission'>
                 <div className='searches'>
@@ -77,21 +98,23 @@ class Submission extends Component {
                         onChange={this.formChange}
                     />
                 </div>
+                <div className='submissionlist'>
                 {
                     submissions && submissions.length !== 0 ?
                     <Grid celled>
                     {
                         submissions.map(submission =>
-                            <Grid.Row>
+                            <Grid.Row key={submission.id}>
                                 <Grid.Column width={2}>{submission.user.user_name[0] ? submission.user.user_name[0] : submission.user.username}</Grid.Column>
                                 <Grid.Column width={2}>{submission.form.name}</Grid.Column>
                                 <Grid.Column width={10}>{submission.user.username}</Grid.Column>
-                                <Grid.Column width={2} textAlign='center' >
+                                <Grid.Column className='last' width={2} textAlign='center' color={submission.acceptance_status === 'accepted' ? 'green' : (submission.acceptance_status === 'rejected' ? 'red' : (submission.acceptance_status === 'waitlisted' ? 'grey' : 'white'))} >
                                     <Dropdown
                                         inline
                                         options={options}
                                         defaultValue={submission.acceptance_status}
-                                        styles={colorStyles}
+                                        onChange={(event, data) => this.statusChange(event, data, submission.id)}
+                                        className='green'
                                     />
                                 </Grid.Column>
                             </Grid.Row>
@@ -101,6 +124,7 @@ class Submission extends Component {
                     </Grid>
                     : <span>No submissions yet.</span>
                 }
+                </div>
             </div>
         )
     }
@@ -121,5 +145,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getAllSubmissions, getInfo, getAllForms }
+    { getAllSubmissions, getInfo, getAllForms, updateSubmission }
 )(Submission)

@@ -18,7 +18,6 @@ const initialState = {
     publishedform: [],
     unpublishedform: [],
     postform: [],
-    form: [],
     updatepublished: [],
     updateunpublished: [],
     formerror: null,

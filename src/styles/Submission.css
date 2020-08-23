@@ -3,7 +3,20 @@
     margin-right: 5vw;
 }
 
+.submissionlist {
+    margin-top: 1em;
+    padding-right: 1em;
+    padding-left: 0.2em;
+    overflow-y: auto;
+    height: 65vh;
+}
+
 .searches {
     display: flex;
     flex-direction: row;
+}
+
+.last {
+    margin-top: 0em !important;
+    margin-bottom: 0em !important;
 }

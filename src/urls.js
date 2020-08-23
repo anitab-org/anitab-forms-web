@@ -79,6 +79,10 @@ export function urlFormsFilled() {
     return `${urlBaseBackend()}/feedback/`
 }
 
+export function urlFormsFilledId(id) {
+    return `${urlBaseBackend()}/feedback/${id}/`
+}
+
 export function urlSubmissions(user_name, form_id) {
     if(user_name === undefined && form_id === undefined)
         return `${urlBaseBackend()}/feedback/`
