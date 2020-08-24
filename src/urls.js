@@ -71,6 +71,6 @@ export function urlPatchQuestions() {
     return `${urlBaseBackend()}/questions/`
 }
 
-export function urlZulip() {
+export function urlZulipStats() {
     return `${urlBaseBackend()}/zulip_stat/`
 }

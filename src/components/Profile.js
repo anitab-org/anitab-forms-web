@@ -67,10 +67,10 @@ class Profile extends Component {
             {
                 userinfo && userinfo.length === 1 ?
                 userinfo.map(userinfo => 
-                    <>
+                    <div  key={userinfo.id}>
                     {
                         this.props.edit === true ?
-                        <Form key={userinfo.id}>
+                        <Form>
                             <Form.Input
                                 name="name"
                                 value={this.state.name ? this.state.name : userinfo.name}
@@ -110,7 +110,7 @@ class Profile extends Component {
                             <span><b>Zulip ID: </b>{userinfo.zulip_id}</span>
                         </div>
                     }
-                    </>
+                    </div>
                     )
                 : 
                 <>
@@ -125,9 +125,8 @@ class Profile extends Component {
                         'Please enter this correctly as this will be used to get your Zulip stats, and is not changeable in future.',
                         'If you have not signed up on Zulip yet, sign up first and then enter this information!',
                         ]}
-                        key={userinfo.id}
                     />
-                    <Form key={userinfo.id}> 
+                    <Form> 
                         <Form.Input
                             name="name"
                             value={this.state.name}

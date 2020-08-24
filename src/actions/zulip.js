@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {
-    urlZulip
+    urlZulipStats
 } from '../urls'
 import {
     GET_ZULIP_STAT,
@@ -15,7 +15,7 @@ export const getZulipStat = () => async dispatch => {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.get(urlZulip(), config);
+        const res = await axios.get(urlZulipStats(), config);
         dispatch({
             type: GET_ZULIP_STAT,
             payload: res.data
@@ -36,7 +36,7 @@ export const updateZulipStat = (data) => async dispatch => {
                 Authorization: `Bearer ${localStorage.token}`,
             }
         }
-        const res = await axios.post(urlZulip(),data, config);
+        const res = await axios.post(urlZulipStats(),data, config);
         dispatch({
             type: UPDATE_ZULIP_STAT,
             payload: res.data

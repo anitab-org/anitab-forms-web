@@ -22,6 +22,7 @@ export default class Dashboard extends Component {
         return (
             <div className='dashboard'>
                 <div className='left'>
+                    {/* render profile details and list of forms filled by user */}
                     <Item.Group>
                         <Item>
                             <Item.Content>
