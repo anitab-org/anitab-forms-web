@@ -12,11 +12,11 @@ const initialState = {
 
 const answerReducer = (state = initialState, action) => {
     switch(action.type) {
-        // case GET_ANSWERS:
-        //     return {
-        //         ...state,
-        //         questions: action.payload,
-        //     };
+        case GET_ANSWERS:
+            return {
+                ...state,
+                answers: action.payload,
+            };
         case POST_ANSWERS:
             return {
                 ...state,
