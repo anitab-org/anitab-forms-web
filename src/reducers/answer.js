@@ -21,7 +21,7 @@ const answerReducer = (state = initialState, action) => {
             return {
                 ...state,
                 postanswers: action.payload,
-                // questions: action.payload
+                answers: action.payload
             };
         case ANSWER_ERROR:
             return {

@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 import '../styles/Questions.css'
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
 import { Form, TextArea, Divider, Button, Select } from 'semantic-ui-react'
-import { stat } from 'fs'
+import AWS from 'aws-sdk'
+require('dotenv').config();
 
 class Preview extends Component {
     constructor(props) {
@@ -18,6 +19,8 @@ class Preview extends Component {
             time: '',
             answers: [],
             error: null,
+            success: false,
+            file: ''
         }
     }
 
@@ -65,6 +68,14 @@ class Preview extends Component {
         }
     }
 
+    handleFileChange = (e) => {
+        this.setState({
+            success: false,
+            url: '',
+            file: e.target.files[0].name
+        })
+    }
+
     onSelect = (e, id, {value}) => {
         this.setState({
             answers: this.state.answers.map((answer, index) => {
@@ -86,19 +97,63 @@ class Preview extends Component {
             })
         })
     }
-
-    checkboxChange = (e, data, id, optionindex) => {
-        console.log(data)
+    
+    checkboxChange = (e, id, optionindex) => {
         this.setState({
             answers: this.state.answers.map((answer, index) => {
                 return id === index ? {
                     ...answer,
-                    value: e.target.checked ? [...this.state.answers[id].value, e.target.value] : [...this.state.answers[id].value.filter(
+                    value: e.target.checked ? [...this.state.answers[id].value.filter((value, idx) => idx !== optionindex), e.target.value] : [...this.state.answers[id].value.filter(
                         (value, idx) => idx !== optionindex
                     )]
                 } : answer
             })
         })
+    }
+
+    uploadFile = (file, id) => {
+        AWS.config.update({
+          region: 'ap-south-1',
+          accessKeyId: process.env.REACT_APP_AWSAccessKeyId,
+          secretAccessKey: process.env.REACT_APP_AWSSecretKey,
+        })
+        const send_file = file
+        file = file.split('.')
+        const params = {
+          ACL: 'public-read',
+          Key: file[0],
+          ContentType: 'application/octet-stream',
+          Body: send_file,
+          Bucket: process.env.REACT_APP_Bucket
+        }
+        var myBucket = new AWS.S3()
+        myBucket.putObject(params)
+          .on('httpUploadProgress', (evt) => {
+            this.setState({
+                answers: this.state.answers.map((answer, index) => {
+                    return id === index ? {
+                        ...answer,
+                        value: `https://${process.env.REACT_APP_Bucket}.s3.amazonaws.com/${file[0]}`,
+                    } : answer
+                }),
+                progress: Math.round((evt.loaded / evt.total) * 100),
+            })
+          })
+          .send((err) => {
+             if (err) {
+                console.log(err)
+             }
+          })
+        
+          this.setState({
+              answers: this.state.answers.map((answer, index) => {
+                  return id === index ? {
+                      ...answer,
+                      value: this.state.url,
+                  } : answer
+              }),
+              url: ''
+          })
     }
 
     submit = () => {
@@ -123,7 +178,6 @@ class Preview extends Component {
     render () {
         const { questions } = this.props
         const { answers } = this.state
-        console.log(answers)
         return (
             <Form className='preview'>
             {/* question type view based on each data type  */}
@@ -210,8 +264,8 @@ class Preview extends Component {
                                 type='checkbox'
                                 key={id}
                                 value={option}
-                                checked={answers[index] ? this.value === answers[index].value[id] : false}
-                                onChange={(event, data) => this.checkboxChange(event, data, index, id)}
+                                checked={answers[index] ? answers[index].value[id] === option : false}
+                                onChange={(event) => this.checkboxChange(event, index, id)}
                             />
                                 )
                         }
@@ -256,7 +310,10 @@ class Preview extends Component {
                             label={question.order + '. ' + question.label}
                             required={question.required}
                             type='file'
+                            onChange={this.handleFileChange}
+                            ref={fileInput => (this.fileInput = fileInput)}
                         />
+                        <Button basic onClick={(file) => this.uploadFile(this.state.file, index)}>UPLOAD</Button>
                         <span>{question.description}</span>
                         </div>
                         : null
