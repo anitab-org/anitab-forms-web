@@ -71,7 +71,7 @@ class Profile extends Component {
                         <Form>
                             <Form.Input
                                 name="name"
-                                value={this.state.name ? this.state.name : userinfo.name}
+                                defaultValue={this.state.name ? this.state.name : userinfo.name}
                                 onChange={this.onChange}
                                 label='Name'
                                 placeholder='Enter your name...' 
