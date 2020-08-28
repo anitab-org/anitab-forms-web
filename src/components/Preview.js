@@ -314,6 +314,11 @@ class Preview extends Component {
                             ref={fileInput => (this.fileInput = fileInput)}
                         />
                         <Button basic onClick={(file) => this.uploadFile(this.state.file, index)}>UPLOAD</Button>
+                        {
+                            answers[index] ? 
+                            <a href={answers[index].value}>File URL</a>
+                            : null
+                        }
                         <span>{question.description}</span>
                         </div>
                         : null
