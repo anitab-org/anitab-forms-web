@@ -5,9 +5,10 @@ import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import Forms from './components/Forms'
 import Submission from './components/Submission'
+import SubmissionProfile from './components/SubmissionProfile'
 import Questions from './components/Questions'
-import { login, register, dashboard, forms, upload, submission, urlBaseFrontend } from './urls'
-import Upload from './components/Upload'
+import Preview from './components/Preview'
+import { login, register, dashboard, forms, submission, urlBaseFrontend, urlBaseBackend } from './urls'
 import {PrivateRoute} from './PrivateRoute'
 import { AuthRoute } from './AuthRoute'
 
@@ -19,10 +20,11 @@ export default class Routes extends Component {
                 <PrivateRoute exact path={dashboard()} component={Dashboard} />
                 <PrivateRoute exact path={forms()} component={Forms} />
                 <PrivateRoute exact path={submission()} component={Submission} />
+                <PrivateRoute exact path={`${submission()}/:id`} component={SubmissionProfile} />
                 <PrivateRoute exact path={`${urlBaseFrontend()}form/:id`} component={Questions} />
+                <PrivateRoute exact path={`${urlBaseFrontend()}preview/:form_id/:user_id`} component={Preview} />
                 <AuthRoute path={login()} component={Login} />
                 <AuthRoute path={register()} component={Register} />
-                <Route path={upload()} component={Upload} />
                 <Route render={() => <Redirect to='/' />} />    
             </Switch>
             </>

@@ -20,3 +20,8 @@
     margin-top: 0em !important;
     margin-bottom: 0em !important;
 }
+
+.displaydashboard {
+    margin-left: -5vw;
+    margin-right: -5vw;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getInfo, postInfo, patchInfo } from '../actions/info'
+import { getInfo, postInfo, patchInfo, getInfoId } from '../actions/info'
 import PropTypes from 'prop-types'
 import { Form, Icon, Message } from 'semantic-ui-react'
 import '../styles/Profile.css'
@@ -17,7 +17,12 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        this.props.getInfo()   
+        if(this.props.id){
+            this.props.getInfoId(this.props.id)
+        }
+        else{
+            this.props.getInfo() 
+        } 
     }
 
     submitInfo = () => {
@@ -65,7 +70,7 @@ class Profile extends Component {
             {
                 userinfo && userinfo.length === 1 ?
                 userinfo.map(userinfo => 
-                    <>
+                    <div key={userinfo.id}>
                     {
                         this.props.edit === true ?
                         <Form>
@@ -98,7 +103,7 @@ class Profile extends Component {
                             <span><b>Role: </b>{userinfo.user_type}</span>
                         </div>
                     }
-                    </>
+                    </div>
                     )
                 : 
                 <>
@@ -137,7 +142,6 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-    userinfo: PropTypes.func.isRequired,
     postInfo: PropTypes.func.isRequired,
     patchInfo: PropTypes.func.isRequired
 };
@@ -150,5 +154,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getInfo, postInfo, patchInfo }
+    { getInfo, postInfo, patchInfo, getInfoId }
 )(Profile)

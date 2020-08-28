@@ -28,11 +28,16 @@ export default class Dashboard extends Component {
                                 <Item.Header>
                                     <div className='head'> 
                                         <span>Profile</span>
-                                        <Icon name={this.state.edit ? 'x' : 'pencil'} color='grey' onClick={this.handleEdit} />
+                                        {
+                                            this.props.id ?
+                                            null
+                                            : <Icon name={this.state.edit ? 'x' : 'pencil'} color='grey' onClick={this.handleEdit} />
+                                        }
+                                        
                                     </div>
                                 </Item.Header>
                                 <Item.Description>
-                                    <Profile edit={this.state.edit}/>
+                                    <Profile edit={this.state.edit} id={this.props.id}/>
                                 </Item.Description>
                             </Item.Content>
                         </Item>
@@ -40,7 +45,7 @@ export default class Dashboard extends Component {
                         <Item>
                             <Item.Content>
                                 <Header>Forms Filled</Header>
-                                <FormsFilled />
+                                <FormsFilled  id={this.props.id}/>
                             </Item.Content>
                         </Item>
                     </Item.Group>

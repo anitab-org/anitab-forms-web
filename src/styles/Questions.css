@@ -44,3 +44,8 @@
 .preview {
     margin-right: 0.5em;
 }
+
+.adminpreview {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}

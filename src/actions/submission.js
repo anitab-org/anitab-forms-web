@@ -2,7 +2,8 @@ import axios from 'axios'
 import {
     urlFormsFilled,
     urlSubmissions,
-    urlFormsFilledId
+    urlFormsFilledId,
+    urlFormsFilledUser
 } from '../urls'
 import {
     GET_FORMS,
@@ -19,6 +20,27 @@ export const getFormsFilled = () => async dispatch => {
             }
         }
         const res = await axios.get(urlFormsFilled(), config);
+        dispatch({
+            type: GET_FORMS,
+            payload: res.data
+        });
+    }
+    catch (err) {
+        dispatch({
+            type: SUBMISSION_ERROR,
+            payload: err.response.data
+        })
+    }
+}
+
+export const getFormsFilledUser = (id) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`,
+            }
+        }
+        const res = await axios.get(urlFormsFilledUser(id), config);
         dispatch({
             type: GET_FORMS,
             payload: res.data

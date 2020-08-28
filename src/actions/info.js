@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
     urlInfo,
+    urlInfoId,
     urlPatchInfo
 } from '../urls'
 import {
@@ -18,6 +19,27 @@ export const getInfo = () => async dispatch => {
             }
         }
         const res = await axios.get(urlInfo(), config);
+        dispatch({
+            type: GET_USER_INFO,
+            payload: res.data
+        });
+    }
+    catch (err) {
+        dispatch({
+            type: USER_INFO_ERRORS,
+            payload: err.response.data
+        })
+    }
+}
+
+export const getInfoId = (id) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`,
+            }
+        }
+        const res = await axios.get(urlInfoId(id), config);
         dispatch({
             type: GET_USER_INFO,
             payload: res.data

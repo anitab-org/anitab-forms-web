@@ -5,8 +5,8 @@ import { getAllSubmissions, updateSubmission } from '../actions/submission'
 import { getInfo } from '../actions/info'
 import { getAllForms } from '../actions/form'
 import PropTypes from 'prop-types'
-import { form, submission } from '../urls'
-import { Card, Button, Message, Modal, Icon, Header, Form, TextArea, Checkbox, Grid, Dropdown, Search, Input } from 'semantic-ui-react'
+import { submissionprofile, submission } from '../urls'
+import { Grid, Dropdown, Input } from 'semantic-ui-react'
 import moment from 'moment'
 import '../styles/Submission.css'
 
@@ -82,6 +82,7 @@ class Submission extends Component {
             text: form.name,
             value: form.id
         }))
+        console.log(submissions)
         return(
             <div className='submission'>
                 <div className='searches'>
@@ -105,10 +106,10 @@ class Submission extends Component {
                     {
                         submissions.map(submission =>
                             <Grid.Row key={submission.id}>
-                                <Grid.Column width={2}>{submission.user.user_name[0] ? submission.user.user_name[0] : submission.user.username}</Grid.Column>
+                                <Grid.Column width={2} as={Link} to={submissionprofile(submission.user.id)}>{submission.user.user_name[0] ? submission.user.user_name[0] : submission.user.username}</Grid.Column>
                                 <Grid.Column width={2}>{submission.form.name}</Grid.Column>
                                 <Grid.Column width={10}>{submission.user.username}</Grid.Column>
-                                <Grid.Column className='last' width={2} textAlign='center' color={submission.acceptance_status === 'accepted' ? 'green' : (submission.acceptance_status === 'rejected' ? 'red' : (submission.acceptance_status === 'waitlisted' ? 'grey' : 'white'))} >
+                                <Grid.Column className='last' width={2} textAlign='center' color={submission.acceptance_status === 'accepted' ? 'green' : (submission.acceptance_status === 'rejected' ? 'red' : (submission.acceptance_status === 'waitlisted' ? 'grey' : null))} >
                                     <Dropdown
                                         inline
                                         options={options}

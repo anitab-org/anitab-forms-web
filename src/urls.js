@@ -23,8 +23,16 @@ export function form(id) {
     return `${urlBaseFrontend()}form/${id}`
 }
 
+export function preview(form_id, user_id) {
+    return `${urlBaseFrontend()}preview/${form_id}/${user_id}`
+}
+
 export function submission() {
     return `${urlBaseFrontend()}submission`
+}
+
+export function submissionprofile(id) {
+    return `${urlBaseFrontend()}submission/${id}`
 }
 
 export function upload() {
@@ -49,6 +57,10 @@ export function urlRegister() {
 
 export function urlInfo() {
     return `${urlBaseBackend()}/info/`
+}
+
+export function urlInfoId(user_id) {
+    return `${urlBaseBackend()}/info/?user_id=${user_id}`
 }
 
 export function urlPatchInfo(id) {
@@ -77,6 +89,10 @@ export function urlPatchQuestions() {
 
 export function urlFormsFilled() {
     return `${urlBaseBackend()}/feedback/`
+}
+
+export function urlFormsFilledUser(user_id) {
+    return `${urlBaseBackend()}/feedback/?user_id=${user_id}`
 }
 
 export function urlFormsFilledId(id) {

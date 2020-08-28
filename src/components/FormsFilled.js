@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getFormsFilled } from '../actions/submission'
+import { getFormsFilled, getFormsFilledUser } from '../actions/submission'
 import PropTypes from 'prop-types'
-import { form } from '../urls'
+import { preview } from '../urls'
 import { Card, Button, Message, Modal, Icon, Header, Form, TextArea, Checkbox } from 'semantic-ui-react'
 import moment from 'moment'
-import '../styles/Form.css'
+import '../styles/Dashboard.css'
 
 class FormsFilled extends Component {
     constructor(props) {
@@ -14,14 +14,20 @@ class FormsFilled extends Component {
     }
 
     componentDidMount() {
-        this.props.getFormsFilled()
+        if(this.props.id){
+            this.props.getFormsFilledUser(this.props.id)
+        }
+        else{
+            this.props.getFormsFilled()
+        }
     }
     
     render() {
         console.log(this.props.formsfilled)
         const { formsfilled } = this.props
         return(
-            <Card.Group className='formsfilled'>
+            <div className='formsfilled'>
+            <Card.Group>
             {
                 formsfilled && formsfilled.length !== 0 ?
                 formsfilled.map(formsfilled =>
@@ -46,7 +52,7 @@ class FormsFilled extends Component {
                             </div>
                         </Card.Content>
                         <Card.Content extra>
-                            <Button icon basic color='grey' labelPosition='right' as={Link} to={form(formsfilled.form.id)}>
+                            <Button icon basic color='grey' labelPosition='right' as={Link} to={preview(formsfilled.form.id, formsfilled.user.id)}>
                                 <Icon name='arrow right' />
                                 VIEW FORM
                             </Button>
@@ -56,6 +62,7 @@ class FormsFilled extends Component {
                 : <span>No forms filled yet.</span>
             }
             </Card.Group>
+            </div>
         )
     }
 }
@@ -71,5 +78,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getFormsFilled }
+    { getFormsFilled, getFormsFilledUser }
 )(FormsFilled)

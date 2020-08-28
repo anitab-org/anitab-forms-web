@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getQuestions } from '../actions/question'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import '../styles/Questions.css'
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
-import { Form, TextArea, Divider } from 'semantic-ui-react'
+import { Form, TextArea, Divider, Item, Icon } from 'semantic-ui-react'
+import { submissionprofile } from '../urls'
 
 class Preview extends Component {
     constructor(props) {
@@ -17,7 +19,12 @@ class Preview extends Component {
     }
 
     async componentDidMount() {
-        await this.props.getQuestions(this.props.id)
+        if(this.props.match.params.form_id){
+            await this.props.getQuestions(this.props.match.params.form_id)
+        }
+        else{
+            await this.props.getQuestions(this.props.id)
+        }
     }
 
     handleChange = (event, {name, value}) => {
@@ -30,7 +37,17 @@ class Preview extends Component {
         const { questions } = this.props
         const { value } = this.state
         return (
-            <Form className='preview'>
+            <div className={this.props.id ? 'preview' : 'adminpreview'}>
+                {
+                    this.props.id ?
+                    null
+                    :
+                    <Item as={Link} to={submissionprofile(this.props.match.params.user_id)} className='back'>
+                        <Icon name='arrow left' />
+                        <Item.Content>Back to Profile</Item.Content>
+                    </Item>
+                }
+            <Form>
             {/* question type view based on each data type  */}
             {
                 questions && questions.length !== 0 ?
@@ -167,6 +184,7 @@ class Preview extends Component {
                 : null
             }
             </Form>
+            </div>
         )
     }
 }
