@@ -1,9 +1,9 @@
 # Contributing Guidelines
 
--   You can join us on [AnitaB.org Open Source Zulip](https://anitab-org.zulipchat.com/). Each active repo has its own stream to direct questions to (for example #powerup or #portal). Bridge in Tech stream is _blank_.
+-   You can join us on [AnitaB.org Open Source Zulip](https://anitab-org.zulipchat.com/). Each active repo has its own stream to direct questions to (for example #powerup or #portal). Open Source Programs stream is _#open-source-progs_.
 -   Remember that this is an inclusive community, committed to creating a safe, positive environment. See the full [Code of Conduct](http://www.systers.io/code-of-conduct.html).
--   Follow our [Commit Message Style Guide](https://github.com/anitab-org/bridge-in-tech-web/wiki/Commit-Message-Style-Guide) when you commit your changes.
--   Please consider raising an issue before submitting a pull request (PR) to solve a problem that is not present in our [issue tracker](https://github.com/anitab-org/bridge-in-tech-web/issues). This allows maintainers to first validate the issue you are trying to solve and also reference the PR to a specific issue.
+-   Follow our [Commit Message Style Guide](https://github.com/anitab-org/open-source-programs-web/wiki/Commit-Message-Style-Guide) when you commit your changes.
+-   Please consider raising an issue before submitting a pull request (PR) to solve a problem that is not present in our [issue tracker](https://github.com/anitab-org/open-source-programs-web/issues). This allows maintainers to first validate the issue you are trying to solve and also reference the PR to a specific issue.
 -   When developing a new feature, include at least one test when applicable.
 -   When submitting a PR, please follow [this template](PULL_REQUEST_TEMPLATE.md) (which will probably be already filled up once you create the PR).
 -   When submitting a PR with changes to user interface (e.g.: new screen, ...), please add screenshots to the PR description.
