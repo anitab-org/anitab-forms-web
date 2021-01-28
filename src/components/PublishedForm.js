@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { getPublishedForm, deletePublishedForm, unpublishForm, publishForm, patchPublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
 import { form } from '../urls'
-import { Card, Button, Message, Modal, Icon, Header, Form, TextArea, Checkbox } from 'semantic-ui-react'
+import { Card, Button, Message, Modal, Icon, Header, Form, TextArea } from 'semantic-ui-react'
 import moment from 'moment'
 import '../styles/Form.css'
 
