@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import {
     urlPostForm,
@@ -213,7 +214,7 @@ export const deletePublishedForm = (id, callback) => async dispatch => {
         const res = await axios.delete(urlFormId(id), config);
         dispatch({
             type: DELETE_PUBLISHED_FORM,
-            payload: id
+            payload: res.id
         });
         callback()
     }
@@ -237,7 +238,7 @@ export const deleteUnpublishedForm = (id, callback) => async dispatch => {
         const res = await axios.delete(urlFormId(id), config);
         dispatch({
             type: DELETE_UNPUBLISHED_FORM,
-            payload: id
+            payload: res.id
         });
         callback()
     }
