@@ -1,10 +1,11 @@
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { postRegister } from '../actions/login'
 import { Form, Grid, Image, Divider, Icon, Message } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import logIn from './../styles/Login.css'
+// import logIn from './../styles/Login.css'
 import { login } from '../urls'
 import orgLogo from '../assets/org-logo.jpg'
 
@@ -25,7 +26,7 @@ class Register extends Component {
             error: null,
             submitted: false,
             emailregexp: /\S+@\S+\.\S+/,
-            passwordregexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;])[A-Za-z\d-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;]{8,}$/
+            passwordregexp: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;])[A-Za-z\d-~`!@#$%^&*()_+=><,.|?/\\{}\[\]"':;]{8,}$/ //eslint-disable-line
         };
         this.submitRegister = this.submitRegister.bind(this);
         this.onChange = this.onChange.bind(this);
