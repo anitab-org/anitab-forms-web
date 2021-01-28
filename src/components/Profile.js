@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getInfo, postInfo, patchInfo } from '../actions/info'
 import PropTypes from 'prop-types'
-import { Form, Icon, Message } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 import '../styles/Profile.css'
 
 class Profile extends Component {
@@ -57,9 +57,18 @@ class Profile extends Component {
 
     render() {
         const { userinfo } = this.props
-        {
-            userinfo && userinfo.length === 1 ? this.state.update = true : this.state.update = false
+        
+        if (userinfo && userinfo.length === 1) {
+            this.setState({
+                update : true
+            })
+        } else {
+            this.setState({
+                update: false
+            })
         }
+            // userinfo && userinfo.length === 1 ? this.state.update = true : this.state.update = false
+        
         return (
             <>
             {
