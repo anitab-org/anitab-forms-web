@@ -42,7 +42,16 @@ class Navbar extends Component {
         const result = this.props.userinfo
         const { user } = this.props
         const { isLoggedIn } = this.state
-        localStorage.getItem('token') !== null ? this.state.isLoggedIn = true : this.state.isLoggedIn = false
+        if (localStorage.getItem('token') !== null) {
+            this.setState({
+                isLoggedIn: true
+            })
+        } else {
+            this.setState({
+                isLoggedIn: false
+            })
+        }
+        // localStorage.getItem('token') !== null ? this.state.isLoggedIn = true : this.state.isLoggedIn = false
         return (
             <div className='navbar'>
                 <span className='main'>Open Source Programs</span>
