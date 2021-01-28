@@ -5,7 +5,7 @@ import moment from 'moment'
 import { getUnpublishedForm, deleteUnpublishedForm, publishForm, patchUnpublishedForm } from '../actions/form'
 import PropTypes from 'prop-types'
 import { form } from '../urls'
-import { Card, Icon, Message, Button, Modal, Header, Form, TextArea, Select } from 'semantic-ui-react'
+import { Card, Icon, Message, Button, Modal, Header, Form, TextArea } from 'semantic-ui-react'
 import '../styles/Form.css'
 
 class UnpublishedForm extends Component {
