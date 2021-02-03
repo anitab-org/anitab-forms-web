@@ -5,7 +5,6 @@ import { postRegister } from '../actions/login'
 import { Form, Grid, Image, Divider, Icon, Message } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-// import logIn from './../styles/Login.css'
 import { login } from '../urls'
 import orgLogo from '../assets/org-logo.jpg'
 
