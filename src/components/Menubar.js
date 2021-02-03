@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { getInfo } from '../actions/info'
-import PropTypes from 'prop-types'
-import { Menu } from 'semantic-ui-react'
-import { dashboard, forms, submission } from '../urls'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getInfo } from '../actions/info';
+import PropTypes from 'prop-types';
+import { Menu } from 'semantic-ui-react';
+import { dashboard, forms, submission } from '../urls';
 // import menubar from './../styles/Menubar.css'
 
 class Menubar extends Component {
