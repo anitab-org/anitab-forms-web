@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { postLogin } from '../actions/login'
-import { Form, Grid, Image, Divider, Icon, Message, Button } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { postLogin } from '../actions/login';
+import { Form, Grid, Image, Divider, Icon, Message, Button } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 // import login from './../styles/Login.css'
-import orgLogo from '../assets/org-logo.jpg'
-import { register } from '../urls'
+import orgLogo from '../assets/org-logo.jpg';
+import { register } from '../urls';
 
 class Login extends Component {
     constructor(props){
