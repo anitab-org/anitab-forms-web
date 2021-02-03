@@ -23,7 +23,7 @@ export const postLogin = (data, callback) => async dispatch => {
             payload: res.data
         });
 
-        // set token value
+       
         localStorage.setItem('token', res.data.access)
         callback()
     }
