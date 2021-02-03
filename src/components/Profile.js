@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getInfo, postInfo, patchInfo } from '../actions/info'
-import PropTypes from 'prop-types'
-import { Form, Message } from 'semantic-ui-react'
-import '../styles/Profile.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getInfo, postInfo, patchInfo } from '../actions/info';
+import PropTypes from 'prop-types';
+import { Form, Message } from 'semantic-ui-react';
+import '../styles/Profile.css';
 
 class Profile extends Component {
     constructor(props) {
