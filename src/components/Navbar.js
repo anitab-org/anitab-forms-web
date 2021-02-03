@@ -43,20 +43,7 @@ class Navbar extends Component {
         const result = this.props.userinfo
         const { user } = this.props
         const { isLoggedIn } = this.state
-        // if (localStorage.getItem('token') !== null ) {
-        //     this.setState({
-        //         isLoggedIn: true
-        //     })
-        // } else {
-        //     this.setState({
-        //         isLoggedIn: false
-        //     })
-        // }
-        // localStorage.getItem('token') !== null ? this.setState({
-        //     isLoggedIn: true
-        // }) : this.setState({
-        //     isLoggedIn:  false
-        // })
+       
 
 //    let loginButton = localStorage.getItem('token') !== null? this.state.isLoggedIn = true: this.state.isLoggedIn = false;
 //    this.setState({loginButton: loginButton});
