@@ -1,9 +1,9 @@
 // eslint-disable-next-line
-import React, { Component } from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import Menubar from './components/Menubar'
-import Navbar from './components/Navbar'
-import { login } from './urls'
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import Menubar from './components/Menubar';
+import Navbar from './components/Navbar';
+import { login } from './urls';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
     <>
