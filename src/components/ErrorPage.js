@@ -7,9 +7,7 @@ class ErrorPage extends Component {
   render() {
     return (
       <div className="errorPage">
-      <div className="errorPage_content"> 
-         
-        
+        <div className="errorPage_content">
           <Header
             as='h1'
             content='404'
@@ -18,7 +16,7 @@ class ErrorPage extends Component {
               fontSize: '10vw',
               fontWeight: 'bolder',
               lineHeight: '1em',
-              textTransform: 'uppercase',  
+              textTransform: 'uppercase',
             }}
           />
           <Header
@@ -29,12 +27,12 @@ class ErrorPage extends Component {
               marginBottom: '20px',
               textTransform: 'uppercase',
               maxWidth: '600px',
-              color: '#0d0d0d',            
+              color: '#0d0d0d',
             }}
           />
-         <p>Sorry, the page you were looking for doesn't exist. If you think something is wrong, try again.</p>
+          <p>Sorry, the page you were looking for doesn't exist. If you think something is wrong, try again.</p>
+        </div>
       </div>
-       </div>
     )
   }
 }
