@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './../styles/ErrorPage.css'
 import './../styles/App.css'
-import { Header, Container } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 
 class ErrorPage extends Component {
   render() {
