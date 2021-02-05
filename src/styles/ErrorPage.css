@@ -20,21 +20,6 @@
     text-align: center;
 }
 
-.errorPage_content h1 {
-    color: #2185D0;;
-    font-size: 10vw;
-    font-weight: bolder;
-    line-height: 1em;
-}
-
-.errorPage_content h4 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    max-width: 600px;
-    color: #0d0d0d;
-}
-
 .errorPage_content p {
     font-size: 1.4em;
     color: gray;
