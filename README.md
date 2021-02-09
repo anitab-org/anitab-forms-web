@@ -6,7 +6,8 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 - Redux
 
 ## Setup 
-To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
+- To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
+- Here's a [video](https://youtu.be/_b2RQGbYN9w) tutorial which will help to setup the project locally.
 **Note:** Before setting up the frontend make sure to have Setup the [Backend Repo](https://github.com/anitab-org/open-source-programs-backend).
 
 1. To start the server:
