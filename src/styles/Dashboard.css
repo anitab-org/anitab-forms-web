@@ -13,16 +13,24 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 70vw;
+    width: 65vw;
 }
 
 .left {
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: 65vw;
 }
 
 .right {
     display: flex;
     flex-direction: column-reverse;
+}
+
+.space {
+    padding: 12vw;
+}
+
+.refresh:hover {
+    cursor: pointer;
 }

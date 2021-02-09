@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import Forms from './components/Forms'
+import ErrorPage from './components/ErrorPage'
 import Submission from './components/Submission'
 import Questions from './components/Questions'
 import { login, register, dashboard, forms, upload, submission, urlBaseFrontend } from './urls'
@@ -23,7 +24,7 @@ export default class Routes extends Component {
                 <AuthRoute path={login()} component={Login} />
                 <AuthRoute path={register()} component={Register} />
                 <Route path={upload()} component={Upload} />
-                <Route render={() => <Redirect to='/' />} />    
+                <AuthRoute component={ErrorPage} />  
             </Switch>
             </>
         )
