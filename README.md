@@ -33,4 +33,4 @@ You can reach the admins, maintainers, and our community on [AnitaB.org Open Sou
 
 ## License
 
-Mentorship System is licensed under the GNU General Public License v3.0. Learn more about it in the [LICENSE](LICENSE) file.
+Open Source Programs project is licensed under the GNU General Public License v3.0. Learn more about it in the [LICENSE](LICENSE) file.
