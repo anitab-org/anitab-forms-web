@@ -33,4 +33,4 @@ You can reach the admins, maintainers, and our community on [AnitaB.org Open Sou
 
 ## License
 
-Open Source Programs project is licensed under the GNU General Public License v3.0. Learn more about it in the [LICENSE](https://github.com/anitab-org/open-source-programs-backend/blob/develop/LICENSE) file.
+Open Source Programs project is licensed under the GNU General Public License v3.0. Learn more about it in the [LICENSE](LICENSE) file.
