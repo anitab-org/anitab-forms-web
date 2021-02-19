@@ -1,3 +1,11 @@
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anitab-org.zulipchat.com/#narrow/stream/235478-anitab-org.2Egithub.2Eio)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/anitab-org/open-source-programs-web)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+[![GitHub forks](https://img.shields.io/github/forks/anitab-org/open-source-programs-web?style=social)](https://github.com/anitab-org/open-source-programs-web/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/anitab-org/open-source-programs-web?style=social)](https://github.com/anitab-org/open-source-programs-web/stargazers)
+
 # Open Source Programs (Frontend)
 
 Open Source Programs (OSP) is an application that simplifies the processing and selection procedure of Open Source Programs of AnitaB.org Open Source or other third-party programs. This is the Front-end repo for OSP.
