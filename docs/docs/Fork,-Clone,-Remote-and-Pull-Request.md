@@ -57,7 +57,7 @@ Now in the GitHub repo click on New Pull Request
 ![Screenshot from 2020-05-15 19-08-12](https://user-images.githubusercontent.com/43119923/82056501-af3b6480-96df-11ea-8992-29ed099ee1df.png)
 Choose the branch you pushed. Make your PR informative by adding screenshots, Issue link and descriptive details regarding what it does and then submit it.
 
-**Note:** _For more detailed understanding visit [this page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/overview)._
+**Note:** _For more detailed understanding visit [this page](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/overview)_.
 
 **Congratulations!** You have contributed to AnitaB.org Open Source successfully.
 

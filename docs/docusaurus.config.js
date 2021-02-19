@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Open Source Programs Web Docs',
   tagline: 'Documentation for Open Source Programs Web',
-  url: 'osp-web-docs.surge.sh',
+  url: 'https://osp-web-docs.surge.sh',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -11,6 +11,7 @@ module.exports = {
   themeConfig: {
     navbar: {
       title: 'Open Source Programs Web',
+      hideOnScroll: true,
       logo: {
         alt: 'AnitaB.org Logo',
         src: 'img/logo.png',
@@ -30,7 +31,7 @@ module.exports = {
           href: 'https://github.com/anitab-org/open-source-programs-web',
           label: 'GitHub',
           position: 'right',
-        },
+        }
       ],
     },
     footer: {

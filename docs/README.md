@@ -4,13 +4,13 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 ## Installation
 
-```console
+```
 yarn install
 ```
 
 ## Local Development
 
-```console
+```
 yarn start
 ```
 
@@ -18,7 +18,7 @@ This command starts a local development server and open up a browser window. Mos
 
 ## Build
 
-```console
+```
 yarn build
 ```
 
@@ -26,7 +26,7 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-```console
+```
 GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
@@ -50,13 +50,14 @@ Deploy using surge with the following steps:
     ```
     surge build/
     ```
-    or 
-    You can deploy the site to existing domain using the command:
+    or
+
+    Deploy the site to existing domain using the command:
     ```
-    surge build/ osp-web-docs.surge.sh
+    surge build/ https://osp-web-docs.surge.sh
     ```
 
-First-time users of Surge would be prompted to create an account from the command line(happens only once).
+First-time users of Surge would be prompted to create an account from the command line (happens only once).
 
 Confirm that the site you want to publish is in the build directory, a randomly generated subdomain *.surge.sh subdomain is always given (which can be edited).
 

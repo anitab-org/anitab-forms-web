@@ -1,6 +1,6 @@
 ---
 id: Main-Concepts
-title: Main Concepts
+title: Main Base Concepts
 ---
 
 These are the main base concepts of the application:

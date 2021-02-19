@@ -4,9 +4,11 @@ title: Maintainer Guidelines
 ---
 
 ## Guidelines
+
 Make sure contributors are respecting the Contribution Guidelines. If they don't let them know about it: what is missing, what was disrespected?
 
 ## Code Review
+
 - When possible get a second opinion before merging.
 - Make sure the PR has a link to the issue.
 - If you can, let them know why your change request makes sense.
