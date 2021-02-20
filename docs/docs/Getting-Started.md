@@ -28,8 +28,8 @@ In short:
 3. Setup remotes to keep your develop branch with OSP repository.
 4. Create a specific branch based from develop branch for your specific feature.
 5. Start coding.
-6. Make sure you follow this [Commit Message Style Guide](https://github.com/anitab-org/open-source-programs-backend/wiki/Commit-Message-Style-Guide)
-7. Once you finish working on your issue, submit a Pull Request (PR) ([following the template provided](https://github.com/anitab-org/open-source-programs-backend/blob/develop/.github/PULL_REQUEST_TEMPLATE.md))
-8. If the reviewers request changes on your PR, make the changes (this can be a back and forth process where you make changes according to reviewers feedback)
-9. Make sure when you finish your changes you squash your commits into a single commit
-10. Once the reviewers approve your PR, they can merge and your code will finally be part of the main repository!
+6. Make sure you follow this [Commit Message Style Guide](https://github.com/anitab-org/open-source-programs-backend/wiki/Commit-Message-Style-Guide).
+7. Once you finish working on your issue, submit a Pull Request (PR) ([following the template provided](https://github.com/anitab-org/open-source-programs-backend/blob/develop/.github/PULL_REQUEST_TEMPLATE.md)).
+8. If the reviewers request changes on your PR, make the changes (this can be a back and forth process where you make changes according to reviewers feedback).
+9. Make sure when you finish your changes you squash your commits into a single commit.
+10. Once the reviewers approve your PR, they can merge and your code will finally be part of the main repository.

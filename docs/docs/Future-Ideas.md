@@ -4,7 +4,7 @@ title: Future Ideas
 ---
 
 Here are some brainstormed ideas for the app, that may need more discussion with the community.
-If you want to implement one of these ideas feel free to start a discussion about this on AnitaB.org Open Source Zulip [#**open-source-progs>New Issues**](https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs/topic/New.20Issues)!
+If you want to implement one of these ideas feel free to start a discussion about this on AnitaB.org Open Source Zulip [#**open-source-progs>New Issues**](https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs/topic/New.20Issues).
 
 | Idea                                                  | Description                                                                                                                                                                                                         |
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
