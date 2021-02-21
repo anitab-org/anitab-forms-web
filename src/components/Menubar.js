@@ -33,7 +33,7 @@ class Menubar extends Component {
             <Menu pointing secondary>
                 <Menu.Item
                 name='dashboard'
-                active={activeItem === 'dashboard' || activeItem === '/dashboard'}
+                active={activeItem === 'dashboard' || activeItem === '/dashboard' || activeItem === '/'}
                 onClick={this.handleItemClick}
                 as={Link}
                 to={dashboard()}
@@ -47,7 +47,7 @@ class Menubar extends Component {
                 > FORMS </Menu.Item>
                 <Menu.Item
                 name='submissions'
-                active={activeItem === 'submissions' || activeItem === '/submissions'}
+                active={activeItem === 'submissions' || activeItem === '/submission'}
                 onClick={this.handleItemClick}
                 as={Link}
                 to={submission()}
