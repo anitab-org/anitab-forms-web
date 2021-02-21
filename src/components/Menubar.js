@@ -11,7 +11,7 @@ class Menubar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeItem: 'dashboard'
+            activeItem: window.location.pathname
         }
     }
 
@@ -33,21 +33,21 @@ class Menubar extends Component {
             <Menu pointing secondary>
                 <Menu.Item
                 name='dashboard'
-                active={activeItem === 'dashboard'}
+                active={activeItem === 'dashboard' || activeItem === '/dashboard'}
                 onClick={this.handleItemClick}
                 as={Link}
                 to={dashboard()}
                 > DASHBOARD </Menu.Item>
                 <Menu.Item
                 name='forms'
-                active={activeItem === 'forms'}
+                active={activeItem === 'forms' || activeItem === '/forms'}
                 onClick={this.handleItemClick}
                 as={Link}
                 to={forms()}
                 > FORMS </Menu.Item>
                 <Menu.Item
                 name='submissions'
-                active={activeItem === 'submissions'}
+                active={activeItem === 'submissions' || activeItem === '/submissions'}
                 onClick={this.handleItemClick}
                 as={Link}
                 to={submission()}
