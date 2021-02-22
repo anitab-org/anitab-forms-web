@@ -7,7 +7,7 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 -   Redux
 
 ## Documentation
-Documentation for the project is hosted [here](http://osp-web-docs.surge.sh/). We are using `Docusaurus` for maintaining the documentation of the project.
+Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ## Setup 
 - To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
