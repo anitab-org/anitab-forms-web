@@ -24,7 +24,7 @@ export function form(id) {
 }
 
 export function submission() {
-    return `${urlBaseFrontend()}submission`
+    return `${urlBaseFrontend()}submissions`
 }
 
 export function upload() {
