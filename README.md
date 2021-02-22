@@ -6,6 +6,9 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 -   ReactJS
 -   Redux
 
+## Documentation
+Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
+
 ## Setup 
 - To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
 - Here's a [video](https://youtu.be/_b2RQGbYN9w) tutorial which will help to setup the project locally.
