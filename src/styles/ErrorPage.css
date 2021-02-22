@@ -1,0 +1,26 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.errorPage {
+    position: absolute;
+    top: 15%;
+    left: 17%;
+    right: 17%;
+    color: whitesmoke;
+    bottom: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorPage_content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.errorPage_content p {
+    font-size: 1.4em;
+    color: gray;
+}
