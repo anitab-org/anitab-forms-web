@@ -12,7 +12,7 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Open Source Programs (OSP), an application to process smaller 4-week or full day programs to contribute to open source projects. Similar to GSoC, Outreachy, or RGSoC. This is the web app.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -29,8 +29,6 @@ function Home() {
           </div>
         </div>
       </header>
-      <main>
-      </main>
     </Layout>
   );
 }
