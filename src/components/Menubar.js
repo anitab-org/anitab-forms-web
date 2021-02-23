@@ -11,7 +11,7 @@ class Menubar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeItem: 'dashboard'
+            activeItem: window.location.pathname.substring(1) || 'dashboard'
         }
     }
 
