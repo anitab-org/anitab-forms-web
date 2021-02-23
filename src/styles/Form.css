@@ -1,82 +1,81 @@
 .forms {
-    margin-left: 5vw;
-    margin-right: 5vw;
-    height: 70vh;
-    overflow-y: auto;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  height: 70vh;
+  overflow-y: auto;
 }
 
 .message {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .button {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .inside {
-    margin-left: 0.5em; 
-    margin-right: 3em;
-
+  margin-left: 0.5em;
+  margin-right: 3em;
 }
 
 .head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .details {
-    display: flex;
-    flex-direction: row;
-    font-size: 1.1em;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1em;
+  justify-content: space-between;
 }
 
 .first {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .center {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .last {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .icons {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .green {
-    color: #21BA45;
-    font-weight: 600;
+  color: #21ba45;
+  font-weight: 600;
 }
 
 .red {
-    color: #DB2828;
-    font-weight: 600;
+  color: #db2828;
+  font-weight: 600;
 }
 
 .grey {
-    color: grey;
+  color: grey;
 }
 
 .blue {
-    color: #2185D0;
-    font-weight: 600;
+  color: #2185d0;
+  font-weight: 600;
 }
 
 .zero {
-    margin-left: 1vw;
+  margin-left: 1vw;
 }

@@ -12,4 +12,3 @@ We follow the Comments guidelines from [this style guide](https://prettier.io/pl
 ### Another Example of Coding Standard
 
 Use the [Semantic UI Library](https://react.semantic-ui.com/) to import components as much as you can. Try and refrain from using basic HTML elements, unless they are really necessary. Keep `actions/`, `reducers/`, `styles/` and `components/` in separate directories already present.
-
