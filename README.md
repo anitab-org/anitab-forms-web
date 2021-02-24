@@ -37,13 +37,13 @@ Remember to run eslint and prettier before pushing the changes.
 
 ### To run eslint
 
-```sh
+```
 npm run lint:fix
 ```
 
 ### To format files
 
-```sh
+```
 npm run format
 ```
 
