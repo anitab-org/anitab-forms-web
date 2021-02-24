@@ -3,8 +3,6 @@
 ![Open Source Love](https://img.shields.io/badge/Open%20%E2%9D%A4%EF%B8%8FSource-blue)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/anitab-org/open-source-programs-web)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
-[![GitHub forks](https://img.shields.io/github/forks/anitab-org/open-source-programs-web?style=social)](https://github.com/anitab-org/open-source-programs-web/network/members)
-[![GitHub stars](https://img.shields.io/github/stars/anitab-org/open-source-programs-web?style=social)](https://github.com/anitab-org/open-source-programs-web/stargazers)
 
 # Open Source Programs (Frontend)
 
