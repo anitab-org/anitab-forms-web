@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
+import Activate from './components/Activate';
 import Dashboard from './components/Dashboard';
 import Forms from './components/Forms';
 import ErrorPage from './components/ErrorPage';
@@ -10,6 +11,7 @@ import Questions from './components/Questions';
 import {
   login,
   register,
+  activate,
   dashboard,
   forms,
   upload,
@@ -35,6 +37,7 @@ export default class Routes extends Component {
           />
           <AuthRoute path={login()} component={Login} />
           <AuthRoute path={register()} component={Register} />
+          <AuthRoute path={activate()} component={Activate} />
           <Route path={upload()} component={Upload} />
           <AuthRoute component={ErrorPage} />
         </Switch>

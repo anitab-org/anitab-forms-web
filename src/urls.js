@@ -11,6 +11,10 @@ export function register() {
   return `${urlBaseFrontend()}register`;
 }
 
+export function activate() {
+  return `${urlBaseFrontend()}:uidb64/:token/`;
+}
+
 export function dashboard() {
   return `${urlBaseFrontend()}`;
 }
@@ -45,6 +49,10 @@ export function urlLogin() {
 
 export function urlRegister() {
   return `${urlBaseBackend()}/token_auth/register/`;
+}
+
+export function urlActivate(uidb64, token) {
+  return `${urlBaseBackend()}/token_auth/activate/${uidb64}/${token}`;
 }
 
 export function urlInfo() {
