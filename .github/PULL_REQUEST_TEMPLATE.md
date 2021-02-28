@@ -32,7 +32,6 @@ Fixes #ISSUE
 - [ ] I have commented my code or provided relevant documentation, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] Any dependent changes have been merged
-- [ ] I have written Kotlin Docs whenever is applicable
 
 
 **Code/Quality Assurance Only**
@@ -41,3 +40,8 @@ Fixes #ISSUE
 - [ ] I have added tests that prove my fix is effective or that my feature works
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Any dependent changes have been published in downstream modules
+
+**Desktop (please complete the following information):
+OS: Any
+Browser: Any
+Version: Any
