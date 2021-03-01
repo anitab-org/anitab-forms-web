@@ -28,3 +28,6 @@ export const QUESTION_ERROR = 'QUESTION_ERROR';
 export const GET_ZULIP_STAT = 'GET_ZULIP_STAT';
 export const UPDATE_ZULIP_STAT = 'UPDATE_ZULIP_STAT';
 export const ZULIP_STAT_ERROR = 'ZULIP_STAT_ERROR';
+export const GET_ANSWERS = 'GET_ANSWERS';
+export const POST_ANSWERS = 'POST_ANSWERS';
+export const ANSWER_ERROR = 'ANSWER_ERROR';

@@ -31,10 +31,6 @@ export function submission() {
   return `${urlBaseFrontend()}submissions`;
 }
 
-export function upload() {
-  return `${urlBaseFrontend()}upload`;
-}
-
 // backend URLs
 export function urlBaseBackend() {
   return `http://localhost:8000/api`;
@@ -85,4 +81,23 @@ export function urlPatchQuestions() {
 
 export function urlZulipStats() {
   return `${urlBaseBackend()}/zulip_stat/`;
+}
+
+export function urlAnswers() {
+    return `${urlBaseBackend()}/answers/`
+}
+
+export function urlFormFeedback() {
+    return `${urlBaseBackend()}/feedback/`
+}
+
+export function urlSubmissions(user_name, form_id) {
+    if(user_name === undefined && form_id === undefined)
+        return `${urlBaseBackend()}/feedback/`
+    else if(user_name === undefined)
+        return `${urlBaseBackend()}/feedback/?form_id=${form_id}`
+    else if(form_id === undefined)
+        return `${urlBaseBackend()}/feedback/?user_name=${user_name}`
+    else
+        return `${urlBaseBackend()}/feedback/?user_name=${user_name}&form_id=${form_id}`
 }
