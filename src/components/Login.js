@@ -10,11 +10,13 @@ import {
   Icon,
   Message,
   Button,
+  Segment,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './../styles/Login.css';
 import orgLogo from '../assets/org-logo.jpg';
 import { register } from '../urls';
+import GitHubAuth from './GitHubAuth';
 
 class Login extends Component {
   constructor(props) {
@@ -168,6 +170,9 @@ class Login extends Component {
                   <Message error content={this.props.loginerror.detail} />
                 ) : null}
                 <Divider />
+                <Segment>
+                  <GitHubAuth {...this.props} />
+                </Segment>
                 <span>
                   Don't have an account?{' '}
                   <Link to={register()}>Register here.</Link>

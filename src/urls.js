@@ -47,6 +47,10 @@ export function urlRegister() {
   return `${urlBaseBackend()}/token_auth/register/`;
 }
 
+export function urlGithubLogin() {
+  return `${urlBaseBackend()}/token_auth/github/`;
+}
+
 export function urlInfo() {
   return `${urlBaseBackend()}/info/`;
 }
