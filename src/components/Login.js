@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { postLogin } from '../actions/login'
-import { Form, Grid, Image, Divider, Icon, Message, Button } from 'semantic-ui-react'
+import { Form, Grid, Image, Divider, Icon, Message, Button ,Segment } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import login from './../styles/Login.css'
 import orgLogo from '../assets/org-logo.jpg'
 import { register } from '../urls'
-
+import GoogleAuth from './GoogleSocialAuth'
 class Login extends Component {
     constructor(props){
         super(props)
@@ -162,6 +162,9 @@ class Login extends Component {
                             : null
                         }
                     <Divider />
+                    <Segment>
+                        <GoogleAuth />
+                    </Segment>
                     <span>Don't have an account? <Link to={register()}>Register here.</Link></span>
                     </div>
                     </Grid.Column>

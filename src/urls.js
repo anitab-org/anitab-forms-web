@@ -47,6 +47,11 @@ export function urlRegister() {
     return `${urlBaseBackend()}/token_auth/register/`
 }
 
+
+export function urlGoogleLogin() {
+    return `${urlBaseBackend()}/token_auth/google/`
+}
+
 export function urlInfo() {
     return `${urlBaseBackend()}/info/`
 }

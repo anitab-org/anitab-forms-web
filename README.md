@@ -12,16 +12,23 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 To setup the project locally, go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
 **Note:** Before setting up the frontend make sure to have Setup the [Backend Repo](https://github.com/anitab-org/open-source-programs-backend).
 
-1. To start the server:
+1. Create a `.env` file in the project root directory and add **Client ID** and **Callback URL** of Google like this:
 
 ```
-cd open-source-programs-web
+REACT_APP_GOOGLE_CLIENT_ID=<Google App Client ID>
+REACT_APP_GOOGLE_CALLBACK_URL=<Google Callback URL>
+```
+To get **Client ID** and **Callback URL** of Google OAuth App follow [this docs](https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret).
+
+2. To start the server:
+
+```
 npm install
 npm start
 ```
 
-2. Navigate to `http://localhost:3000/` in your browser.
-3. You can terminate the process by `Ctrl+C` in your terminal.
+3. Navigate to `http://localhost:3000/` in your browser.
+4. You can terminate the process by `Ctrl+C` in your terminal.
 
 ## Contributing
 

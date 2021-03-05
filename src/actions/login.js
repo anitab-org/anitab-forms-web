@@ -1,7 +1,8 @@
 import axios from 'axios'
 import {
     urlLogin,
-    urlRegister
+    urlRegister,
+    urlGoogleLogin,
 } from '../urls'
 import {
     LOGIN,
@@ -9,6 +10,40 @@ import {
     LOGIN_ERRORS,
     REGISTER_ERRORS
 } from './types'
+
+
+
+export const GoogleOauthLogin = (data,callback) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'content-type': 'application/json',
+            }
+        }
+        const obj = {
+            access_token:data.tokenObj.access_token,
+            id_token:data.tokenObj.id_token
+        }
+        console.log(obj);
+        const res = await axios.post(urlGoogleLogin(), obj , config);
+        console.log(res);
+        dispatch({
+            type: LOGIN,
+            payload: res.data
+        });
+
+        // set token value
+        localStorage.setItem('token', res.data.access_token)
+        callback()
+    }
+    catch (err) {
+        dispatch({
+            type: LOGIN_ERRORS,
+            payload: err.response
+        });
+        callback()
+    }
+};
 
 export const postLogin = (data, callback) => async dispatch => {
     try {
