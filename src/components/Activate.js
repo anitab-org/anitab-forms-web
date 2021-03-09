@@ -45,7 +45,7 @@ class Activate extends Component {
     }
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       uidb64: this.props.match.params.uidb64,
       token: this.props.match.params.token,
@@ -57,7 +57,6 @@ class Activate extends Component {
 
   render() {
     const { error, activated } = this.state;
-    console.log(this.props.activateerror);
     return (
       <>
         <Container text>
@@ -83,7 +82,7 @@ class Activate extends Component {
                       : this.props.activate}
                   </Header>
                   <Segment.Inline>
-                    <Header as="h3">
+                    <Header as="h3" data-testid="ActivateHeader">
                       {error ? (
                         <Link to={urlBaseFrontend()}>
                           <Button secondary>Go to Main Page</Button>
