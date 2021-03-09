@@ -1,62 +1,69 @@
-import React, { Component } from 'react'
-import '../styles/Dashboard.css'
-import { Item, Card, Header, Divider, Icon } from 'semantic-ui-react'
-import Profile from './Profile'
-import Zulip from './Zulip'
+import React, { Component } from "react";
+import "../styles/Dashboard.css";
+import { Item, Card, Header, Divider, Icon } from "semantic-ui-react";
+import Profile from "./Profile";
+import Zulip from "./Zulip";
 
 export default class Dashboard extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            edit: false
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      edit: false,
+    };
+  }
 
-    handleEdit = () => {
-        this.setState({
-            edit: !this.state.edit
-        })
-    }
+  handleEdit = () => {
+    this.setState({
+      edit: !this.state.edit,
+    });
+  };
 
-    render() {
-        return (
-            <div className='dashboard'>
-                <div className='left'>
-                    {/* render profile details and list of forms filled by user */}
-                    <Item.Group>
-                        <Item>
-                            <Item.Content>
-                                <Item.Header>
-                                    <div className='head'> 
-                                        <span>Profile</span>
-                                        <Icon name={this.state.edit ? 'x' : 'pencil'} color='grey' onClick={this.handleEdit} />
-                                    </div>
-                                </Item.Header>
-                                <Item.Description>
-                                    <Profile edit={this.state.edit}/>
-                                </Item.Description>
-                            </Item.Content>
-                        </Item>
-                        <Divider/>
-                        <Item>
-                            <Item.Content>
-                                <Header>Forms Filled</Header>
-                            </Item.Content>
-                        </Item>
-                    </Item.Group>
-                </div>
-                <div className='right'>
-                    {/* render components for Zulip and Github stats  */}
-                    <Card.Group centered itemsPerRow={1}>
-                        <Card>
-                            <Zulip />
-                        </Card>
-                        <Card>
-                            <Card.Content header='Github Stats' />
-                        </Card>
-                    </Card.Group>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="dashboard">
+        <div className="left">
+          {/* render profile details and list of forms filled by user */}
+          <Item.Group>
+            <Item>
+              <Item.Content>
+                <Item.Header>
+                  <div className="head">
+                    <span>Profile</span>
+                    <Icon
+                      name={this.state.edit ? "x" : "pencil"}
+                      color="grey"
+                      onClick={this.handleEdit}
+                    />
+                  </div>
+                </Item.Header>
+                <Item.Description>
+                  <Profile
+                    edit={this.state.edit}
+                    handleEdit={this.handleEdit}
+                  />
+                </Item.Description>
+              </Item.Content>
+            </Item>
+            <Divider />
+            <Item>
+              <Item.Content>
+                <Header>Forms Filled</Header>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </div>
+        <div className="right">
+          {/* render components for Zulip and Github stats  */}
+          <Card.Group centered itemsPerRow={1}>
+            <Card>
+              <Zulip />
+            </Card>
+            <Card>
+              <Card.Content header="Github Stats" />
+            </Card>
+          </Card.Group>
+        </div>
+      </div>
+    );
+  }
 }
