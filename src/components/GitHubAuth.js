@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import GitHubLogin from 'react-github-login';
 import { postGithubCode } from '../actions/login';
-import { withRouter } from 'react-router';
 import { Icon, Message } from 'semantic-ui-react';
 
 class GitHubAuth extends Component {
@@ -20,7 +19,6 @@ class GitHubAuth extends Component {
   }
 
   postCode = (response) => {
-    console.log(response.code);
     this.setState({
       code: response.code,
     });
@@ -39,7 +37,6 @@ class GitHubAuth extends Component {
       posted: true,
       errorText: 'Server Error: try again.',
     });
-    console.log(this.state.error, this.state.posted);
     if (!this.state.error) {
       this.props.history.push('/');
     }
@@ -51,10 +48,12 @@ class GitHubAuth extends Component {
     }, 4000);
   };
 
-  icon = () => {
+  githubIcon = () => {
     return (
       <React.Fragment>
-        <Icon name="github" /> Log in with GitHub
+        <div data-testid="GitHubLoginButton">
+          <Icon name="github" /> Log in with GitHub
+        </div>
       </React.Fragment>
     );
   };
@@ -74,7 +73,7 @@ class GitHubAuth extends Component {
     }, 4000);
   };
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.setState({
       code: '',
       error: null,
@@ -109,7 +108,7 @@ class GitHubAuth extends Component {
             redirectUri={`${REACT_APP_GITHUB_CALLBACK_URL}`}
             className="ui fluid button"
           >
-            {this.icon()}
+            {this.githubIcon()}
           </GitHubLogin>
         )}
       </>
@@ -126,6 +125,4 @@ const mapStateToProps = (state) => ({
   loginerror: state.login.loginerror,
 });
 
-export default connect(mapStateToProps, { postGithubCode })(
-  withRouter(GitHubAuth)
-);
+export default connect(mapStateToProps, { postGithubCode })(GitHubAuth);
