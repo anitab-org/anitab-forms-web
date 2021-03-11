@@ -1,4 +1,4 @@
-# Open Source Programs Web Docs
+# Anitab Forms Web Docs
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -34,7 +34,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ## Deploying to Surge
 
-Surge is a static web hosting platform. Tt is used to deploy our spen source programs docusaurus from the command line in a minute.
+Surge is a static web hosting platform. It is used to deploy our spen source programs docusaurus from the command line in a minute.
 
 Deploy using surge with the following steps:
 

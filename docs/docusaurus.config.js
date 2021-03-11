@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'AnitaB.org',
-  projectName: 'open-source-programs-web-docs',
+  projectName: 'anitab-forms-web-docs',
   themeConfig: {
     navbar: {
       title: 'Open Source Programs Web',
@@ -28,7 +28,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/anitab-org/open-source-programs-web',
+          href: 'https://github.com/anitab-org/anitab-forms-web',
           label: 'GitHub',
           position: 'right',
         }
@@ -42,7 +42,7 @@ module.exports = {
           items: [
             {
               label: 'Backend Docs',
-              href: 'https://github.com/anitab-org/open-source-programs-backend/wiki',
+              href: 'https://github.com/anitab-org/anitab-forms-backend/wiki',
             }
           ],
         },
@@ -64,7 +64,7 @@ module.exports = {
           items: [ 
             {
               label: 'GitHub',
-              href: 'https://github.com/anitab-org/open-source-programs-web',
+              href: 'https://github.com/anitab-org/anitab-forms-web',
             },
             {
               label: 'Blog',
@@ -83,7 +83,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/anitab-org/open-source-programs-web/docs',
+            'https://github.com/anitab-org/anitab-forms-web/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
