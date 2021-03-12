@@ -9,7 +9,7 @@ Hello Newcomer, here are some tips to help you get started contributing to this 
 Here's what you can do to know more about the project:
 
 - Read documentation available on this website and on [README](https://github.com/anitab-org/anitab-forms-web/blob/develop/README.md).
-- You can join the [#open-source-progs](https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs) channel on AnitaB.org Open Source Zulip, to see or participate in the project's discussion.
+- You can join the [#anitab-forms](https://anitab-org.zulipchat.com/#narrow/stream/237907-anitab-forms) channel on AnitaB.org Open Source Zulip, to see or participate in the project's discussion.
 - You can browse the code on GitHub or even on your workspace after cloning it.
 
 ### Choose a working item
