@@ -4,7 +4,7 @@ title: Home
 slug: /
 ---
 
-Welcome to the Open Source Programs Web!
+Welcome to the Open Source Programs Web
 ## About
 **Open Source Programs** is a project which aims towards simplifying the management work of the mentors and organizations. The goal is to make reviewing and notifying simpler, systematic and manageable. This will help in easy processing and hosting of the Open Source Programs be it a 4-week or a 6-month long program. This was proposed as an [original GSoC'20 project](https://summerofcode.withgoogle.com/organizations/4752039663370240/) by [Bismita Guha](https://github.com/bismitaguha) under the guidance of [Maybelline Burgos](https://github.com/mayburgos), [Monal Shadi](https://github.com/Monal5031), [Abha Wadjikar](https://github.com/abha224) and [Siddharth Venu](https://github.com/sidvenu) as mentors.
 As the first version of the application, the focus will be on the implementation of the following aspects:

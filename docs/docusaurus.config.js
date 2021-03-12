@@ -42,7 +42,7 @@ module.exports = {
           items: [
             {
               label: 'Backend Docs',
-              href: 'https://github.com/anitab-org/open-source-programs-backend/wiki',
+              href: 'https://osp-backend-docs.surge.sh/',
             }
           ],
         },
