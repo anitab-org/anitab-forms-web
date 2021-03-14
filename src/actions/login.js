@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { urlLogin, urlRegister } from '../urls';
+import { urlLogin, urlRegister, urlGithubLogin } from '../urls';
 import { LOGIN, REGISTER, LOGIN_ERRORS, REGISTER_ERRORS } from './types';
 
 export const postLogin = (data, callback) => async (dispatch) => {
@@ -44,6 +44,30 @@ export const postRegister = (data, callback) => async (dispatch) => {
     dispatch({
       type: REGISTER_ERRORS,
       payload: err.data,
+    });
+    callback();
+  }
+};
+
+export const postGithubCode = (data, callback) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        'content-type': 'application/json',
+      },
+    };
+    const res = await axios.post(urlGithubLogin(), data, config);
+    dispatch({
+      type: LOGIN,
+      payload: res.data,
+    });
+
+    localStorage.setItem('token', res.data.access_token);
+    callback();
+  } catch (err) {
+    dispatch({
+      type: LOGIN_ERRORS,
+      payload: err.response,
     });
     callback();
   }

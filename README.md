@@ -24,16 +24,24 @@ Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). 
 
 **Note:** Before setting up the frontend make sure to have Setup the [Backend Repo](https://github.com/anitab-org/open-source-programs-backend).
 
-1. To start the server:
+1. Create a `.env` file in the project root directory and add **Client ID** and **Callback URL** of GitHub App like this:
 
 ```
-cd open-source-programs-web
+REACT_APP_GITHUB_CLIENT_ID=< GitHub App Client ID >
+REACT_APP_GITHUB_CALLBACK_URL=< GitHub App Callback URL >
+```
+
+To get **Client ID** and **Callback URL** of GitHub App follow [this docs](https://docs.github.com/en/developers/apps/creating-a-github-app).
+
+2. To start the server:
+
+```
 npm install
 npm start
 ```
 
-2. Navigate to `http://localhost:3000/` in your browser.
-3. You can terminate the process by `Ctrl+C` in your terminal.
+3. Navigate to `http://localhost:3000/` in your browser.
+4. You can terminate the process by `Ctrl+C` in your terminal.
 
 ## Contributing
 
