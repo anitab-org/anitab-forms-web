@@ -4,6 +4,7 @@ title: Automation and Filtering
 ---
 
 ## Zulip Stats
+
 Since AnitaB.org is based on Zulip, community interaction can be best understood by someone's Zulip Stats. Now, Admins cannot switch between Zulip and Sheets to monitor data, or update user's data manually every time they change. So automating the process to automatically fetch the data, and update automatically. Also keeping a backup of the last refreshed data was necessary, considering the scenario the Zulip scripts fail. So every time a user refreshes the stats get updated in the Database.
 
 ![Screenshot from 2020-08-29 19-43-31](https://user-images.githubusercontent.com/43119923/91638991-010abf00-ea31-11ea-9b29-bf34126cab1e.png)

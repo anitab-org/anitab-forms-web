@@ -1,39 +1,39 @@
 .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.2em;
-    width: 100vw;
-    height: 4em;
-    box-shadow: 0px 0.05em 0.8em rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.2em;
+  width: 100vw;
+  height: 4em;
+  box-shadow: 0px 0.05em 0.8em rgba(0, 0, 0, 0.5);
 }
 
 .space {
-    padding-left: 1em;
+  padding-left: 1em;
 }
 
 .item {
-    padding-bottom: 0.2em;
-    cursor: pointer;
-    color: black;
+  padding-bottom: 0.2em;
+  cursor: pointer;
+  color: black;
 }
 
 .item:hover {
-    color: grey;
+  color: grey;
 }
 
 .main {
-    color: #2185D0;
-    font-size: 1.5em;
-    font-weight: 800;
-    padding-bottom: 1.5em;
+  color: #2185d0;
+  font-size: 1.5em;
+  font-weight: 800;
+  padding-bottom: 1.5em;
 }
 
 .right {
-    display: flex;
-    flex-direction: row;
-    font-family: Lato;
-    font-size: 1.2em;
-    color: grey;
-    padding-right: 1em;
+  display: flex;
+  flex-direction: row;
+  font-family: Lato;
+  font-size: 1.2em;
+  color: grey;
+  padding-right: 1em;
 }

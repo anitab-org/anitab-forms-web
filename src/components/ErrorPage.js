@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import './../styles/ErrorPage.css'
-import './../styles/App.css'
+import React, { Component } from 'react';
+import './../styles/ErrorPage.css';
+import './../styles/App.css';
 import { Header } from 'semantic-ui-react';
 
 class ErrorPage extends Component {
@@ -9,8 +9,8 @@ class ErrorPage extends Component {
       <div className="errorPage">
         <div className="errorPage_content">
           <Header
-            as='h1'
-            content='404'
+            as="h1"
+            content="404"
             style={{
               color: '#2185D0',
               fontSize: '10vw',
@@ -20,8 +20,8 @@ class ErrorPage extends Component {
             }}
           />
           <Header
-            as='h4'
-            content='Oops! Page Not Found'
+            as="h4"
+            content="Oops! Page Not Found"
             style={{
               fontSize: '2em',
               marginBottom: '20px',
@@ -30,11 +30,14 @@ class ErrorPage extends Component {
               color: '#0d0d0d',
             }}
           />
-          <p>Sorry, the page you were looking for doesn't exist. If you think something is wrong, try again.</p>
+          <p>
+            Sorry, the page you were looking for doesn't exist. If you think
+            something is wrong, try again.
+          </p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default ErrorPage
+export default ErrorPage;

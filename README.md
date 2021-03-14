@@ -9,13 +9,16 @@
 Open Source Programs (OSP) is an application that simplifies the processing and selection procedure of Open Source Programs of AnitaB.org Open Source or other third-party programs. This is the Front-end repo for OSP.
 
 ## Tech Stack
--   ReactJS
--   Redux
+
+- ReactJS
+- Redux
 
 ## Documentation
+
 Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
-## Setup 
+## Setup
+
 - To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
 - Here's a [video](https://youtu.be/_b2RQGbYN9w) tutorial which will help to setup the project locally.
 
@@ -35,6 +38,20 @@ npm start
 ## Contributing
 
 Please read the [Contributing guidelines](.github/CONTRIBUTING.md), [Code of Conduct](https://github.com/anitab-org/open-source-programs-web/blob/develop/CODE_OF_CONDUCT.md) and [Reporting Guidelines](https://github.com/anitab-org/open-source-programs-web/blob/develop/REPORTING_GUIDELINES.md)
+
+Remember to run eslint and prettier before pushing the changes.
+
+### To run eslint
+
+```
+npm run lint:fix
+```
+
+### To format files
+
+```
+npm run format
+```
 
 ## Contact
 

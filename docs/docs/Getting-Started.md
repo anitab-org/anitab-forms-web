@@ -6,6 +6,7 @@ title: Getting Started
 Hello Newcomer, here are some tips to help you get started contributing to this project.
 
 ## Get to know the project
+
 Here's what you can do to know more about the project:
 
 - Read documentation available on this website and on [README](https://github.com/anitab-org/open-source-programs-web/blob/develop/README.md).
@@ -13,12 +14,14 @@ Here's what you can do to know more about the project:
 - You can browse the code on GitHub or even on your workspace after cloning it.
 
 ### Choose a working item
+
 - Check the available issues (that anyone can contribute to) or first timers only issues (just for first-time contributors in this project).
 - Choose one issue you want to work on.
 - Ask maintainers, on the issue's comment section, if you can work on it.
 - Once you get the approval you can start working on it.
 
 ### Start working
+
 Before you start working check the [Contribution Guidelines](https://github.com/anitab-org/open-source-programs-backend/blob/develop/.github/CONTRIBUTING.md) to make sure you can follow the best practices.
 
 In short:

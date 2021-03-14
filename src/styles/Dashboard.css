@@ -1,36 +1,36 @@
 .dashboard {
-    margin-left: 5vw;
-    margin-right: 5vw;
-    display: flex;
-    flex-direction: row;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  display: flex;
+  flex-direction: row;
 }
 
 .dashboard:hover {
-    color: black;
+  color: black;
 }
 
 .head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 65vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 65vw;
 }
 
 .left {
-    display: flex;
-    flex-direction: column;
-    width: 65vw;
+  display: flex;
+  flex-direction: column;
+  width: 65vw;
 }
 
 .right {
-    display: flex;
-    flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .space {
-    padding: 12vw;
+  padding: 12vw;
 }
 
 .refresh:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
