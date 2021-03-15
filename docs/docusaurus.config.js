@@ -18,12 +18,13 @@ module.exports = {
       },
       items: [
         {
-          href:'https://www.anitab.org',
+          href: 'https://www.anitab.org',
           label: 'AnitaB.org',
           position: 'right',
         },
         {
-          href:'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+          href:
+            'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
           label: 'Zulip',
           position: 'right',
         },
@@ -31,7 +32,7 @@ module.exports = {
           href: 'https://github.com/anitab-org/open-source-programs-web',
           label: 'GitHub',
           position: 'right',
-        }
+        },
       ],
     },
     footer: {
@@ -51,7 +52,8 @@ module.exports = {
           items: [
             {
               label: 'Zulip',
-              href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+              href:
+                'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
             },
             {
               label: 'Twitter',
@@ -61,15 +63,15 @@ module.exports = {
         },
         {
           title: 'More',
-          items: [ 
+          items: [
             {
               label: 'GitHub',
               href: 'https://github.com/anitab-org/open-source-programs-web',
             },
             {
               label: 'Blog',
-              href:'https://medium.com/anitab-org-open-source'
-            }
+              href: 'https://medium.com/anitab-org-open-source',
+            },
           ],
         },
       ],

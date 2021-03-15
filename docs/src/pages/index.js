@@ -8,11 +8,12 @@ import styles from './styles.module.css';
 
 function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Open Source Programs (OSP), an application to process smaller 4-week or full day programs to contribute to open source projects. Similar to GSoC, Outreachy, or RGSoC. This is the web app.">
+      description="Open Source Programs (OSP), an application to process smaller 4-week or full day programs to contribute to open source projects. Similar to GSoC, Outreachy, or RGSoC. This is the web app."
+    >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -21,9 +22,10 @@ function Home() {
             <Link
               className={clsx(
                 'button button--outline button--secondary button--lg',
-                styles.getStarted,
+                styles.getStarted
               )}
-              to={useBaseUrl('docs/')}>
+              to={useBaseUrl('docs/')}
+            >
               Get Started
             </Link>
           </div>

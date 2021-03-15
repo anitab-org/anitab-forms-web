@@ -1,72 +1,78 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { getInfo } from '../actions/info'
-import PropTypes from 'prop-types'
-import { Menu } from 'semantic-ui-react'
-import { dashboard, forms, submission } from '../urls'
-import menubar from './../styles/Menubar.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getInfo } from '../actions/info';
+import PropTypes from 'prop-types';
+import { Menu } from 'semantic-ui-react';
+import { dashboard, forms, submission } from '../urls';
+import './../styles/Menubar.css';
 
 class Menubar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            activeItem: window.location.pathname.substring(1) || 'dashboard'
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeItem: window.location.pathname.substring(1) || 'dashboard',
+    };
+  }
 
-    componentDidMount() {
-        this.props.getInfo()
-    }
+  componentDidMount() {
+    this.props.getInfo();
+  }
 
-    handleItemClick = (e, { name }) => {
-        this.setState({
-            activeItem: name
-        })
-    }
+  handleItemClick = (e, { name }) => {
+    this.setState({
+      activeItem: name,
+    });
+  };
 
-    render() {
-        const { activeItem } = this.state
+  render() {
+    const { activeItem } = this.state;
 
-        return(
-            <div className='menubar'>
-            <Menu pointing secondary>
-                <Menu.Item
-                name='dashboard'
-                active={activeItem === 'dashboard'}
-                onClick={this.handleItemClick}
-                as={Link}
-                to={dashboard()}
-                > DASHBOARD </Menu.Item>
-                <Menu.Item
-                name='forms'
-                active={activeItem === 'forms'}
-                onClick={this.handleItemClick}
-                as={Link}
-                to={forms()}
-                > FORMS </Menu.Item>
-                <Menu.Item
-                name='submissions'
-                active={activeItem === 'submissions'}
-                onClick={this.handleItemClick}
-                as={Link}
-                to={submission()}
-                > SUBMISSIONS </Menu.Item>
-            </Menu>
-            </div>
-        )
-    }
+    return (
+      <div className="menubar">
+        <Menu pointing secondary>
+          <Menu.Item
+            name="dashboard"
+            active={activeItem === 'dashboard'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to={dashboard()}
+          >
+            {' '}
+            DASHBOARD{' '}
+          </Menu.Item>
+          <Menu.Item
+            name="forms"
+            active={activeItem === 'forms'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to={forms()}
+          >
+            {' '}
+            FORMS{' '}
+          </Menu.Item>
+          <Menu.Item
+            name="submissions"
+            active={activeItem === 'submissions'}
+            onClick={this.handleItemClick}
+            as={Link}
+            to={submission()}
+          >
+            {' '}
+            SUBMISSIONS{' '}
+          </Menu.Item>
+        </Menu>
+      </div>
+    );
+  }
 }
 
 Menubar.propTypes = {
-    userinfo: PropTypes.array.isRequired,
+  userinfo: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = state => ({
-    userinfo: state.info.userinfo,
-})
+const mapStateToProps = (state) => ({
+  userinfo: state.info.userinfo,
+});
 
-export default connect(
-    mapStateToProps,
-    { getInfo, }
-)(Menubar)
+export default connect(mapStateToProps, { getInfo })(Menubar);

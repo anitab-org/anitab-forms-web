@@ -1,80 +1,80 @@
 // frontend URLs
 export function urlBaseFrontend() {
-    return `/`
+  return `/`;
 }
 
 export function login() {
-    return `${urlBaseFrontend()}login`
+  return `${urlBaseFrontend()}login`;
 }
 
 export function register() {
-    return `${urlBaseFrontend()}register`
+  return `${urlBaseFrontend()}register`;
 }
 
 export function dashboard() {
-    return `${urlBaseFrontend()}`
+  return `${urlBaseFrontend()}`;
 }
 
 export function forms() {
-    return `${urlBaseFrontend()}forms`
+  return `${urlBaseFrontend()}forms`;
 }
 
 export function form(id) {
-    return `${urlBaseFrontend()}form/${id}`
+  return `${urlBaseFrontend()}form/${id}`;
 }
 
 export function submission() {
-    return `${urlBaseFrontend()}submissions`
+  return `${urlBaseFrontend()}submissions`;
 }
 
 export function upload() {
-    return `${urlBaseFrontend()}upload`
+  return `${urlBaseFrontend()}upload`;
 }
 
 // backend URLs
 export function urlBaseBackend() {
-    return `http://localhost:8000/api`
+  return `http://localhost:8000/api`;
 }
 
 export function urlUser() {
-    return `${urlBaseBackend()}/user/`
+  return `${urlBaseBackend()}/user/`;
 }
 export function urlLogin() {
-    return `${urlBaseBackend()}/token_auth/token/`
+  return `${urlBaseBackend()}/token_auth/token/`;
 }
 
 export function urlRegister() {
-    return `${urlBaseBackend()}/token_auth/register/`
+  return `${urlBaseBackend()}/token_auth/register/`;
 }
 
 export function urlInfo() {
-    return `${urlBaseBackend()}/info/`
+  return `${urlBaseBackend()}/info/`;
 }
 
 export function urlPatchInfo(id) {
-    return `${urlBaseBackend()}/info/${id}/`
+  return `${urlBaseBackend()}/info/${id}/`;
 }
 
 export function urlGetForm(status) {
-    return `${urlBaseBackend()}/form/?status=${status}`
+  return `${urlBaseBackend()}/form/?status=${status}`;
 }
 
 export function urlFormId(id) {
-    return `${urlBaseBackend()}/form/${id}/` 
+  return `${urlBaseBackend()}/form/${id}/`;
 }
 
 export function urlPostForm() {
-    return `${urlBaseBackend()}/form/`
+  return `${urlBaseBackend()}/form/`;
 }
 
 export function urlQuestions(form_id) {
-    return `${urlBaseBackend()}/questions/?form_id=${form_id}`
+  return `${urlBaseBackend()}/questions/?form_id=${form_id}`;
 }
 
 export function urlPatchQuestions() {
-    return `${urlBaseBackend()}/questions/`
+  return `${urlBaseBackend()}/questions/`;
 }
 
 export function urlZulipStats() {
-    return `${urlBaseBackend()}/zulip_stat/`
+  return `${urlBaseBackend()}/zulip_stat/`;
 }
