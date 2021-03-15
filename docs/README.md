@@ -24,7 +24,7 @@ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-**Note**: You can use `npm run serve` to test your build locally.
+**Note**: You can use `yarn serve` to test your build locally.
 
 ## Deployment
 
