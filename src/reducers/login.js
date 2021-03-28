@@ -3,13 +3,17 @@ import {
   REGISTER,
   LOGIN_ERRORS,
   REGISTER_ERRORS,
+  ACTIVATE,
+  ACTIVATE_ERRORS,
 } from '../actions/types';
 
 const initialState = {
   login: [],
   register: [],
+  activate: [],
   loginerror: null,
   registererror: null,
+  activateerror: null,
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -33,6 +37,16 @@ const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         registererror: action.payload,
+      };
+    case ACTIVATE:
+      return {
+        ...state,
+        activate: action.payload,
+      };
+    case ACTIVATE_ERRORS:
+      return {
+        ...state,
+        activateerror: action.payload,
       };
     default:
       return state;
