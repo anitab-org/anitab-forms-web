@@ -64,6 +64,7 @@ Thanks goes to these people ([emoji key](https://github.com/all-contributors/all
   <tr>
     <td align="center"><a href="https://codesankalp.me/"><img src="https://avatars.githubusercontent.com/u/56037184?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sankalp</b></sub></a><br /><a href="#maintenance-codesankalp" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://6002bd83fc21bdb414a1a7c3--aaishprafolio.netlify.app/"><img src="https://avatars.githubusercontent.com/u/66299533?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shipra Verma </b></sub></a><br /><a href="#maintenance-Aaishpra" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://keshakaneria.me"><img src="https://avatars.githubusercontent.com/u/46588494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kesha K. Kaneria</b></sub></a><br /><a href="#maintenance-keshakaneria" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
