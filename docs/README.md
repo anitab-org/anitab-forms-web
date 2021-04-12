@@ -24,6 +24,8 @@ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+**Note**: You can use `yarn serve` to test your build locally.
+
 ## Deployment
 
 ```
@@ -43,9 +45,11 @@ Deploy using surge with the following steps:
    npm install --g surge
    ```
 2. To build the static files of the site for production in the root/docs directory of project, run:
-   ```
-   npm run build
-   ```
+    ```
+    npm run build
+    ```
+**Note**: You can use `npm run serve` to test your build locally.
+
 3. Run this command inside the root/docs directory of project:
 
    ```
