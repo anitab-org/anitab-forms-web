@@ -6,12 +6,12 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 - Redux
 
 ## Setup 
-To setup the project locally go through [this wiki page](https://github.com/anitab-org/open-source-programs-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
-**Note:** Before setting up the frontend make sure to have Setup the [Backend Repo](https://github.com/anitab-org/open-source-programs-backend).
+To setup the project locally go through [this wiki page](https://github.com/anitab-org/anitab-forms-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
+**Note:** Before setting up the frontend make sure to have Setup the [Backend Repo](https://github.com/anitab-org/anitab-forms-backend).
 
 1. To start the server:
 ```
-cd open-source-programs-web
+cd anitab-forms-web
 npm install
 npm start
 ```
@@ -19,7 +19,7 @@ npm start
 3. You can terminate the process by `Ctrl+C` in your terminal.
 
 ## Contributing
-Please read the Contibuting guidelines, [Code of Conduct](https://github.com/anitab-org/open-source-programs-web/blob/develop/CODE_OF_CONDUCT.md) and [Reporting Guidelines](https://github.com/anitab-org/open-source-programs-web/blob/develop/REPORTING_GUIDELINES.md)
+Please read the Contibuting guidelines, [Code of Conduct](https://github.com/anitab-org/anitab-forms-web/blob/develop/CODE_OF_CONDUCT.md) and [Reporting Guidelines](https://github.com/anitab-org/anitab-forms-web/blob/develop/REPORTING_GUIDELINES.md)
 
 ## Contact
 You can reach the admins, maintainers, and our community on [AnitaB.org Open Source Zulip](https://anitab-org.zulipchat.com/). If you are interested in contributing to the OSP project, you may join the stream [#open-source-progs](https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs) and ask questions or interact with the community. Join Us!
