@@ -1,0 +1,43 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": false,
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "codesankalp",
+      "name": "Sankalp",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56037184?v=4",
+      "profile": "https://codesankalp.me/",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "Aaishpra",
+      "name": "Shipra Verma ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66299533?v=4",
+      "profile": "https://6002bd83fc21bdb414a1a7c3--aaishprafolio.netlify.app/",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "keshakaneria",
+      "name": "Kesha K. Kaneria",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46588494?v=4",
+      "profile": "https://keshakaneria.me",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "projectName": "anitab-forms-web",
+  "projectOwner": "anitab-org",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
