@@ -5,7 +5,7 @@ title: GSoC-2020 Bismita Guha
 
 ## Bismita Guha
 
-I plan to work on the backend and frontend of Open Source Programs in this GSoC period. My mentors are [Maybelline Burgos](https://github.com/mayburgos), [Monal Shadi](https://github.com/Monal5031), [Abha Wadjikar](https://github.com/abha224) and [Siddharth Venu](https://github.com/sidvenu). Checkout the [backend repo](https://github.com/anitab-org/open-source-programs-backend).
+I plan to work on the backend and frontend of Open Source Programs in this GSoC period. My mentors are [Maybelline Burgos](https://github.com/mayburgos), [Monal Shadi](https://github.com/Monal5031), [Abha Wadjikar](https://github.com/abha224) and [Siddharth Venu](https://github.com/sidvenu). Checkout the [backend repo](https://github.com/anitab-org/anitab-forms-backend).
 
 ## Short Bio
 
@@ -80,7 +80,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 4
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Attended Team Meeting with May, Monal & Abha<br/>2. Attended 1:1 with May<br/>3. Attended 2:1 with Monal and Abha<br/>4. Updated UI [#3](https://github.com/anitab-org/open-source-programs-web/issues/3), [#5](https://github.com/anitab-org/open-source-programs-web/issues/5) & [#6](https://github.com/anitab-org/open-source-programs-web/issues/6) <br/>5. Finalised [DB structure](https://whimsical.com/54vvNLcoYqHzeFqEpyPAKq) <br/>6. Finalised [Timeline & Deliverables](https://docs.google.com/document/d/1xl9F5kMZrKo4mNhnP0SKpk7WkQc8PLca1ym7EZMpjSc/edit?usp=sharing)<br/>7. Updated Scrum Checkins & Wiki Update timings<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Attended Team Meeting with May, Monal & Abha<br/>2. Attended 1:1 with May<br/>3. Attended 2:1 with Monal and Abha<br/>4. Updated UI [#3](https://github.com/anitab-org/anitab-forms-web/issues/3), [#5](https://github.com/anitab-org/anitab-forms-web/issues/5) & [#6](https://github.com/anitab-org/anitab-forms-web/issues/6) <br/>5. Finalised [DB structure](https://whimsical.com/54vvNLcoYqHzeFqEpyPAKq) <br/>6. Finalised [Timeline & Deliverables](https://docs.google.com/document/d/1xl9F5kMZrKo4mNhnP0SKpk7WkQc8PLca1ym7EZMpjSc/edit?usp=sharing)<br/>7. Updated Scrum Checkins & Wiki Update timings<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>Network and power issues<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>Yes they exist but I have been able to manage time accordingly.<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>None.<br/><br/>
@@ -93,7 +93,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 1
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Completed Issues [#15](https://github.com/anitab-org/open-source-programs-web/issues/15), [#5](https://github.com/anitab-org/open-source-programs-backend/issues/5) and [#2](https://github.com/anitab-org/open-source-programs-backend/issues/2) <br/>2. Working on Issues [#7](https://github.com/anitab-org/open-source-programs-web/issues/7), [#3](https://github.com/anitab-org/open-source-programs-backend/issues/3), [#15](https://github.com/anitab-org/open-source-programs-backend/issues/15) & [#16](https://github.com/anitab-org/open-source-programs-backend/issues/3) <br/>3. Updated [Flow Diagram](https://drive.google.com/file/d/1FUEXEA3ygJaIfL7L5regq7DRY3HQZwuy/view?usp=sharing)<br/> 4. Read Travis docs and tried writing the `.travis.yml` file along with integration with Newman<br/>5. Written Newman tests for API<br/>6. Attended office hours of Abha to discuss about a few doubts<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Completed Issues [#15](https://github.com/anitab-org/anitab-forms-web/issues/15), [#5](https://github.com/anitab-org/anitab-forms-backend/issues/5) and [#2](https://github.com/anitab-org/anitab-forms-backend/issues/2) <br/>2. Working on Issues [#7](https://github.com/anitab-org/anitab-forms-web/issues/7), [#3](https://github.com/anitab-org/anitab-forms-backend/issues/3), [#15](https://github.com/anitab-org/anitab-forms-backend/issues/15) & [#16](https://github.com/anitab-org/anitab-forms-backend/issues/3) <br/>3. Updated [Flow Diagram](https://drive.google.com/file/d/1FUEXEA3ygJaIfL7L5regq7DRY3HQZwuy/view?usp=sharing)<br/> 4. Read Travis docs and tried writing the `.travis.yml` file along with integration with Newman<br/>5. Written Newman tests for API<br/>6. Attended office hours of Abha to discuss about a few doubts<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>None<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>None.<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>None<br/><br/>
@@ -117,7 +117,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 3
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Attended Team Meeting<br/>2. Attended 1:1 with May, Monal, Abha & Siddharth<br/>3. Attended Work Session<br/>4. Worked on issues [#17](https://github.com/anitab-org/open-source-programs-backend/issues/17), [#15](https://github.com/anitab-org/open-source-programs-backend/issues/15), [#7](https://github.com/anitab-org/open-source-programs-web/issues/7), [#16](https://github.com/anitab-org/open-source-programs-web/issues/16), [#17](https://github.com/anitab-org/open-source-programs-web/issues/7)<br/>5. Worked on weekly blog<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Attended Team Meeting<br/>2. Attended 1:1 with May, Monal, Abha & Siddharth<br/>3. Attended Work Session<br/>4. Worked on issues [#17](https://github.com/anitab-org/anitab-forms-backend/issues/17), [#15](https://github.com/anitab-org/anitab-forms-backend/issues/15), [#7](https://github.com/anitab-org/anitab-forms-web/issues/7), [#16](https://github.com/anitab-org/anitab-forms-web/issues/16), [#17](https://github.com/anitab-org/anitab-forms-web/issues/7)<br/>5. Worked on weekly blog<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>None till now<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>None till now<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>None till now<br/><br/>
@@ -129,7 +129,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 4
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#32](https://github.com/anitab-org/open-source-programs-web/pull/32), [#35](https://github.com/anitab-org/open-source-programs-web/pull/35), [#27](https://github.com/anitab-org/open-source-programs-backend/pull/27) & [#25](https://github.com/anitab-org/open-source-programs-backend/pull/25)<br/>2. Worked on reviews by mentors on Previous PRs<br/>3. Attended Team Meeting for OSP<br/>4. Attended Work Session with Abha and Siddharth<br/>5. Attended 1:1 with Abha, Siddharth & Monal<br/>6. Worked on Weekly Blog<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#32](https://github.com/anitab-org/anitab-forms-web/pull/32), [#35](https://github.com/anitab-org/anitab-forms-web/pull/35), [#27](https://github.com/anitab-org/anitab-forms-backend/pull/27) & [#25](https://github.com/anitab-org/anitab-forms-backend/pull/25)<br/>2. Worked on reviews by mentors on Previous PRs<br/>3. Attended Team Meeting for OSP<br/>4. Attended Work Session with Abha and Siddharth<br/>5. Attended 1:1 with Abha, Siddharth & Monal<br/>6. Worked on Weekly Blog<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/> Previous reviews<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>No<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>No<br/><br/>
@@ -142,7 +142,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 5
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#28](https://github.com/anitab-org/open-source-programs-backend/pull/28), [#35](https://github.com/anitab-org/open-source-programs-web/pull/35) & [#36](https://github.com/anitab-org/open-source-programs-web/pull/36)<br/>2. Work ongoing on issue [#19](https://github.com/anitab-org/open-source-programs-web/issues/19)<br/>3. Attended 1:1 with May, Monal, Abha & Siddharth<br/>4. Attended Work Session with Mentors<br/>Attended Team Meeting for OSP<br/>5. Speed up the work on the Documentation<br/>6. Attended extra meeting with Monal and Abha<br/>7. Fill in First evaluation<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#28](https://github.com/anitab-org/anitab-forms-backend/pull/28), [#35](https://github.com/anitab-org/anitab-forms-web/pull/35) & [#36](https://github.com/anitab-org/anitab-forms-web/pull/36)<br/>2. Work ongoing on issue [#19](https://github.com/anitab-org/anitab-forms-web/issues/19)<br/>3. Attended 1:1 with May, Monal, Abha & Siddharth<br/>4. Attended Work Session with Mentors<br/>Attended Team Meeting for OSP<br/>5. Speed up the work on the Documentation<br/>6. Attended extra meeting with Monal and Abha<br/>7. Fill in First evaluation<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/> Faced Power cut problems, more than usual<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/> They do exist but I managed time apart from it<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/> No.<br/><br/>
@@ -154,7 +154,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 6
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#28](https://github.com/anitab-org/open-source-programs-backend/pull/28), [#39](https://github.com/anitab-org/open-source-programs-web/pull/39) & [#40](https://github.com/anitab-org/open-source-programs-web/pull/40)<br/>2. Worked on issues [#12](https://github.com/anitab-org/open-source-programs-web/issues/12), [#13](https://github.com/anitab-org/open-source-programs-web/issues/13) & [#8](https://github.com/anitab-org/open-source-programs-backend/issues/8)<br/>3. Attended Team Meeting and Work Session<br/>4. Attended 1:1 with May, Monal, Abha & Siddharth<br/>5. Worked on Documentation<br/>6. Created issues for the community<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#28](https://github.com/anitab-org/anitab-forms-backend/pull/28), [#39](https://github.com/anitab-org/anitab-forms-web/pull/39) & [#40](https://github.com/anitab-org/anitab-forms-web/pull/40)<br/>2. Worked on issues [#12](https://github.com/anitab-org/anitab-forms-web/issues/12), [#13](https://github.com/anitab-org/anitab-forms-web/issues/13) & [#8](https://github.com/anitab-org/anitab-forms-backend/issues/8)<br/>3. Attended Team Meeting and Work Session<br/>4. Attended 1:1 with May, Monal, Abha & Siddharth<br/>5. Worked on Documentation<br/>6. Created issues for the community<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>Power cut for 2 days slowed down my pace, but by end of the week I am back on track<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>Not to that extent<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>No<br/><br/>
@@ -178,7 +178,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 8
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#39](https://github.com/anitab-org/open-source-programs-web/pull/39), [#40](https://github.com/anitab-org/open-source-programs-web/pull/40) & [#29](https://github.com/anitab-org/open-source-programs-backend/pull/29)<br/>2. Attended Team Meeting and Work Session<br/>3. Attended 1:1 with May, Monal, Abha & Siddharth<br/>4. Worked on Documentation<br/>5. Created issues for the community<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#39](https://github.com/anitab-org/anitab-forms-web/pull/39), [#40](https://github.com/anitab-org/anitab-forms-web/pull/40) & [#29](https://github.com/anitab-org/anitab-forms-backend/pull/29)<br/>2. Attended Team Meeting and Work Session<br/>3. Attended 1:1 with May, Monal, Abha & Siddharth<br/>4. Worked on Documentation<br/>5. Created issues for the community<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>College Internship verification was ongoing<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>Yes, intern season is ongoing so slight delay in work<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>No<br/><br/>
@@ -191,7 +191,7 @@ I am a sophomore in IIT Roorkee, doing my majors in Metallurgical Engineering. I
 
 ### Weekly Status Report for Week 9
 
-- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#41](https://github.com/anitab-org/open-source-programs-web/pull/41) & [#31](https://github.com/anitab-org/open-source-programs-backend/pull/31)<br/>2. Worked on Issues[#11](https://github.com/anitab-org/open-source-programs-backend/issues/11), [#12](https://github.com/anitab-org/open-source-programs-backend/issues/12), [#8](https://github.com/anitab-org/open-source-programs-web/issues/8), [](https://github.com/anitab-org/open-source-programs-web/issues/9) & [#10](https://github.com/anitab-org/open-source-programs-web/issues/10)<br/>3. Attended Team Meeting and Work Session<br/>4. Attended 1:1 with May, Monal, Abha & Siddharth<br/>5. Worked on Documentation<br/>6. Created issues for the community<br/><br/>
+- **What have you accomplished this week (list specific items accomplished)?**<br/><br/>1. Worked on PRs [#41](https://github.com/anitab-org/anitab-forms-web/pull/41) & [#31](https://github.com/anitab-org/anitab-forms-backend/pull/31)<br/>2. Worked on Issues[#11](https://github.com/anitab-org/anitab-forms-backend/issues/11), [#12](https://github.com/anitab-org/anitab-forms-backend/issues/12), [#8](https://github.com/anitab-org/anitab-forms-web/issues/8), [](https://github.com/anitab-org/anitab-forms-web/issues/9) & [#10](https://github.com/anitab-org/anitab-forms-web/issues/10)<br/>3. Attended Team Meeting and Work Session<br/>4. Attended 1:1 with May, Monal, Abha & Siddharth<br/>5. Worked on Documentation<br/>6. Created issues for the community<br/><br/>
 - **What issues or roadblocks have you encountered this week?**<br/><br/>College Internship verification was ongoing<br/><br/>
 - **Do any of the issues or roadblocks still exist and what steps have been taken to resolve them?**<br/><br/>Yes, intern season is ongoing so slight delay in work<br/><br/>
 - **Is further assistance necessary to resolve existing issues?**<br/><br/>No<br/><br/>
