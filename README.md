@@ -37,7 +37,7 @@ npm start
 
 ## Contributing
 
-Please read the Contibuting guidelines, [Code of Conduct](https://github.com/anitab-org/anitab-forms-web/blob/develop/CODE_OF_CONDUCT.md) and [Reporting Guidelines](https://github.com/anitab-org/anitab-forms-web/blob/develop/REPORTING_GUIDELINES.md)
+Please read the [Contributing guidelines](.github/CONTRIBUTING.md), [Code of Conduct](https://github.com/anitab-org/anitab-forms-web/blob/develop/CODE_OF_CONDUCT.md) and [Reporting Guidelines](https://github.com/anitab-org/anitab-forms-web/blob/develop/REPORTING_GUIDELINES.md)
 
 Remember to run eslint and prettier before pushing the changes.
 
