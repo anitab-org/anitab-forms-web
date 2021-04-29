@@ -44,7 +44,7 @@ module.exports = {
             {
               label: 'Backend Docs',
               href:
-                'https://github.com/anitab-org/oanitab-forms-backend/wiki',
+                'https://github.com/anitab-org/anitab-forms-backend/wiki',
             },
           ],
         },
