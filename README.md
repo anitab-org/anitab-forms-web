@@ -4,9 +4,9 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/anitab-org/anitab-forms-web)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
-# Open Source Programs (Frontend)
+# Anitab-Forms (Frontend)
 
-Open Source Programs (OSP) is an application that simplifies the processing and selection procedure of Open Source Programs of AnitaB.org Open Source or other third-party programs. This is the Front-end repo for OSP.
+Anitab-Forms is an application that simplifies the processing and selection procedure of Open Source Programs of AnitaB.org Open Source or other third-party programs. This is the Front-end repo for anitab-forms.
 
 ## Tech Stack
 
