@@ -1,6 +1,6 @@
 name: OSP Web QA Checks
 
-on: [push, pull_request_target]
+on: [push, pull_request]
 
 jobs:
   run-linters:
@@ -21,9 +21,6 @@ jobs:
         run: npm install
 
       - name: Linters and Formatters Check
-        uses: wearerequired/lint-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Enable linters
-          eslint: true
-          prettier: true
+        run: |
+         npm run lint
+         npm run check
