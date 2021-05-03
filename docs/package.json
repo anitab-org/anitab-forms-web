@@ -9,8 +9,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear",
-    "check": "prettier -c \"**/*.+(js|jsx|json|css|md)\""
+    "clear": "docusaurus clear"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",
