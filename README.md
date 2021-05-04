@@ -15,7 +15,7 @@ Open Source Programs (OSP) is an application that simplifies the processing and 
 
 ## Documentation
 
-Documentation for the project is hosted [here](https://anitab-org.github.io/open-source-programs/). We use `Docusaurus` for maintaining the documentation of the project.
+Documentation for the project is hosted [here](https://anitab-org.github.io/anitab-forms-web/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ## Setup
 

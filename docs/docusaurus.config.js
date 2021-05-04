@@ -2,7 +2,7 @@ module.exports = {
   title: 'Open Source Programs Web Docs',
   tagline: 'Documentation for Open Source Programs Web',
   url: 'https://anitab-org.github.io',
-  baseUrl: '/open-source-programs/',
+  baseUrl: '/anitab-forms-web/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
