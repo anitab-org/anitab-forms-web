@@ -74,6 +74,7 @@ class GoogleSocialAuth extends Component {
   }
 
   componentWillUnmount() {
+    // eslint-disable-next-line
     this.setState = (state, callback) => {
       return;
     };

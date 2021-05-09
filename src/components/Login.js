@@ -13,7 +13,7 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import login from './../styles/Login.css';
+import './../styles/Login.css';
 import orgLogo from '../assets/org-logo.jpg';
 import { register } from '../urls';
 import GoogleAuth from './GoogleSocialAuth';
@@ -98,7 +98,7 @@ class Login extends Component {
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       username: '',
       password: '',

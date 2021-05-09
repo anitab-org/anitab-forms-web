@@ -1,7 +1,14 @@
 import axios from 'axios';
-import { urlLogin, urlRegister, urlActivate } from '../urls';
+import { urlLogin, urlRegister, urlActivate, urlGoogleLogin } from '../urls';
 
-import { LOGIN, REGISTER, LOGIN_ERRORS, REGISTER_ERRORS } from './types';
+import {
+  LOGIN,
+  REGISTER,
+  LOGIN_ERRORS,
+  REGISTER_ERRORS,
+  ACTIVATE,
+  ACTIVATE_ERRORS,
+} from './types';
 
 export const GoogleOauthLogin = (data, callback) => async (dispatch) => {
   try {
