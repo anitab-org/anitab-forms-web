@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { postLogin } from '../actions/login';
-import { 
-  Form, 
-  Grid, 
-  Image, 
-  Divider, 
-  Icon, 
-  Message, 
-  Button ,
-  Segment 
+import {
+  Form,
+  Grid,
+  Image,
+  Divider,
+  Icon,
+  Message,
+  Button,
+  Segment,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import login from './../styles/Login.css';
@@ -99,94 +99,94 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
   componentWillMount() {
-        this.setState({
-            username: '',
-            password: '',
-            usernameerror: null,
-            passworderror: null,
-            showPassword: false,
-            error: null,
-            submitted: false
-        })
-    }
-     render() {
-        const { showPassword, error, submitted } = this.state
-        return (
-            <>
-            <Grid>
-                <Grid.Row>
-                    <Grid.Column width={5}>
-                    <div className='login'>
-                    <span><b>Login</b></span>
-                    <Divider />
-                        <Form>
-                            <Form.Input
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.onChange}
-                                label='Username'
-                                required
-                                placeholder='Enter your username...' />
-                            <Form.Input
-                                type={showPassword ? 'text': 'password'}
-                                icon={<Icon name={showPassword ? 'eye slash outline': 'eye'} onClick={this.handleShow} link />}
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.onChange}
-                                label='Password'
-                                required
-                                placeholder='Enter your password...' />
-                            <Button
-                                fluid
-                                primary
-                                type='button'
-                                onClick={this.submitLogin}
-                                disabled={!this.state.username || !this.state.password}
-                                >LOG IN</Button>
-                        </Form>
+    this.setState({
+      username: '',
+      password: '',
+      usernameerror: null,
+      passworderror: null,
+      showPassword: false,
+      error: null,
+      submitted: false,
+    });
+  }
+  render() {
+    const { showPassword, error, submitted } = this.state;
+    return (
+      <>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={5}>
+              <div className="login">
+                <span>
+                  <b>Login</b>
+                </span>
+                <Divider />
+                <Form>
+                  <Form.Input
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.onChange}
+                    label="Username"
+                    required
+                    placeholder="Enter your username..."
+                  />
+                  <Form.Input
+                    type={showPassword ? 'text' : 'password'}
+                    icon={
+                      <Icon
+                        name={showPassword ? 'eye slash outline' : 'eye'}
+                        onClick={this.handleShow}
+                        link
+                      />
+                    }
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
+                    label="Password"
+                    required
+                    placeholder="Enter your password..."
+                  />
+                  <Button
+                    fluid
+                    primary
+                    type="button"
+                    onClick={this.submitLogin}
+                    disabled={!this.state.username || !this.state.password}
+                  >
+                    LOG IN
+                  </Button>
+                </Form>
 
-                        {/* form validation */}
-                        {
-                            this.state.usernameerror ?
-                            <Message
-                            error
-                            content="Username cannot be empty!"
-                            />
-                            : null
-                        }
-                        {
-                            this.state.passworderror ?
-                            <Message
-                            error
-                            content="Password cannot be empty!"
-                            />
-                            : null
-                        }
-                        {
-                            error && submitted ?
-                            <Message
-                            error
-                            content={this.props.loginerror.detail}
-                            />
-                            : null
-                        }
-                    <Divider />
-                    <Segment>
-                        <GoogleAuth />
-                    </Segment>
-                    <span>Don't have an account? <Link to={register()}>Register here.</Link></span>
-                    </div>
-                    </Grid.Column>
-                    <Grid.Column width={10}>
-                        <div className='logo'>
-                        <Image src={orgLogo} />
-                        </div>
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
-            </>
-        )
-    }
+                {/* form validation */}
+                {this.state.usernameerror ? (
+                  <Message error content="Username cannot be empty!" />
+                ) : null}
+                {this.state.passworderror ? (
+                  <Message error content="Password cannot be empty!" />
+                ) : null}
+                {error && submitted ? (
+                  <Message error content={this.props.loginerror.detail} />
+                ) : null}
+                <Divider />
+                <Segment>
+                  <GoogleAuth />
+                </Segment>
+                <span>
+                  Don't have an account?{' '}
+                  <Link to={register()}>Register here.</Link>
+                </span>
+              </div>
+            </Grid.Column>
+            <Grid.Column width={10}>
+              <div className="logo">
+                <Image src={orgLogo} />
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </>
+    );
+  }
 }
 
 Login.propTypes = {

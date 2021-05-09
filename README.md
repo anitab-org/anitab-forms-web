@@ -30,9 +30,11 @@ Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). 
 REACT_APP_GOOGLE_CLIENT_ID=<Google App Client ID>
 REACT_APP_GOOGLE_CALLBACK_URL=<Google Callback URL>
 ```
+
 To get **Client ID** and **Callback URL** of Google OAuth App follow [this docs](https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret).
 
 2. To start the server:
+
 ```
 cd anitab-forms-web
 npm install

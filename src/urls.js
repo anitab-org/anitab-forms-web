@@ -55,9 +55,8 @@ export function urlActivate(uidb64, token) {
   return `${urlBaseBackend()}/token_auth/activate/${uidb64}/${token}`;
 }
 
-
 export function urlGoogleLogin() {
-    return `${urlBaseBackend()}/token_auth/google/`
+  return `${urlBaseBackend()}/token_auth/google/`;
 }
 
 export function urlInfo() {
