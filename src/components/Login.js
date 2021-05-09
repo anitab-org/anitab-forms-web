@@ -169,7 +169,7 @@ class Login extends Component {
                 ) : null}
                 <Divider />
                 <Segment>
-                  <GoogleAuth />
+                  <GoogleAuth {...this.props} />
                 </Segment>
                 <span>
                   Don't have an account?{' '}

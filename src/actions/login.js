@@ -21,9 +21,7 @@ export const GoogleOauthLogin = (data, callback) => async (dispatch) => {
       access_token: data.tokenObj.access_token,
       id_token: data.tokenObj.id_token,
     };
-    console.log(obj);
     const res = await axios.post(urlGoogleLogin(), obj, config);
-    console.log(res);
     dispatch({
       type: LOGIN,
       payload: res.data,
