@@ -1,18 +1,19 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import React from 'react'
-import configureStore from './store'
-import 'semantic-ui-css/semantic.min.css'
+import React from 'react';
+import configureStore from './store';
+import 'semantic-ui-css/semantic.min.css';
 import App from './components/App';
 
-const store = configureStore()
-window.store = store
+const store = configureStore();
+window.store = store;
 
-ReactDOM.render (
+ReactDOM.render(
   <Provider store={store}>
-      <App/>
-  </Provider>, document.getElementById('root')
-)
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
 // serviceWorker.register()
 
@@ -36,9 +37,6 @@ ReactDOM.render (
 //   }
 // }
 
-
-
-
 // export default class AppRouter extends Component{
 //   render() {
 //     return(
@@ -52,8 +50,6 @@ ReactDOM.render (
 //     )
 //   }
 // }
-
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

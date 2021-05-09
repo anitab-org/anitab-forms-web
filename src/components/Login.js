@@ -1,17 +1,105 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { postLogin } from '../actions/login'
-import { Form, Grid, Image, Divider, Icon, Message, Button ,Segment } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
-import login from './../styles/Login.css'
-import orgLogo from '../assets/org-logo.jpg'
-import { register } from '../urls'
-import GoogleAuth from './GoogleSocialAuth'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { postLogin } from '../actions/login';
+import { 
+  Form, 
+  Grid, 
+  Image, 
+  Divider, 
+  Icon, 
+  Message, 
+  Button ,
+  Segment 
+} from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import login from './../styles/Login.css';
+import orgLogo from '../assets/org-logo.jpg';
+import { register } from '../urls';
+import GoogleAuth from './GoogleSocialAuth';
+
 class Login extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      usernameerror: null,
+      passworderror: null,
+      showPassword: false,
+      error: null,
+      submitted: false,
+    };
+    this.submitLogin = this.submitLogin.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
+
+  handleShow = () =>
+    this.setState({
+      showPassword: !this.state.showPassword,
+    });
+
+  submitLogin = () => {
+    let err = false;
+    if (this.state.username === '') {
+      this.setState({
+        usernameerror: true,
+      });
+      setTimeout(() => {
+        this.setState({
+          usernameerror: false,
+        });
+      }, 10000);
+      err = true;
+    }
+    if (this.state.password === '') {
+      this.setState({
+        passworderror: true,
+      });
+      setTimeout(() => {
+        this.setState({
+          passworderror: false,
+        });
+      }, 10000);
+      err = true;
+    }
+
+    if (err === false) {
+      const data = {
+        username: this.state.username,
+        password: this.state.password,
+      };
+      this.props.postLogin(data, this.callback);
+      this.setState({
+        username: '',
+        password: '',
+        usernameerror: null,
+        passworderror: null,
+      });
+    }
+  };
+
+  callback = () => {
+    this.setState({
+      error: this.props.loginerror ? true : false,
+      submitted: true,
+    });
+    if (!this.state.error) {
+      this.props.history.push('/');
+    }
+    setTimeout(() => {
+      this.setState({
+        error: null,
+        submitted: false,
+      });
+    }, 5000);
+  };
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  componentWillMount() {
+        this.setState({
             username: '',
             password: '',
             usernameerror: null,
@@ -19,88 +107,9 @@ class Login extends Component {
             showPassword: false,
             error: null,
             submitted: false
-        }
-        this.submitLogin = this.submitLogin.bind(this);
-        this.onChange = this.onChange.bind(this);
-    }
-
-    handleShow = (e) => this.setState({
-        showPassword: !this.state.showPassword
-    })
-
-    submitLogin = () => {
-        let err = false
-        if(this.state.username===''){
-            this.setState({
-                usernameerror: true,
-            })
-            setTimeout(() => {
-                this.setState({
-                    usernameerror: false,
-                })
-            }, 10000)
-            err = true
-        }
-        if(this.state.password===''){
-            this.setState({
-                passworderror: true,
-            })
-            setTimeout(() => {
-                this.setState({
-                    passworderror: false,
-                })
-            }, 10000)
-            err = true
-        }
-
-        if(err === false){
-            const data = {
-                username: this.state.username,
-                password: this.state.password
-            }
-            this.props.postLogin(data, this.callback)
-            this.setState({
-                username: '',
-                password:'',
-                usernameerror: null,
-                passworderror: null
-            })            
-        }
-    }
-
-    callback = () => {
-        this.setState({
-            error: this.props.loginerror?true:false,
-            submitted: true
-        })
-        if(!this.state.error){
-            this.props.history.push('/')
-        }
-        setTimeout(() => {
-            this.setState({
-                error: null,
-                submitted: false
-            })
-        }, 5000)
-    }
-
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value});
-    }
-
-    componentWillMount() {
-        this.setState({
-            username: '',
-            password: '',
-            usernameerror: null,
-            passworderror: null,
-            showPassword: false,
-            error: null,
-            submitted: false
         })
     }
-
-    render() {
+     render() {
         const { showPassword, error, submitted } = this.state
         return (
             <>
@@ -174,7 +183,6 @@ class Login extends Component {
                         </div>
                     </Grid.Column>
                 </Grid.Row>
-            
             </Grid>
             </>
         )
@@ -182,15 +190,12 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-    postLogin: PropTypes.func.isRequired,
-}
+  postLogin: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-    login: state.login.login,
-    loginerror: state.login.loginerror
-})
+const mapStateToProps = (state) => ({
+  login: state.login.login,
+  loginerror: state.login.loginerror,
+});
 
-export default connect(
-    mapStateToProps,
-    { postLogin, }
-)(Login)
+export default connect(mapStateToProps, { postLogin })(Login);

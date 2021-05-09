@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Submissions extends Component {
-    render() {
-        return (
-            <div>
-                submissions
-            </div>
-        )
-    }
+  render() {
+    return <div>submissions</div>;
+  }
 }
