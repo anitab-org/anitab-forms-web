@@ -3,7 +3,6 @@ import GoogleLogin from 'react-google-login';
 import { GoogleOauthLogin } from '../actions/login';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
 import { Message } from 'semantic-ui-react'
 import "../styles/google-auth-styles.css";
 
@@ -66,7 +65,7 @@ callback = () => {
 }
 
 
-  componentWillMount() {
+  componentDidMount() {
       this.setState({
           statusCode: '',
           error: null,
@@ -93,7 +92,7 @@ callback = () => {
                       error
                       content={errorText}
                   /> :
-                  <div className="google-login">
+                  <div className="google-login" data-testid="GoogleSignUpButton">
                     <GoogleLogin 
                         clientId={`${REACT_APP_GOOGLE_CLIENT_ID}`}
                         onSuccess={this.responseCode}
@@ -119,5 +118,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { GoogleOauthLogin, }
-)(withRouter(GoogleSocialAuth))
+    { GoogleOauthLogin }
+)(GoogleSocialAuth)

@@ -1,10 +1,6 @@
 import axios from 'axios';
 import { urlLogin, urlRegister, urlActivate } from '../urls';
-import {
-    urlLogin,
-    urlRegister,
-    urlGoogleLogin,
-} from '../urls'
+
 import {
     LOGIN,
     REGISTER,
