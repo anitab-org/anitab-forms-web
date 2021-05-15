@@ -1,16 +1,16 @@
 module.exports = {
-  title: 'Open Source Programs Web Docs',
-  tagline: 'Documentation for Open Source Programs Web',
+  title: 'Anitab Forms Web Docs',
+  tagline: 'Documentation for Anitab Forms Web',
   url: 'https://anitab-org.github.io',
   baseUrl: '/anitab-forms-web/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'anitab-org',
-  projectName: 'open-source-programs-web-docs',
+  organizationName: 'AnitaB.org',
+  projectName: 'anitab-forms-web-docs',
   themeConfig: {
     navbar: {
-      title: 'Open Source Programs Web',
+      title: 'Anitab Forms Web',
       hideOnScroll: true,
       logo: {
         alt: 'AnitaB.org Logo',
@@ -29,7 +29,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/anitab-org/open-source-programs-web',
+          href: 'https://github.com/anitab-org/anitab-forms-web',
           label: 'GitHub',
           position: 'right',
         },
@@ -44,7 +44,7 @@ module.exports = {
             {
               label: 'Backend Docs',
               href:
-                'https://github.com/anitab-org/open-source-programs-backend/wiki',
+                'https://github.com/anitab-org/anitab-forms-backend/wiki',
             },
           ],
         },
@@ -67,7 +67,7 @@ module.exports = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/anitab-org/open-source-programs-web',
+              href: 'https://github.com/anitab-org/anitab-forms-web',
             },
             {
               label: 'Blog',
@@ -86,7 +86,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/anitab-org/open-source-programs-web/docs',
+            'https://github.com/anitab-org/anitab-forms-web/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -3,7 +3,7 @@ id: Fork,-Clone,-Remote-and-Pull-Request
 title: Fork, Clone, Remote and Pull Request
 ---
 
-To contribute to the project you may work on the [frontend](https://github.com/anitab-org/open-source-programs-web) or [backend](https://github.com/anitab-org/open-source-programs-backend) of the project.
+To contribute to the project you may work on the [frontend](https://github.com/anitab-org/anitab-forms-web) or [backend](https://github.com/anitab-org/anitab-forms-backend) of the project.
 
 ### Fork the repo
 
@@ -15,13 +15,13 @@ Click on the Fork button. This will create your copy of the repo on GitHub.
 After forking, run the following commands in your terminal:
 
 ```
-git clone https://github.com/<your-github-username-here>/open-source-programs-web
+git clone https://github.com/<your-github-username-here>/anitab-forms-web
 ```
 
 OR
 
 ```
-git clone https://github.com/anitab-org/open-source-programs-web
+git clone https://github.com/anitab-org/anitab-forms-web
 ```
 
 ### Add Remote
@@ -30,29 +30,29 @@ If you have forked and cloned the repo, on entering `git remote -v` you should s
 
 ```
 $ git remote -v
-origin  https://github.com/<your-github-username-here>/open-source-programs-web (fetch)
-origin  https://github.com/<your-github-username-here>/open-source-programs-web (push)
+origin  https://github.com/<your-github-username-here>/anitab-forms-web (fetch)
+origin  https://github.com/<your-github-username-here>/anitab-forms-web (push)
 ```
 
 Now you need to add another remote named upstream (you may change if you wish, but this is a git convention). Run this command: <br/>
 
 ```
-git remote add upstream https://github.com/anitab-org/open-source-programs-web
+git remote add upstream https://github.com/anitab-org/anitab-forms-web
 ```
 
 The output of `git remote -v` now changes to:
 
 ```
 $ git remote -v
-origin  https://github.com/<your-github-username-here>/open-source-programs-web (fetch)
-origin  https://github.com/<your-github-username-here>open-source-programs-web (push)
-upstream  https://github.com/anitab-org/open-source-programs-web (fetch)
-upstream  https://github.com/anitab-org/open-source-programs-web (fetch)
+origin  https://github.com/<your-github-username-here>/anitab-forms-web (fetch)
+origin  https://github.com/<your-github-username-here>anitab-forms-web (push)
+upstream  https://github.com/anitab-org/anitab-forms-web (fetch)
+upstream  https://github.com/anitab-org/anitab-forms-web (fetch)
 ```
 
 ### Working on an Issue
 
-Now that you have setup the project, you need to search for anything to work on which interests you. Have a look at the [Backend Issues](https://github.com/anitab-org/open-source-programs-backend/issues) or [Frontend Issues](https://github.com/anitab-org/open-source-programs-web/issues), whichever interests you.
+Now that you have setup the project, you need to search for anything to work on which interests you. Have a look at the [Backend Issues](https://github.com/anitab-org/anitab-forms-backend/issues) or [Frontend Issues](https://github.com/anitab-org/anitab-forms-web/issues), whichever interests you.
 
 - Once you find an **unassigned** issue that you wish to solve, comment below the issue asking whether you should work on it or not.
 - Wait for a Mentor/Admin to assign it to you and start working on it.
