@@ -9,6 +9,8 @@
     "aws-sdk": "^2.734.0",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "eslint": "^7.26.0",
+    "format": "^0.2.2",
     "moment": "^2.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -51,11 +53,12 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint-config-prettier": "^8.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "prettier": "^2.2.1",
-    "miragejs": "^0.1.41"
+    "miragejs": "^0.1.41",
+    "prettier": "^2.2.1"
   }
 }
