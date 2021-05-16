@@ -17,6 +17,13 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 
 Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
+### Few Usefull Links for Developers and Users of AnitaB.org :
+1. **`anitab-org wiki`** link -
+2. **`Open Sessions`** link - 
+3. **`GSoC`** youtube video link  -
+4. **`Setting up the project`** youtube video link - 
+5. **`Question asked in Zulip chats`** link -
+
 ## Setup
 
 - To setup the project locally go through [this wiki page](https://github.com/anitab-org/anitab-forms-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
