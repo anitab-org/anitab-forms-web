@@ -18,12 +18,12 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ### Few Useful Links:
-1. **`anitab-org wiki`** link - https://github.com/anitab-org/anitab-forms-web/wiki
-2. **`Open Sessions`** link - https://meet.google.com/eqb-nuut-kqm
-3. **`GSoC`** youtube video link  -  https://youtu.be/3A746GppZ0Y
-4. **`Setting up the project`** youtube video link -  https://youtu.be/_b2RQGbYN9w
-5. **`Question in Zulip chats`** link - https://anitab-org.zulipchat.com/#narrow/stream/223070-questions
-6. **`Announcement in Zulip chats`** link - https://anitab-org.zulipchat.com/#narrow/stream/213491-announcements
+1. **anitab-org wiki** : [Visit](https://github.com/anitab-org/anitab-forms-web/wiki)
+2. **Open Sessions** : [Visit](https://meet.google.com/eqb-nuut-kqm)
+3. **GSoC** youtube video link : [Visit](https://youtu.be/3A746GppZ0Y)
+4. **Setting up the project** youtube video link : [Visit](https://youtu.be/_b2RQGbYN9w)
+5. **Question in Zulip chats** link : [Visit](https://anitab-org.zulipchat.com/#narrow/stream/223070-questions)
+6. **Announcement in Zulip chats** link : [Visit](https://anitab-org.zulipchat.com/#narrow/stream/213491-announcements)
 
 ## Setup
 
