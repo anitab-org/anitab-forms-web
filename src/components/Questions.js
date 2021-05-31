@@ -45,7 +45,7 @@ class Questions extends Component {
         {
           label: '',
           description: '',
-          order: null,
+          order: undefined,
           required: false,
           data_type: '',
           options: [],
@@ -180,7 +180,7 @@ class Questions extends Component {
   // function to add a new field
   createForm = () => {
     return this.state.newfields.map((object, index) => (
-      <>
+      <div key={index}>
         <Form key={index}>
           <Form.Group widths="equal">
             <Form.Input
@@ -238,13 +238,13 @@ class Questions extends Component {
           </Form.Group>
           {this.state.newfields[index].options &&
           this.state.newfields[index].options.length !== 0
-            ? this.state.newfields[index].options.map((option, index) => (
-                <Label key={index}>{option}</Label>
+            ? this.state.newfields[index].options.map((option) => (
+                <Label key={option} />
               ))
             : null}
         </Form>
         <Divider />
-      </>
+      </div>
     ));
   };
 
@@ -256,7 +256,7 @@ class Questions extends Component {
         {
           label: '',
           description: '',
-          order: null,
+          order: undefined,
           required: false,
           data_type: '',
           options: [],
@@ -448,8 +448,8 @@ class Questions extends Component {
             ) : // editable format of fields
             questions && questions.length !== 0 ? (
               this.state.fields.map((object, index) => (
-                <>
-                  <Form key={object.id}>
+                <div key={object.id}>
+                  <Form>
                     <Form.Group widths="equal">
                       <Form.Input
                         type="text"
@@ -514,11 +514,9 @@ class Questions extends Component {
                     </Form.Group>
                     {this.state.fields[index].options &&
                     this.state.fields[index].options.length !== 0
-                      ? this.state.fields[
-                          index
-                        ].options.map((option, index) => (
-                          <Label key={index}>{option}</Label>
-                        ))
+                      ? this.state.fields[index].options.map(
+                          (option, index) => <Label key={index}>{option}</Label>
+                        )
                       : null}
                   </Form>
                   <div className="dates">
@@ -542,7 +540,7 @@ class Questions extends Component {
                     </span>
                   </div>
                   <Divider />
-                </>
+                </div>
               ))
             ) : null}
             {/* for adding new fields  */}
@@ -584,7 +582,6 @@ class Questions extends Component {
 
 Questions.propTypes = {
   questions: PropTypes.array.isRequired,
-  form: PropTypes.object.isRequired,
   userinfo: PropTypes.array.isRequired,
 };
 

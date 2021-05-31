@@ -5,6 +5,7 @@ import userReducer from './user';
 import formReducer from './form';
 import questionReducer from './question';
 import zulipReducer from './zulip';
+import answerReducer from './answer';
 
 const rootReducers = combineReducers({
   login: loginReducer,
@@ -12,6 +13,7 @@ const rootReducers = combineReducers({
   user: userReducer,
   form: formReducer,
   questions: questionReducer,
+  answer: answerReducer,
   zulip: zulipReducer,
 });
 
