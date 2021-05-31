@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { getQuestions } from '../actions/question';
+import { postAnswers, getAnswers } from '../actions/answer';
 import PropTypes from 'prop-types';
 import '../styles/Questions.css';
-import moment from 'moment';
-import { postAnswers, getAnswers } from '../actions/answer';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
-import { Form, TextArea, Divider, Button, Select } from 'semantic-ui-react';
+import { Form, TextArea, Divider, Button } from 'semantic-ui-react';
 import AWS from 'aws-sdk';
 require('dotenv').config();
 
@@ -35,7 +35,7 @@ class Preview extends Component {
         });
       }
     } else {
-      for (var i = 0; i < this.props.questions.length; i++) {
+      for (i = 0; i < this.props.questions.length; i++) {
         if (this.props.questions[i].data_type === 'checkbox') {
           this.state.answers.push({
             question: this.props.questions[i].id,
@@ -65,7 +65,7 @@ class Preview extends Component {
   };
 
   handleChange = (e, id, { name, value }) => {
-    if (this.state.hasOwnProperty(name)) {
+    if (Object.prototype.hasOwnProperty.call(this.state, name)) {
       this.setState({
         answers: this.state.answers.map((answer, index) => {
           return id === index
@@ -205,170 +205,170 @@ class Preview extends Component {
       });
     }, 5000);
   };
-}
 
-render();
-{
-  const { questions } = this.props;
-  const { answers } = this.state;
-  return (
-    <Form className="preview">
-      {/* question type view based on each data type  */}
-      {questions && questions.length !== 0
-        ? questions.map((question, index) => (
-            <div key={index}>
-              {question.data_type === 'char' ? (
-                <div key={question.id}>
-                  <Form.Input
-                    label={question.order + '. ' + question.label}
-                    type="text"
-                    required={question.required}
-                    value={answers[index] ? answers[index].value : ''}
-                    onChange={(event) => this.onChange(event, index)}
-                  />
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'text' ? (
-                <div key={question.id}>
-                  <Form.Input
-                    label={question.order + '. ' + question.label}
-                    control={TextArea}
-                    required={question.required}
-                    value={answers[index] ? answers[index].value : ''}
-                    onChange={(event) => this.onChange(event, index)}
-                  />
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'choice' ? (
-                <div key={question.id}>
-                  <span key={question.id}>
-                    <b>{question.order + '. ' + question.label}</b>
-                  </span>
-                  {question.options.map((option) => (
-                    <Form.Radio
-                      label={option}
-                      value={option}
-                      checked={
-                        answers[index] ? answers[index].value === option : false
-                      }
-                      key={option}
-                      onChange={(event, value) =>
-                        this.onSelect(event, index, value)
-                      }
-                    />
-                  ))}
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'dropdown' ? (
-                <div key={question.id}>
-                  <Form.Input
-                    label={question.order + '. ' + question.label}
-                    control="select"
-                    required={question.required}
-                    onChange={(event) => this.onDropdownChange(event, index)}
-                  >
-                    {question.options.map((option) => (
-                      <option value={option} key={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </Form.Input>
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'checkbox' ? (
-                <div key={question.id}>
-                  <span>
-                    <b>{question.order + '. ' + question.label}</b>
-                  </span>
-                  {question.options.map((option, id) => (
+  render() {
+    const { questions } = this.props;
+    const { answers } = this.state;
+    return (
+      <Form className="preview">
+        {/* question type view based on each data type  */}
+        {questions && questions.length !== 0
+          ? questions.map((question, index) => (
+              <div key={index}>
+                {question.data_type === 'char' ? (
+                  <div key={question.id}>
                     <Form.Input
-                      label={option}
-                      control="input"
-                      type="checkbox"
-                      key={id}
-                      value={option}
-                      checked={
-                        answers[index]
-                          ? answers[index].value[id] === option
-                          : false
-                      }
-                      onChange={(event) =>
-                        this.checkboxChange(event, index, id)
+                      label={question.order + '. ' + question.label}
+                      type="text"
+                      required={question.required}
+                      value={answers[index] ? answers[index].value : ''}
+                      onChange={(event) => this.onChange(event, index)}
+                    />
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'text' ? (
+                  <div key={question.id}>
+                    <Form.Input
+                      label={question.order + '. ' + question.label}
+                      control={TextArea}
+                      required={question.required}
+                      value={answers[index] ? answers[index].value : ''}
+                      onChange={(event) => this.onChange(event, index)}
+                    />
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'choice' ? (
+                  <div key={question.id}>
+                    <span>
+                      <b>{question.order + '. ' + question.label}</b>
+                    </span>
+                    {question.options.map((option) => (
+                      <Form.Radio
+                        label={option}
+                        value={option}
+                        checked={
+                          answers[index]
+                            ? answers[index].value === option
+                            : false
+                        }
+                        key={option}
+                        onChange={(event, value) =>
+                          this.onSelect(event, index, value)
+                        }
+                      />
+                    ))}
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'dropdown' ? (
+                  <div key={question.id}>
+                    <Form.Input
+                      label={question.order + '. ' + question.label}
+                      control="select"
+                      required={question.required}
+                      onChange={(event) => this.onDropdownChange(event, index)}
+                    >
+                      {question.options.map((option) => (
+                        <option value={option} key={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </Form.Input>
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'checkbox' ? (
+                  <div key={question.id}>
+                    <span>
+                      <b>{question.order + '. ' + question.label}</b>
+                    </span>
+                    {question.options.map((option, id) => (
+                      <Form.Input
+                        label={option}
+                        control="input"
+                        type="checkbox"
+                        key={id}
+                        value={option}
+                        checked={
+                          answers[index]
+                            ? answers[index].value[id] === option
+                            : false
+                        }
+                        onChange={(event) =>
+                          this.checkboxChange(event, index, id)
+                        }
+                      />
+                    ))}
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'date' ? (
+                  <div key={question.id}>
+                    <DateInput
+                      label={question.order + '. ' + question.label}
+                      required={question.required}
+                      name="date"
+                      dateFormat={moment(this.value).format('YYYY-MM-DD')}
+                      value={answers[index] ? answers[index].value : ''}
+                      onChange={(event, name, value) =>
+                        this.handleChange(event, index, name, value)
                       }
                     />
-                  ))}
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'date' ? (
-                <div key={question.id}>
-                  <DateInput
-                    label={question.order + '. ' + question.label}
-                    required={question.required}
-                    name="date"
-                    dateFormat={moment(this.value).format('YYYY-MM-DD')}
-                    value={answers[index] ? answers[index].value : ''}
-                    onChange={(event, name, value) =>
-                      this.handleChange(event, index, name, value)
-                    }
-                  />
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'time' ? (
-                <div key={question.id}>
-                  <TimeInput
-                    label={question.order + '. ' + question.label}
-                    required={question.required}
-                    name="time"
-                    disableMinute={false}
-                    value={answers[index] ? answers[index].value : ''}
-                    onChange={(event, name, value) =>
-                      this.handleChange(event, index, name, value)
-                    }
-                  />
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              {question.data_type === 'file' ? (
-                <div key={question.id}>
-                  <Form.Input
-                    label={question.order + '. ' + question.label}
-                    required={question.required}
-                    type="file"
-                    onChange={this.handleFileChange}
-                    ref={(fileInput) => (this.fileInput = fileInput)}
-                  />
-                  <Button
-                    basic
-                    onClick={(file) => this.uploadFile(this.state.file, index)}
-                  >
-                    UPLOAD
-                  </Button>
-                  {answers[index] ? (
-                    <a href={answers[index].value}>File URL</a>
-                  ) : null}
-                  <span>{question.description}</span>
-                </div>
-              ) : null}
-              <Divider />
-            </div>
-          ))
-        : null}
-      <Button positive onClick={this.submit}>
-        SUBMIT
-      </Button>
-    </Form>
-  );
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'time' ? (
+                  <div key={question.id}>
+                    <TimeInput
+                      label={question.order + '. ' + question.label}
+                      required={question.required}
+                      name="time"
+                      disableMinute={false}
+                      value={answers[index] ? answers[index].value : ''}
+                      onChange={(event, name, value) =>
+                        this.handleChange(event, index, name, value)
+                      }
+                    />
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                {question.data_type === 'file' ? (
+                  <div key={question.id}>
+                    <Form.Input
+                      label={question.order + '. ' + question.label}
+                      required={question.required}
+                      type="file"
+                      onChange={this.handleFileChange}
+                      ref={(fileInput) => (this.fileInput = fileInput)}
+                    />
+                    <Button
+                      basic
+                      onClick={() => this.uploadFile(this.state.file, index)}
+                    >
+                      UPLOAD
+                    </Button>
+                    {answers[index] ? (
+                      <a href={answers[index].value}>File URL</a>
+                    ) : null}
+                    <span>{question.description}</span>
+                  </div>
+                ) : null}
+                <Divider />
+              </div>
+            ))
+          : null}
+        <Button positive onClick={this.submit}>
+          SUBMIT
+        </Button>
+      </Form>
+    );
+  }
 }
 
 Preview.propTypes = {
   questions: PropTypes.array.isRequired,
-  feedback: PropTypes.array.isRequired,
   feedback: PropTypes.array.isRequired,
 };
 

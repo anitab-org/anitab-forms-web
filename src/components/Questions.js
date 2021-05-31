@@ -238,8 +238,8 @@ class Questions extends Component {
           </Form.Group>
           {this.state.newfields[index].options &&
           this.state.newfields[index].options.length !== 0
-            ? this.state.newfields[index].options.map((option, index) => (
-                <Label>{option}</Label>
+            ? this.state.newfields[index].options.map((option) => (
+                <Label key={option} />
               ))
             : null}
         </Form>
@@ -249,7 +249,7 @@ class Questions extends Component {
   };
 
   // function for creating a new object
-  increaseField = (e) => {
+  increaseField = () => {
     this.setState({
       newfields: [
         ...this.state.newfields,
@@ -514,11 +514,9 @@ class Questions extends Component {
                     </Form.Group>
                     {this.state.fields[index].options &&
                     this.state.fields[index].options.length !== 0
-                      ? this.state.fields[
-                          index
-                        ].options.map((option, index) => (
-                          <Label key={index}>{option}</Label>
-                        ))
+                      ? this.state.fields[index].options.map(
+                          (option, index) => <Label key={index}>{option}</Label>
+                        )
                       : null}
                   </Form>
                   <div className="dates">
