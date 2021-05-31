@@ -17,4 +17,4 @@ In order to engage with the community join the [AnitaB.org Open Source Zulip](ht
 
 A primary goal of AnitaB.org is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe, and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
-See the full [Code of Conduct](https://github.com/anitab-org/open-source-programs-backend/blob/develop/CODE_OF_CONDUCT.md) and the [Reporting Guidelines](https://github.com/anitab-org/open-source-programs-backend/blob/develop/REPORTING_GUIDELINES.md).
+See the full [Code of Conduct](https://github.com/anitab-org/anitab-forms-backend/blob/develop/CODE_OF_CONDUCT.md) and the [Reporting Guidelines](https://github.com/anitab-org/anitab-forms-backend/blob/develop/REPORTING_GUIDELINES.md).

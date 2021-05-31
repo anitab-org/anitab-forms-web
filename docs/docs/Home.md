@@ -18,7 +18,7 @@ As the first version of the application, the focus will be on the implementation
 - Add Frontend to support APIs
 - Add relevant documentation and tests for the same.
 
-The backend of this project can be found [here](https://github.com/anitab-org/open-source-programs-backend).
+The backend of this project can be found [here](https://github.com/anitab-org/anitab-forms-backend).
 
 ## AnitaB.org Open Source
 
