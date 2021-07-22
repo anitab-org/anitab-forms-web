@@ -10,11 +10,13 @@ import {
   Icon,
   Message,
   Button,
+  Segment,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './../styles/Login.css';
 import orgLogo from '../assets/org-logo.jpg';
 import { register } from '../urls';
+import GoogleAuth from './GoogleSocialAuth';
 
 class Login extends Component {
   constructor(props) {
@@ -96,8 +98,7 @@ class Login extends Component {
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.setState({
       username: '',
       password: '',
@@ -108,7 +109,6 @@ class Login extends Component {
       submitted: false,
     });
   }
-
   render() {
     const { showPassword, error, submitted } = this.state;
     return (
@@ -168,6 +168,9 @@ class Login extends Component {
                   <Message error content={this.props.loginerror.detail} />
                 ) : null}
                 <Divider />
+                <Segment>
+                  <GoogleAuth {...this.props} />
+                </Segment>
                 <span>
                   Don't have an account?{' '}
                   <Link to={register()}>Register here.</Link>
