@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { login } from '../urls';
 import orgLogo from '../assets/org-logo.jpg';
+import './../styles/preloader.css';
+import './preloader';
 
 class Register extends Component {
   constructor(props) {
@@ -147,7 +149,9 @@ class Register extends Component {
   }
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   render() {
@@ -164,11 +168,12 @@ class Register extends Component {
     return (
       <Grid>
         <Grid.Row>
+          <div className="preloader"> </div>{' '}
           <Grid.Column width={5}>
             <div className="login">
               <span>
-                <b>Register</b>
-              </span>
+                <b> Register </b>{' '}
+              </span>{' '}
               <Divider />
               <Form>
                 <Form.Input
@@ -230,26 +235,25 @@ class Register extends Component {
                     !this.state.confirm_password
                   }
                 >
-                  REGISTER
-                </Form.Button>
-              </Form>
-
-              {/* form validation */}
+                  REGISTER{' '}
+                </Form.Button>{' '}
+              </Form>{' '}
+              {/* form validation */}{' '}
               {this.state.usernameerror ? (
                 <Message error content="Username cannot be empty!" />
-              ) : null}
+              ) : null}{' '}
               {this.state.emailerror ? (
                 <Message error content="Email format is not valid!" />
-              ) : null}
+              ) : null}{' '}
               {this.state.passworderror ? (
                 <Message
                   error
                   content="Password is too short and not valid! It should contain minimum 12 characters, at least one uppercase letter, one lowercase letter, one number and one special character."
                 />
-              ) : null}
+              ) : null}{' '}
               {this.state.matcherror ? (
                 <Message error content="Passwords do not match!" />
-              ) : null}
+              ) : null}{' '}
               {this.state.error && this.state.submitted ? (
                 usererror ? (
                   <Message
@@ -261,31 +265,33 @@ class Register extends Component {
                 )
               ) : (
                 <>
+                  {' '}
                   {this.state.submitted ? (
                     <Message
                       success
                       content="You have registered successfully! Please confirm your email address to Login."
                     />
-                  ) : null}
+                  ) : null}{' '}
                 </>
-              )}
+              )}{' '}
               {this.state.error && this.state.submitted ? (
                 mailerror ? (
                   <Message warning content="Email address not valid." />
                 ) : null
-              ) : null}
+              ) : null}{' '}
               <Divider />
               <span>
-                Already have an account? <Link to={login()}>Login here.</Link>
-              </span>
-            </div>
-          </Grid.Column>
+                Already have an account ?{' '}
+                <Link to={login()}> Login here. </Link>{' '}
+              </span>{' '}
+            </div>{' '}
+          </Grid.Column>{' '}
           <Grid.Column width={10}>
             <div className="logo">
-              <Image src={orgLogo} />
-            </div>
-          </Grid.Column>
-        </Grid.Row>
+              <Image src={orgLogo} />{' '}
+            </div>{' '}
+          </Grid.Column>{' '}
+        </Grid.Row>{' '}
       </Grid>
     );
   }
