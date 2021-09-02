@@ -46,8 +46,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Project Requirements',
-          href:
-            'https://docs.google.com/document/d/1xl9F5kMZrKo4mNhnP0SKpk7WkQc8PLca1ym7EZMpjSc/edit',
+          href: 'https://docs.google.com/document/d/1xl9F5kMZrKo4mNhnP0SKpk7WkQc8PLca1ym7EZMpjSc/edit',
         },
         {
           type: 'category',

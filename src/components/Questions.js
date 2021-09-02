@@ -514,11 +514,9 @@ class Questions extends Component {
                     </Form.Group>
                     {this.state.fields[index].options &&
                     this.state.fields[index].options.length !== 0
-                      ? this.state.fields[
-                          index
-                        ].options.map((option, index) => (
-                          <Label key={index}>{option}</Label>
-                        ))
+                      ? this.state.fields[index].options.map(
+                          (option, index) => <Label key={index}>{option}</Label>
+                        )
                       : null}
                   </Form>
                   <div className="dates">

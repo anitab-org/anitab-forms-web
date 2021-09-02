@@ -29,7 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test && npm run lint",
+    "test:watch": "react-scripts test ",
+    "test": "react-scripts test --watchAll=false && npm run lint ",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

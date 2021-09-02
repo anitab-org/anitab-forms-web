@@ -23,8 +23,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href:
-            'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+          href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
           label: 'Zulip',
           position: 'right',
         },
@@ -52,8 +51,7 @@ module.exports = {
           items: [
             {
               label: 'Zulip',
-              href:
-                'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+              href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
             },
             {
               label: 'Twitter',
