@@ -53,6 +53,10 @@ npm run lint:fix
 npm run format
 ```
 
+### Pre-commit hooks
+
+[Husky](https://typicode.github.io/husky/#/) is currently used for running a pre-commit hooks before you make any commits locally, this ensures that tests and linting is passing before the changes are pushed to the branch.
+
 ## Contributors
 
 Thanks goes to these people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):

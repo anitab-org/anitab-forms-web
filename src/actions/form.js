@@ -167,30 +167,29 @@ export const patchPublishedForm = (id, data, callback) => async (dispatch) => {
   }
 };
 
-export const patchUnpublishedForm = (id, data, callback) => async (
-  dispatch
-) => {
-  try {
-    const config = {
-      headers: {
-        'content-type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    };
-    const res = await axios.patch(urlFormId(id), data, config);
-    dispatch({
-      type: UPDATE_UNPUBLISHED_FORM,
-      payload: res.data,
-    });
-    callback();
-  } catch (err) {
-    dispatch({
-      type: FORM_ERRORS,
-      payload: err.response.data,
-    });
-    callback();
-  }
-};
+export const patchUnpublishedForm =
+  (id, data, callback) => async (dispatch) => {
+    try {
+      const config = {
+        headers: {
+          'content-type': 'application/json',
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+      };
+      const res = await axios.patch(urlFormId(id), data, config);
+      dispatch({
+        type: UPDATE_UNPUBLISHED_FORM,
+        payload: res.data,
+      });
+      callback();
+    } catch (err) {
+      dispatch({
+        type: FORM_ERRORS,
+        payload: err.response.data,
+      });
+      callback();
+    }
+  };
 
 export const deletePublishedForm = (id, callback) => async (dispatch) => {
   try {

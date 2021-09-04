@@ -23,8 +23,7 @@ module.exports = {
           position: 'right',
         },
         {
-          href:
-            'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+          href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
           label: 'Zulip',
           position: 'right',
         },
@@ -43,8 +42,7 @@ module.exports = {
           items: [
             {
               label: 'Backend Docs',
-              href:
-                'https://github.com/anitab-org/anitab-forms-backend/wiki',
+              href: 'https://github.com/anitab-org/anitab-forms-backend/wiki',
             },
           ],
         },
@@ -53,8 +51,7 @@ module.exports = {
           items: [
             {
               label: 'Zulip',
-              href:
-                'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
+              href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
             },
             {
               label: 'Twitter',
@@ -85,8 +82,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/anitab-org/anitab-forms-web/docs',
+          editUrl: 'https://github.com/anitab-org/anitab-forms-web/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
