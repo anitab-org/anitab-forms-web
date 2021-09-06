@@ -1,8 +1,8 @@
 module.exports = {
   title: 'Anitab Forms Web Docs',
   tagline: 'Documentation for Anitab Forms Web',
-  url: 'https://osp-web-docs.surge.sh',
-  baseUrl: '/',
+  url: 'https://anitab-org.github.io',
+  baseUrl: '/anitab-forms-web/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
