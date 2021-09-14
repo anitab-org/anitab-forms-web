@@ -15,6 +15,8 @@ import PropTypes from 'prop-types';
 import './../styles/Login.css';
 import orgLogo from '../assets/org-logo.jpg';
 import { register } from '../urls';
+import './../styles/preloader.css';
+import './preloader';
 
 class Login extends Component {
   constructor(props) {
@@ -94,7 +96,9 @@ class Login extends Component {
   };
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   UNSAFE_componentWillMount() {
@@ -115,11 +119,12 @@ class Login extends Component {
       <>
         <Grid>
           <Grid.Row>
+            <div className="preloader"> </div>{' '}
             <Grid.Column width={5}>
               <div className="login">
                 <span>
-                  <b>Login</b>
-                </span>
+                  <b> Login </b>{' '}
+                </span>{' '}
                 <Divider />
                 <Form>
                   <Form.Input
@@ -153,34 +158,33 @@ class Login extends Component {
                     onClick={this.submitLogin}
                     disabled={!this.state.username || !this.state.password}
                   >
-                    LOG IN
-                  </Button>
-                </Form>
-
-                {/* form validation */}
+                    LOG IN{' '}
+                  </Button>{' '}
+                </Form>{' '}
+                {/* form validation */}{' '}
                 {this.state.usernameerror ? (
                   <Message error content="Username cannot be empty!" />
-                ) : null}
+                ) : null}{' '}
                 {this.state.passworderror ? (
                   <Message error content="Password cannot be empty!" />
-                ) : null}
+                ) : null}{' '}
                 {error && submitted ? (
                   <Message error content={this.props.loginerror.detail} />
-                ) : null}
+                ) : null}{' '}
                 <Divider />
                 <span>
-                  Don't have an account?{' '}
-                  <Link to={register()}>Register here.</Link>
-                </span>
-              </div>
-            </Grid.Column>
+                  Dont have an account{' '}
+                  <Link to={register()}> Register here. </Link>{' '}
+                </span>{' '}
+              </div>{' '}
+            </Grid.Column>{' '}
             <Grid.Column width={10}>
               <div className="logo">
-                <Image src={orgLogo} />
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+                <Image src={orgLogo} />{' '}
+              </div>{' '}
+            </Grid.Column>{' '}
+          </Grid.Row>{' '}
+        </Grid>{' '}
       </>
     );
   }
