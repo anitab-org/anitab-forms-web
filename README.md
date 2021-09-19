@@ -18,12 +18,12 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ### Few Useful Links:
-1. [anitab-forms wiki](https://github.com/anitab-org/anitab-forms-web/wiki) : Wiki page  
-2. [Open Sessions](https://meet.google.com/eqb-nuut-kqm) : You can join Meetups organized by anitab-org through this link.
-3. [GSoC youtube video link](https://youtu.be/3A746GppZ0Y) : GSoC 2020 final demo - anitab-forms youtube video link. 
-4. [Setting up the project youtube video link](https://youtu.be/_b2RQGbYN9w) : Here is the youtube video link for setting up the project for development purpose.
-5. [Question in Zulip chats link](https://anitab-org.zulipchat.com/#narrow/stream/223070-questions) : In this zulip channel , all the Q&A happens related to anitab-org opensource.
-6. [Announcement in Zulip chats](https://anitab-org.zulipchat.com/#narrow/stream/213491-announcements) : In this stream, all the important decision are announced by admins related to anitab-org opensource.
+1. [anitab-forms wiki](https://github.com/anitab-org/anitab-forms-web/wiki): Wiki page  
+2. [Open Sessions](https://meet.google.com/eqb-nuut-kqm): Link to join weekly meetings for anitab-forms.
+3. [GSoC youtube video link](https://youtu.be/3A746GppZ0Y): Final video demo of anitab-forms developed during GSoC 2020
+4. [Setting up the project youtube video link](https://youtu.be/_b2RQGbYN9w): Here is the youtube video link for setting up the project for development purposes.
+5. [Question in Zulip chats link](https://anitab-org.zulipchat.com/#narrow/stream/223070-questions): In this zulip channel, all the Q&A happens related to anitab-org opensource.
+6. [Announcement in Zulip chats](https://anitab-org.zulipchat.com/#narrow/stream/213491-announcements): In this stream, all the important decisions are announced by admins related to anitab-org opensource.
 
 ## Setup
 
