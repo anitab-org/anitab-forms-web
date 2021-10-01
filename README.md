@@ -15,7 +15,7 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 
 ## Documentation
 
-Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
+Documentation for the project is hosted [here](https://anitab-org.github.io/anitab-forms-web/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ## Setup
 
