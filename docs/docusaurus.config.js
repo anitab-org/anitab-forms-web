@@ -7,7 +7,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'AnitaB.org',
-  projectName: 'anitab-forms-web-docs',
+  projectName: 'anitab-forms-web',
   themeConfig: {
     navbar: {
       title: 'Anitab Forms Web',
