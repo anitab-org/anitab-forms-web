@@ -3,7 +3,7 @@
 ![Open Source Love](https://img.shields.io/badge/Open%20%E2%9D%A4%EF%B8%8FSource-blue)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/anitab-org/anitab-forms-web)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
-[![Docs](https://img.shields.io/badge/documentation-anitab--forms--web-blue.svg)](hhttps://anitab-org.github.io/anitab-forms-web)
+[![Docs](https://img.shields.io/badge/documentation-anitab--forms--web-blue.svg)](https://anitab-org.github.io/anitab-forms-web)
 
 # Anitab-Forms (Frontend)
 
