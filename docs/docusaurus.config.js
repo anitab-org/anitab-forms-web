@@ -54,6 +54,10 @@ module.exports = {
               href: 'https://anitab-org.zulipchat.com/#narrow/stream/237907-open-source-progs',
             },
             {
+              label: 'Medium',
+              href: 'https://medium.com/anitab-org-open-source',
+            },
+            {
               label: 'Twitter',
               href: 'https://twitter.com/anitab_org',
             },
@@ -65,6 +69,10 @@ module.exports = {
             {
               label: 'GitHub',
               href: 'https://github.com/anitab-org/anitab-forms-web',
+            },
+            {
+              label: 'Medium',
+              href: 'https://medium.com/anitab-org-open-source',
             },
             {
               label: 'Blog',
