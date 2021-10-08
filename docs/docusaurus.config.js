@@ -71,10 +71,6 @@ module.exports = {
               href: 'https://github.com/anitab-org/anitab-forms-web',
             },
             {
-              label: 'Medium',
-              href: 'https://medium.com/anitab-org-open-source',
-            },
-            {
               label: 'Blog',
               href: 'https://medium.com/anitab-org-open-source',
             },
