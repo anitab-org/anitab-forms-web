@@ -43,8 +43,7 @@ module.exports = {
           items: [
             {
               label: 'Backend Docs',
-              href:
-                'https://github.com/anitab-org/anitab-forms-backend/wiki',
+              href: 'https://github.com/anitab-org/anitab-forms-backend/wiki',
             },
           ],
         },
@@ -85,8 +84,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/anitab-org/anitab-forms-web/docs',
+          editUrl: 'https://github.com/anitab-org/anitab-forms-web/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

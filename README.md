@@ -18,7 +18,8 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 Documentation for the project is hosted [here](https://osp-web-docs.surge.sh/). We use `Docusaurus` for maintaining the documentation of the project.
 
 ### Few Useful Links:
-1. [anitab-forms wiki](https://github.com/anitab-org/anitab-forms-web/wiki): Wiki page  
+
+1. [anitab-forms wiki](https://github.com/anitab-org/anitab-forms-web/wiki): Wiki page
 2. [Open Sessions](https://meet.google.com/eqb-nuut-kqm): Link to join weekly meetings for anitab-forms.
 3. [GSoC youtube video link](https://youtu.be/3A746GppZ0Y): Final video demo of anitab-forms developed during GSoC 2020
 4. [Setting up the project youtube video link](https://youtu.be/_b2RQGbYN9w): Here is the youtube video link for setting up the project for development purposes.
