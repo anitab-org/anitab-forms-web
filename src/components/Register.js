@@ -179,6 +179,7 @@ class Register extends Component {
                   label="Username"
                   required
                   placeholder="Enter your username..."
+                  data-testid="username"
                 />
                 <Form.Input
                   name="email"
@@ -187,6 +188,7 @@ class Register extends Component {
                   label="Email"
                   required
                   placeholder="Enter your email..."
+                  data-testid="email"
                 />
                 <Form.Input
                   type={showPassword ? 'text' : 'password'}
@@ -203,6 +205,7 @@ class Register extends Component {
                   label="Password"
                   required
                   placeholder="Enter your password..."
+                  data-testid="password"
                 />
                 <Form.Input
                   type={showConfirmPassword ? 'text' : 'password'}
@@ -219,6 +222,7 @@ class Register extends Component {
                   label="Confirm Password"
                   required
                   placeholder="Confirm your password..."
+                  data-testid="confirm_password"
                 />
                 <Form.Button
                   fluid
@@ -230,6 +234,7 @@ class Register extends Component {
                     !this.state.password ||
                     !this.state.confirm_password
                   }
+                  data-testid="register_btn"
                 >
                   REGISTER
                 </Form.Button>
