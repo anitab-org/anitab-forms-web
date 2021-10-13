@@ -17,32 +17,36 @@ it('Disables Log in button when username/password is empty', async () => {
     </Provider>
   );
 
-  fireEvent.change(screen.getByPlaceholderText('Enter your username...'), {
+  const username = screen.getByTestId('input-username').querySelector('input');
+  const password = screen.getByTestId('input-password').querySelector('input');
+  const loginButton = screen.getByTestId('button-login');
+
+  fireEvent.change(username, {
     target: { value: '' },
   });
-  fireEvent.change(screen.getByPlaceholderText('Enter your password...'), {
+  fireEvent.change(password, {
     target: { value: '' },
   });
 
-  expect(screen.getByText('LOG IN')).toBeDisabled();
+  expect(loginButton).toBeDisabled();
 
-  fireEvent.change(screen.getByPlaceholderText('Enter your username...'), {
+  fireEvent.change(username, {
     target: { value: 'testUsername' },
   });
-  fireEvent.change(screen.getByPlaceholderText('Enter your password...'), {
+  fireEvent.change(password, {
     target: { value: '' },
   });
 
-  expect(screen.getByText('LOG IN')).toBeDisabled();
+  expect(loginButton).toBeDisabled();
 
-  fireEvent.change(screen.getByPlaceholderText('Enter your username...'), {
+  fireEvent.change(username, {
     target: { value: '' },
   });
-  fireEvent.change(screen.getByPlaceholderText('Enter your password...'), {
+  fireEvent.change(password, {
     target: { value: 'testPassword' },
   });
 
-  expect(screen.getByText('LOG IN')).toBeDisabled();
+  expect(loginButton).toBeDisabled();
 });
 
 it('Allows the user to log in when correct credentials are entered', async () => {
@@ -54,13 +58,33 @@ it('Allows the user to log in when correct credentials are entered', async () =>
     </Provider>
   );
 
-  fireEvent.change(screen.getByPlaceholderText('Enter your username...'), {
+  const username = screen.getByTestId('input-username').querySelector('input');
+  const password = screen.getByTestId('input-password').querySelector('input');
+  const loginButton = screen.getByTestId('button-login');
+
+  fireEvent.change(username, {
     target: { value: 'testUsername' },
   });
-  fireEvent.change(screen.getByPlaceholderText('Enter your password...'), {
+  fireEvent.change(password, {
     target: { value: 'testPassword' },
   });
 
-  expect(screen.getByText('LOG IN')).toBeEnabled();
-  fireEvent.click(screen.getByText('LOG IN'));
+  expect(loginButton).toBeEnabled();
+});
+
+it('Shows the password when the hide-password button is disabled', async () => {
+  render(
+    <Provider store={store}>
+      <Router>
+        <Login />
+      </Router>
+    </Provider>
+  );
+
+  const showPasswordButton = screen.getByTestId('hide-password');
+  const password = screen.getByTestId('input-password').querySelector('input');
+
+  expect(password).toHaveAttribute('type', 'password');
+  fireEvent.click(showPasswordButton);
+  expect(password).toHaveAttribute('type', 'text');
 });

@@ -124,6 +124,7 @@ class Login extends Component {
                 <Form>
                   <Form.Input
                     name="username"
+                    data-testid="input-username"
                     value={this.state.username}
                     onChange={this.onChange}
                     label="Username"
@@ -131,10 +132,12 @@ class Login extends Component {
                     placeholder="Enter your username..."
                   />
                   <Form.Input
+                    data-testid="input-password"
                     type={showPassword ? 'text' : 'password'}
                     icon={
                       <Icon
                         name={showPassword ? 'eye slash outline' : 'eye'}
+                        data-testid="hide-password"
                         onClick={this.handleShow}
                         link
                       />
@@ -147,6 +150,7 @@ class Login extends Component {
                     placeholder="Enter your password..."
                   />
                   <Button
+                    data-testid="button-login"
                     fluid
                     primary
                     type="button"
