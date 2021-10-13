@@ -195,6 +195,7 @@ class Register extends Component {
                   icon={
                     <Icon
                       name={showPassword ? 'eye slash outline' : 'eye'}
+                      data-testid="hide-display-password"
                       onClick={this.handleShow}
                       link
                     />
@@ -212,6 +213,7 @@ class Register extends Component {
                   icon={
                     <Icon
                       name={showConfirmPassword ? 'eye slash outline' : 'eye'}
+                      data-testid="hide-display-confirm-password"
                       onClick={this.handleShowConfirm}
                       link
                     />
