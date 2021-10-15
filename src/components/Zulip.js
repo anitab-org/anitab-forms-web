@@ -60,20 +60,24 @@ class Zulip extends Component {
                     <br />
                     <ul>
                       <li>
+                        <b>#newcomers: </b>
+                        {zulipstat && zulipstat[0] && zulipstat[0].newcomers_message ? zulipstat[0].newcomers_message : 0}
+                      </li>
+                      <li>
                         <b>#celebrate: </b>
-                        {zulipstat[0] ? zulipstat[0].celebrate_messages : 0}
+                        {zulipstat && zulipstat[0] && zulipstat[0].celebrate_message ? zulipstat[0].celebrate_message : 0}
                       </li>
                       <li>
                         <b>#opportunities: </b>
-                        {zulipstat[0] ? zulipstat[0].opportunities_messages : 0}
+                        {zulipstat && zulipstat[0] && zulipstat[0].opportunities_message ? zulipstat[0].opportunities_message : 0}
                       </li>
                       <li>
                         <b>#questions: </b>
-                        {zulipstat[0] ? zulipstat[0].questions_messages : 0}
+                        {zulipstat && zulipstat[0] && zulipstat[0].questions_message ? zulipstat[0].questions_message : 0}
                       </li>
                       <li>
                         <b>#general: </b>
-                        {zulipstat[0] ? zulipstat[0].general_messages : 0}
+                       {zulipstat && zulipstat[0] && zulipstat[0].general_message ? zulipstat[0].general_message : 0}
                       </li>
                     </ul>
                   </>
