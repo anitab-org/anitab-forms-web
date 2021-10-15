@@ -60,10 +60,6 @@ class Zulip extends Component {
                     <br />
                     <ul>
                       <li>
-                        <b>#newcomers: </b>
-                        {zulipstat[0] ? zulipstat[0].newcomers_messages : 0}
-                      </li>
-                      <li>
                         <b>#celebrate: </b>
                         {zulipstat[0] ? zulipstat[0].celebrate_messages : 0}
                       </li>
