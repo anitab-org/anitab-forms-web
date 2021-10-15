@@ -5,9 +5,14 @@ import Login from '../components/Login';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from '../store';
+import { postLogin } from '../actions/login';
+import { LOGIN } from '../actions/types';
+import axios from 'axios';
+
 const store = configureStore();
 window.store = store;
 
+jest.mock('axios');
 it('Disables Log in button when username/password is empty', async () => {
   render(
     <Provider store={store}>
@@ -49,7 +54,7 @@ it('Disables Log in button when username/password is empty', async () => {
   expect(loginButton).toBeDisabled();
 });
 
-it('Allows the user to log in when correct credentials are entered', async () => {
+it('Enables Login button when username/password fields are nonempty', async () => {
   render(
     <Provider store={store}>
       <Router>
@@ -87,4 +92,26 @@ it('Shows the password when the hide-password button is disabled', async () => {
   expect(password).toHaveAttribute('type', 'password');
   fireEvent.click(showPasswordButton);
   expect(password).toHaveAttribute('type', 'text');
+});
+describe('Successful Login', () => {
+  it('Should see success message', async () => {
+    const response = {
+      data: { detail: 'Login Successful' },
+      status: 200,
+    };
+    axios.post.mockImplementationOnce(() => Promise.resolve(response));
+    const callback = jest.fn();
+    const dispatchMock = jest.fn();
+    const login = {
+      username: 'username123',
+      password: 'Testpassword123!',
+    };
+    const dispatch = postLogin(login, callback);
+    await dispatch(dispatchMock);
+    expect(callback).toHaveBeenCalled();
+    expect(dispatchMock).toHaveBeenCalledWith({
+      payload: response.data,
+      type: LOGIN,
+    });
+  });
 });
