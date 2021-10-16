@@ -235,23 +235,26 @@ describe('Password Eye Icon:', () => {
 });
 
 describe('Successful Registration', () => {
-  it('Should see success message', async () => {
-    axios.post.mockImplementationOnce(() =>
-      Promise.resolve({
-        data: { data: ['Your email is confirmed!'] },
-        status: 200,
-      })
-    );
-
-    const callback = jest.fn(() => Promise.resolve(true));
+  it('Should see register action dispatched upon successful registration', async () => {
+    const response = {
+      data: { detail: 'Please confirm your email to Login succesfully' },
+      status: 200,
+    };
+    axios.post.mockImplementationOnce(() => Promise.resolve(response));
+    const callback = jest.fn();
+    const dispatchMock = jest.fn();
     const registration = {
       username: 'username123',
       email: 'test@gmail.com',
       password: 'Testpassword123!',
       confirm_password: 'Testpassword123!',
     };
-
-    const result = postRegister((registration, callback));
-    console.log(result);
+    const dispatch = postRegister(registration, callback);
+    await dispatch(dispatchMock);
+    expect(callback).toHaveBeenCalled();
+    expect(dispatchMock).toHaveBeenCalledWith({
+      payload: response.data,
+      type: 'REGISTER',
+    });
   });
 });
