@@ -58,7 +58,7 @@ class Zulip extends Component {
                   <>
                     <b>Streams: </b>
                     <br />
-                    <zulipstat && zulipstat[0]>
+                    {zulipstat && zulipstat[0] ? <ul>
                       <li>
                         <b>#newcomers: </b>
                         {zulipstat[0].newcomers_message ? zulipstat[0].newcomers_message : 0}
@@ -79,7 +79,7 @@ class Zulip extends Component {
                         <b>#general: </b>
                        {zulipstat[0].general_message ? zulipstat[0].general_message : 0}
                       </li>
-                    </ul>
+                    </ul> : null}
                   </>
                 ) : null}
               </>
