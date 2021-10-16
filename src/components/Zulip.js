@@ -58,26 +58,26 @@ class Zulip extends Component {
                   <>
                     <b>Streams: </b>
                     <br />
-                    <ul>
+                    <zulipstat && zulipstat[0]>
                       <li>
                         <b>#newcomers: </b>
-                        {zulipstat && zulipstat[0] && zulipstat[0].newcomers_message ? zulipstat[0].newcomers_message : 0}
+                        {zulipstat[0].newcomers_message ? zulipstat[0].newcomers_message : 0}
                       </li>
                       <li>
                         <b>#celebrate: </b>
-                        {zulipstat && zulipstat[0] && zulipstat[0].celebrate_message ? zulipstat[0].celebrate_message : 0}
+                        {zulipstat[0].celebrate_message ? zulipstat[0].celebrate_message : 0}
                       </li>
                       <li>
                         <b>#opportunities: </b>
-                        {zulipstat && zulipstat[0] && zulipstat[0].opportunities_message ? zulipstat[0].opportunities_message : 0}
+                        {zulipstat[0].opportunities_message ? zulipstat[0].opportunities_message : 0}
                       </li>
                       <li>
                         <b>#questions: </b>
-                        {zulipstat && zulipstat[0] && zulipstat[0].questions_message ? zulipstat[0].questions_message : 0}
+                        {zulipstat[0].questions_message ? zulipstat[0].questions_message : 0}
                       </li>
                       <li>
                         <b>#general: </b>
-                       {zulipstat && zulipstat[0] && zulipstat[0].general_message ? zulipstat[0].general_message : 0}
+                       {zulipstat[0].general_message ? zulipstat[0].general_message : 0}
                       </li>
                     </ul>
                   </>
