@@ -18,6 +18,10 @@ Anitab-Forms is an application that simplifies the processing and selection proc
 
 Documentation for the project is hosted [here](https://anitab-org.github.io/anitab-forms-web/). We use `Docusaurus` for maintaining the documentation of the project.
 
+## Roadmap 
+
+[Roadmap Link](https://anitab-org.github.io/anitab-forms-web/docs/)
+
 ## Setup
 
 - To setup the project locally go through [this wiki page](https://github.com/anitab-org/anitab-forms-web/wiki/Fork,-Clone,-Remote-and-Pull-Request).
