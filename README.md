@@ -20,7 +20,7 @@ Documentation for the project is hosted [here](https://anitab-org.github.io/anit
 
 ## Roadmap
 
-View project Roadmap [here](https://anitab-org.github.io/anitab-forms-web/docs/).
+View project Roadmap [here](https://github.com/orgs/anitab-org/projects/7#card-58848156)
 
 ## Setup
 
