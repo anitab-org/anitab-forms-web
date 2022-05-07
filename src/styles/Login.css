@@ -1,11 +1,11 @@
 .login {
   padding: 1em;
-  margin-top: 25vh;
-  margin-left: 10vw;
   border: 0.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
+  /* width: 100%; */
 }
-.logo {
-  margin-top: 30vh;
-  margin-left: 10vw;
+@media screen and (max-width: 768px) {
+  .login {
+    width: 100%;
+  }
 }
