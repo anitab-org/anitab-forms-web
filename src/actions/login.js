@@ -28,7 +28,7 @@ export const postLogin = (data, callback) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGIN_ERRORS,
-      payload: err.response.data,
+      payload: err?.response?.data,
     });
     callback();
   }
@@ -50,7 +50,7 @@ export const postRegister = (data, callback) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: REGISTER_ERRORS,
-      payload: err.response.data,
+      payload: err?.response?.data,
     });
     callback();
   }
